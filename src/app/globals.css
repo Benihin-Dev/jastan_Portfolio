@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 .marquee {
-    animation: scroll-left 10s linear infinite;
+  animation: scroll-left 20s linear infinite;
 }
 
 @keyframes scroll-left {
-    0% {
-        transform: translateX(0%);
-    }
+  0% {
+    transform: translateX(-50%);
+  }
 
-    100% {
-        transform: translateX(-50%);
-    }
+  100% {
+    transform: translateX(0%);
+  }
 }
 
 .swiper-pagination-bullets {
@@ -38,7 +38,6 @@
   transition: all 0.3s ease-in-out !important;
 }
 
-
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -49,7 +48,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #FD853A;
+  background: #fd853a;
   border-radius: 4px;
 }
 

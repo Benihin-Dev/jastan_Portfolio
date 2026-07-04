@@ -1,4 +1,4 @@
-import { Star, Award, ShieldCheck, LucideIcon } from 'lucide-react';
+import { Star, Award, ShieldCheck, LucideIcon } from "lucide-react";
 
 export interface Experience {
   company: string;
@@ -40,28 +40,26 @@ export interface CardData {
   imageSrc: string;
 }
 
-
-
 export const experiences: Experience[] = [
   {
-    company: "Cognizant, Mumbai",
-    duration: "Sep 2016 - July 2020",
-    role: "Experience Designer",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate, bibendum sodales.",
+    company: "Bt/Hindu College Batticaloa",
+    duration: "July 2017 – December 2019",
+    role: "G.C.E. Advanced Level",
+    desc: "I completed my G.C.E. (A/L) education in the Technology Stream, with Information and Communication Technology (ICT) as my basket (core) subject. ",
     dotColor: "bg-[#FD853A]",
   },
   {
-    company: "Sugee Pvt limited, Mumbai",
-    duration: "Sep 2020 - July 2023",
-    role: "UI/UX Designer",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate, bibendum sodales.",
+    company: "University of Sri Jayewardenepura",
+    duration: "June 2020 – March 2025",
+    role: "Bachelor of Biosystem Technology (Hons) ",
+    desc: "I hold a Bachelor’s degree in Biosystems Technology, specializing in Industrial Biosystems Technology. I have also completed and published undergraduate research in the field of aquaculture at ICIET 2025.",
     dotColor: "bg-[#1D2939]",
   },
   {
-    company: "Cinetstox, Mumbai",
-    duration: "Sep 2023",
-    role: "Lead UX Designer",
-    desc: "",
+    company: "University of Sri Jayewardenepura",
+    duration: "July 2026 – Present",
+    role: "Forestry and Environmental science",
+    desc: "Reading",
     dotColor: "bg-[#FD853A]",
   },
 ];
@@ -90,15 +88,18 @@ export const iconAndText: IconAndText[] = [
 ];
 
 export const skills: string[] = [
-  "JavaScript",
-  "TypeScript",
-  "Next.js",
-  "React",
-  "Node.js",
-  "Tailwind CSS",
-  "MongoDB",
-  "PostgreSQL",
-  "Express",
+  "Wildlife Biology",
+  "Ecology",
+  "Ornithology",
+  "Forest Ecology",
+  "Conservation Biology",
+  "Biodiversity Assessment",
+  "Wildlife Tracking",
+  "Species Identification",
+  "GIS Mapping",
+  "iNaturalist",
+  "Wildlife Photography",
+  "Nature Journaling",
 ];
 
 export const blogs: Blog[] = [

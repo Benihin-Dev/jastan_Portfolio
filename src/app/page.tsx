@@ -5,7 +5,16 @@ import Image from "next/image";
 import { Star } from "lucide-react";
 import OrangeButton from "@/components/ui/OrangeButton";
 import ArrowButton from "@/components/ui/ArrowButton";
-import { experiences, buttons, iconAndText, skills, blogs, portfolioData, cardData, reviews } from '../data/data';
+import {
+  experiences,
+  buttons,
+  iconAndText,
+  skills,
+  blogs,
+  portfolioData,
+  cardData,
+  reviews,
+} from "../data/data";
 import { GenericSlider } from "@/components/ui/GenericSlider";
 import ClientOnly from "@/components/ui/ClientOnly";
 
@@ -18,28 +27,41 @@ export default function Home() {
       <div className="group flex flex-col md:flex-row w-full min-h-[600px] sm:min-h-[700px] lg:h-[700] lg:-mb-2 xl:mb-0 xl:h-[846px] px-4 sm:px-6 md:px-8 gap-6 sm:gap-8 md:gap-[71px] items-center justify-center mt-6">
         <div className="hidden lg:flex flex-col w-[328px] h-[138px] items-start justify-start transition-transform duration-300 ease-in-out group-hover:-translate-y-[250px]">
           <div className="text-[#344054] text-[36px] leading-none">&quot;</div>
-          <p className="text-[#344054] text-[16px] font-medium leading-snug">
-            Abhiruchi&apos;s exceptional product design ensured our website&apos;s success.
-            <br />
-            Highly recommended.
-          </p>
+          <div className="text-[#344054] text-[16px] w-full font-medium leading-snug relative">
+            <p className="absolute top-0 left-0 w-[130%]">
+              Passionate about discovering the wonders of nature through
+              wildlife, forestry, and environmental science.
+            </p>
+          </div>
         </div>
 
-        <div className="relative w-full flex flex-col items-center justify-center">
-          <div className="flex w-full max-w-[952px] flex-col items-center justify-center  transition-all duration-300 ease-in-out group-hover:translate-y-[280px] group-hover:opacity-0 px-4 sm:px-6">
+        <div className="relative w-full flex flex-col items-center justify-center  ">
+          <div className="flex w-full flex-col items-center justify-center  transition-all duration-300 ease-in-out group-hover:translate-y-[280px] group-hover:opacity-0 px-4 sm:px-0">
             <ClientOnly>
               <button className="h-[45px] px-[26px] py-[13px] translate-y-0 md:translate-y-10 rounded-full border border-[#171717] flex items-center justify-center bg-white mt-10">
                 Hello!
               </button>
             </ClientOnly>
             <div className="flex flex-col sm:flex-row sm:gap-2 items-center sm:items-end mb-1 mt-6 sm:mt-8">
-              <CustomeText title="I&apos;m" className="text-[#171717] font-semibold text-4xl sm:text-5xl md:text-7xl xl:text-[88px]" />
+              <CustomeText
+                title="I'm"
+                className="text-[#171717] font-semibold text-4xl sm:text-5xl md:text-7xl xl:text-[74px]"
+              />
               <div className="flex items-end">
-                <CustomeText title="Abhiruchi" className="text-[#FD853A] font-semibold text-4xl sm:text-5xl md:text-7xl xl:text-[88px]" />
-                <CustomeText title="," className="text-[#171717] font-semibold text-4xl sm:text-5xl md:text-7xl xl:text-[88px]" />
+                <CustomeText
+                  title="Jastan Ric"
+                  className="text-[#FD853A] font-semibold text-4xl sm:text-5xl md:text-7xl xl:text-[74px]"
+                />
+                <CustomeText
+                  title=","
+                  className="text-[#171717] font-semibold text-4xl sm:text-5xl md:text-7xl xl:text-[74px]"
+                />
               </div>
             </div>
-            <CustomeText title="Professional Designer" className="text-[#171717] font-semibold text-4xl sm:text-5xl md:text-7xl xl:text-[88px] text-center" />
+            <CustomeText
+              title="Environmental Steward"
+              className="text-[#171717] font-semibold text-4xl sm:text-5xl md:text-7xl xl:text-[74px] scale-y-110  text-center"
+            />
           </div>
 
           <div className="relative w-full max-w-[952px] aspect-[3/2] flex flex-col items-center justify-center -translate-y-[10%] sm:-translate-y-[15%] md:-translate-y-[20%] mx-auto px-4">
@@ -80,14 +102,14 @@ export default function Home() {
             ))}
           </div>
           <h1 className="text-[32px] font-bold text-[#171717] leading-none whitespace-nowrap">
-            10 Years
+            Naturalist
           </h1>
-          <p className="text-sm text-[#171717]">Experience</p>
+          <p className="text-sm text-[#171717]"> Wildlife Enthusiast</p>
         </div>
       </div>
 
-      {/* Services */}
-      <div className="relative flex flex-col w-full min-h-[878px] gap-16 sm:gap-[96px] items-center px-4 sm:px-6 lg:px-[71px] py-16 sm:py-[116px] bg-[#171717] rounded-[30px] sm:rounded-[50px] overflow-hidden -translate-y-8 sm:-translate-y-0 md:-translate-y-15 lg:translate-y-0 -mt-14">
+      {/* About Me */}
+      <div className="relative flex flex-col w-full gap-16 sm:gap-[96px] items-center px-4 sm:px-6 lg:px-[71px] py-16 sm:py-[116px] bg-[#171717] rounded-[30px] sm:rounded-[50px] overflow-hidden -translate-y-8 sm:-translate-y-0 md:-translate-y-15 lg:translate-y-0 -mt-14">
         <Image
           src="/Frame 77.svg"
           alt="image"
@@ -97,48 +119,107 @@ export default function Home() {
 
         <div className="w-full flex flex-col lg:flex-row items-start justify-between gap-6 relative z-10">
           <div className="flex gap-2.5">
-            <CustomeText title="My" className="font-medium text-3xl sm:text-4xl lg:text-5xl text-[#FCFCFD]" />
-            <CustomeText title="Services" className="font-medium text-3xl sm:text-4xl lg:text-5xl text-[#FD853A]" />
+            <CustomeText
+              title="About"
+              className="font-medium text-3xl sm:text-4xl lg:text-5xl text-[#FCFCFD]"
+            />
+            <CustomeText
+              title="Me"
+              className="font-medium text-3xl sm:text-4xl lg:text-5xl text-[#FD853A]"
+            />
           </div>
-          <p className="w-full lg:w-[578px] font-medium text-base sm:text-lg lg:text-[20px] text-white">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc,
-            posuere in justo vulputate, bibendum sodales
-          </p>
         </div>
-
-        <div className="relative w-full max-w-[1299px] flex items-start justify-center">
-          <GenericSlider
-            data={cardData}
-            slidesPerView={3}
-            heightClass="h-[500px] sm:h-[550px]"
-            cardType="hover"
-          />
+        <div>
+          <div className="w-full md:w-11/12  z-20 mx-auto flex flex-col items-start gap-6 px-2 sm:px-0 pb-10 text-[16px] sm:text-[18px] text-center lg:text-[20px] text-[#ffffff]">
+            <p className=" w-full">
+              I am a graduate of the Faculty of Technology at University of Sri
+              Jayewardenepura, Sri Lanka, specializing in Industrial Biosystems
+              Technology. I am currently pursuing a Master's degree in Forestry
+              and Environmental Management to further enhance my knowledge and
+              expertise in sustainable natural resource management, forest
+              conservation, and environmental stewardship. I am passionate about
+              wildlife, forestry, environmental conservation, and scientific
+              research, and I continuously strive to expand my skills and
+              contribute meaningfully to the protection and sustainable
+              management of natural ecosystems.
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* Work Experience */}
-      <div className="w-full min-h-[600px] lg:h-[827px] flex flex-col items-start mx-auto px-4 sm:px-6 lg:px-[71px] py-8 lg:py-16">
-        <div className="w-full h-auto lg:h-[234px] flex lg:flex-row items-start justify-center space-x-2.5 mb-8 lg:mb-16 text-center lg:text-left">
-          <CustomeText title="My" className="font-medium text-4xl sm:text-5xl lg:text-6xl text-[#344054]" />
-          <CustomeText title="Work" className="font-medium text-4xl sm:text-5xl lg:text-6xl text-[#FD853A]" />
-          <CustomeText title="Experience" className="font-medium text-4xl sm:text-5xl lg:text-6xl text-[#FD853A]" />
+      {/* My Educational Qualification */}
+      <div className="w-full flex flex-col items-start mx-auto px-4 sm:px-6 lg:px-[71px] py-8 lg:py-24">
+        <div className="w-full pb-10  lg:mb-5 md:flex  items-start justify-center space-x-2.5 text-center lg:text-left">
+          <CustomeText
+            title="My"
+            className="font-medium text-4xl sm:text-5xl lg:text-6xl text-[#344054]"
+          />
+          <CustomeText
+            title="Educational"
+            className="font-medium text-4xl sm:text-5xl lg:text-6xl text-[#FD853A]"
+          />
+          <CustomeText
+            title="Qualification"
+            className="font-medium text-4xl sm:text-5xl lg:text-6xl text-[#FD853A]"
+          />
         </div>
-
+        <div className="w-full md:w-11/12  mx-auto flex flex-col items-start gap-6 px-2 sm:px-0 pb-10 text-[16px] sm:text-[18px] text-center lg:text-[20px] text-[#344054]">
+          <p className=" w-full">
+            I completed my Bachelor's degree with a specialization in Industrial
+            Biosystems Technology. Throughout my degree, I gained comprehensive
+            knowledge in molecular biology, microbiology, biotechnology,
+            biopharmaceuticals, animal and plant cell culture, and bioprocess
+            technology. As part of my undergraduate studies, I conducted
+            research in the field of aquaculture titled "Impact of Salinity
+            Levels on the Growth Rate of Saline Tilapia in Cement Tanks." This
+            research was published at the International Conference on Innovation
+            and Emerging Technologies (ICIET) 2025, marking an important
+            milestone in my academic journey.
+          </p>
+          <p className=" w-full">
+            Ric, SCJ (2025). Impact of salinity levels on the growth rate of
+            saline tilapia in cement tanks. In Proceedings of the International
+            Conference on Innovation and Emerging Technologies (ICIET 2025) (p.
+            66). Faculty of Technology, University of Sri Jayewardenepura.
+            <br />{" "}
+            <a
+              href="https://iciet.sjp.ac.lk/conference-proceedings/"
+              className="text-blue-500 underline wrap-normal"
+            >
+              https://iciet.sjp.ac.lk/conference-proceedings/
+            </a>
+          </p>
+        </div>
+        <div className=" w-52 border-b border-gray-300 mb-20 mx-auto"></div>
         <div className="w-full lg:hidden">
           {experiences.map((exp, index) => (
             <div key={index} className="mb-8 last:mb-0">
               <div className="flex items-start gap-4">
                 <div className="relative flex-shrink-0 mt-2">
                   <div className="w-6 h-6 rounded-full border-2 border-dashed border-[#1D2939] bg-white" />
-                  <div className={`absolute top-1 left-1 w-4 h-4 rounded-full ${exp.dotColor}`} />
+                  <div
+                    className={`absolute top-1 left-1 w-4 h-4 rounded-full ${exp.dotColor}`}
+                  />
                 </div>
 
                 <div className="flex-1">
-                  <CustomeText title={exp.company} className="font-semibold text-[#1D2939] text-[20px] sm:text-[24px] mb-1" />
-                  <CustomeText title={exp.duration} className="text-[#98A2B3] text-[14px] sm:text-[16px] mb-2" />
-                  <CustomeText title={exp.role} className="font-semibold text-[#1D2939] text-[18px] sm:text-[20px] mb-2" />
+                  <CustomeText
+                    title={exp.company}
+                    className="font-semibold text-[#1D2939] text-[20px] sm:text-[24px] mb-1"
+                  />
+                  <CustomeText
+                    title={exp.duration}
+                    className="text-[#98A2B3] text-[14px] sm:text-[16px] mb-2"
+                  />
+                  <CustomeText
+                    title={exp.role}
+                    className="font-semibold text-[#1D2939] text-[18px] sm:text-[20px] mb-2"
+                  />
                   {exp.desc && (
-                    <CustomeText title={exp.desc} className="text-[#98A2B3] text-[14px] sm:text-[16px] leading-relaxed" />
+                    <CustomeText
+                      title={exp.desc}
+                      className="text-[#98A2B3] text-[14px] sm:text-[16px] leading-relaxed"
+                    />
                   )}
                 </div>
               </div>
@@ -146,12 +227,44 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="w-full h-auto lg:h-[438px] hidden lg:flex justify-evenly">
-          <div className="flex flex-col justify-between w-[495px] h-[438px] gap-[102px]">
+        <div className="w-full hidden lg:flex justify-evenly">
+          {/* <div className="flex flex-col justify-between w-[495px] gap-[60px]">
             {experiences.map((exp, index) => (
               <div key={index} className="flex flex-col gap-[14px]">
-                <CustomeText title={exp.company} className="font-semibold text-[#1D2939] text-[40px]" />
-                <CustomeText title={exp.duration} className="text-2xl text-[#98A2B3]" />
+                <CustomeText
+                  title={exp.company}
+                  className="font-semibold text-[#1D2939] text-[40px]"
+                />
+                <CustomeText
+                  title={exp.duration}
+                  className="text-2xl text-[#98A2B3]"
+                />
+              </div>
+            ))}
+          </div> */}
+          <div className="flex flex-col justify-between w-[500px] gap-[60px]">
+            {experiences.map((exp, index) => (
+              <div key={index} className="flex flex-col gap-[14px] relative">
+                <CustomeText
+                  title={exp.role}
+                  className="font-semibold text-[#1D2939] text-[40px] opacity-0"
+                />
+                {exp.desc && (
+                  <CustomeText
+                    title={exp.desc}
+                    className="text-2xl text-[#98A2B3] opacity-0"
+                  />
+                )}
+                <div key={index} className="flex flex-col gap-[14px] absolute">
+                  <CustomeText
+                    title={exp.company}
+                    className="font-semibold text-[#1D2939] text-[40px]"
+                  />
+                  <CustomeText
+                    title={exp.duration}
+                    className="text-2xl text-[#98A2B3]"
+                  />
+                </div>
               </div>
             ))}
           </div>
@@ -159,19 +272,28 @@ export default function Home() {
           <div className="relative flex flex-col items-center justify-between">
             <div className="absolute top-0 bottom-0 w-[2px] border-l-2 border-dashed border-[#1D2939]" />
             {experiences.map((exp, index) => (
-              <div key={index} className="relative flex items-center justify-center w-12 h-12">
+              <div
+                key={index}
+                className={` relative flex items-center justify-center w-12 h-12 ${index === 1 ? "-translate-y-[160%]" : index === 2 ? "-translate-y-[180%]" : "translate-0"} `}
+              >
                 <div className="absolute w-12 h-12 rounded-full border-2 border-dashed border-[#1D2939] bg-white" />
                 <div className={`w-9 h-9 rounded-full z-10 ${exp.dotColor}`} />
               </div>
             ))}
           </div>
 
-          <div className="flex flex-col justify-between w-[444px] h-[400px] gap-[48px]">
+          <div className="flex flex-col justify-between w-[500px] gap-[60px]">
             {experiences.map((exp, index) => (
               <div key={index} className="flex flex-col gap-[14px]">
-                <CustomeText title={exp.role} className="font-semibold text-[#1D2939] text-[40px]" />
+                <CustomeText
+                  title={exp.role}
+                  className="font-semibold text-[#1D2939] text-[40px]"
+                />
                 {exp.desc && (
-                  <CustomeText title={exp.desc} className="text-2xl text-[#98A2B3]" />
+                  <CustomeText
+                    title={exp.desc}
+                    className="text-2xl text-[#98A2B3]"
+                  />
                 )}
               </div>
             ))}
@@ -206,28 +328,31 @@ export default function Home() {
             <CustomeText title="?" className="text-[#344054]" />
           </div>
 
-          <p className="text-[#98A2B3] text-base sm:text-lg lg:text-xl leading-relaxed max-w-md">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate, bibendum sodales.
+          <p className="text-[#98A2B3] text-base sm:text-lg lg:text-xl leading-relaxed max-w-lg">
+            I am passionate about wildlife and have strong field awareness
+            developed through my academic background. My ability to understand
+            animal behavior and communicate clearly adds value in creating an
+            informative, safe, and memorable wildlife experience.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-8 w-full">
             <div className="flex flex-col">
               <CustomeText
-                title="450+"
+                title="Flora"
                 className="text-[32px] sm:text-[36px] font-medium text-[#1D2939]"
               />
               <CustomeText
-                title="Project Completed"
+                title="Plant Expertise"
                 className="text-lg text-[#667085]"
               />
             </div>
             <div className="flex flex-col">
               <CustomeText
-                title="450+"
+                title="Fauna"
                 className="text-[32px] sm:text-[36px] font-medium text-[#1D2939]"
               />
               <CustomeText
-                title="Project Completed"
+                title="Animal Expertise"
                 className="text-lg text-[#667085]"
               />
             </div>
@@ -298,7 +423,10 @@ export default function Home() {
               </div>
             </div>
             <p className="text-[16px] sm:text-[18px] lg:text-[20px] text-[#344054] text-center sm:text-left">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue interdum ligula a dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis orci elementum egestas lobortis.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              congue interdum ligula a dignissim. Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit. Sed lobortis orci elementum egestas
+              lobortis.
             </p>
           </div>
         </div>
@@ -331,7 +459,8 @@ export default function Home() {
             </div>
           </div>
           <p className="w-full max-w-[742px] text-[16px] sm:text-[18px] lg:text-[20px] text-[#F9FAFB] text-center leading-[1.6] px-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue interdum ligula a dignissim.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue
+            interdum ligula a dignissim.
           </p>
         </div>
 
@@ -345,12 +474,11 @@ export default function Home() {
         </div>
       </div>
 
-
       {/* Contact */}
       <div className="w-full bg-white flex flex-col items-center justify-center py-16 px-4 sm:px-6 lg:px-[71px] gap-10">
         <div className="w-full max-w-4xl text-center flex flex-col items-center gap-4">
           <CustomeText
-            title="Have an Awesome Project"
+            title="Have an Awesome Research"
             className="font-semibold text-3xl sm:text-4xl md:text-5xl lg:text-[64px] text-[#344054]"
           />
           <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4">
@@ -367,12 +495,7 @@ export default function Home() {
 
         <div className="w-full max-w-3xl flex md:flex-row items-center justify-between gap-4 px-3 py-2 md:px-6 md:py-4 rounded-full border border-[#E4E7EC] bg-white">
           <div className="w-9 h-9 md:w-[50px] md:h-[50px] flex items-center justify-center rounded-full bg-[#FFEAD5] shrink-0">
-            <Image
-              src="/sms.svg"
-              alt="message icon"
-              width={24}
-              height={24}
-            />
+            <Image src="/sms.svg" alt="message icon" width={24} height={24} />
           </div>
 
           <ClientOnly>
@@ -388,7 +511,7 @@ export default function Home() {
           </ClientOnly>
         </div>
 
-        <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-sm sm:text-base font-medium text-[#000000]">
+        {/* <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-sm sm:text-base font-medium text-[#000000]">
           {iconAndText.map((data, index) => {
             const Icon = data.icon;
             return (
@@ -398,11 +521,11 @@ export default function Home() {
               </div>
             );
           })}
-        </div>
+        </div> */}
       </div>
 
       {/* Skills Slider */}
-      <div className="relative w-full h-[147px] bg-[#FB6514] rounded-tl-4xl rounded-br-4xl overflow-hidden">
+      <div className="relative w-full h-[147px] bg-[#fb6514] rounded-tl-4xl rounded-br-4xl overflow-hidden">
         <div className="absolute w-[5000px] h-[63px] bg-white -rotate-2 -mt-2 md:mt-0 md:-rotate-[1.9deg] z-10 -ml-2 flex items-center">
           <div className="marquee flex gap-8 w-max">
             {[...skills, ...skills].map((skill, index) => (
@@ -432,7 +555,9 @@ export default function Home() {
       {/* Blog */}
       <div className="flex flex-col w-fll h-fit items-center gap-12 px-[71px] py-[97px]">
         <div className="w-[1298px] h-[126px] flex flex-col lg:flex-row items-center justify-between gap-6 mb-6 md:mb-0">
-          <h1 className="text-[#344054] w-fit md:min-w-[215px] h-full font-bold text-4xl md:text-5xl">From my blog post</h1>
+          <h1 className="text-[#344054] w-fit md:min-w-[215px] h-full font-bold text-4xl md:text-5xl">
+            From my blog post
+          </h1>
           <OrangeButton title="See All" className="w-[300px] md:w-fit" />
         </div>
         <GenericSlider
@@ -442,7 +567,6 @@ export default function Home() {
           cardType="blog"
         />
       </div>
-
     </div>
   );
 }
