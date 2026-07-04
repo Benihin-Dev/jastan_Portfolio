@@ -4,15 +4,15 @@ import DualToggleButtons from "@/components/ui/DualButtons";
 import Image from "next/image";
 import { Star } from "lucide-react";
 import OrangeButton from "@/components/ui/OrangeButton";
-import ArrowButton from "@/components/ui/ArrowButton";
+// import ArrowButton from "@/components/ui/ArrowButton";
 import {
   experiences,
-  buttons,
-  iconAndText,
+  // buttons,
+  // iconAndText,
   skills,
   blogs,
-  portfolioData,
-  cardData,
+  // portfolioData,
+  // cardData,
   reviews,
 } from "../data/data";
 import { GenericSlider } from "@/components/ui/GenericSlider";
