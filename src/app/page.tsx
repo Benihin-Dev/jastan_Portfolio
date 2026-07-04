@@ -109,46 +109,39 @@ export default function Home() {
       </div>
 
       {/* About Me */}
-      <div className="relative flex flex-col w-full gap-16 sm:gap-[96px] items-center px-4 sm:px-6 lg:px-[71px] py-16 sm:py-[116px] bg-[#171717] rounded-[30px] sm:rounded-[50px] overflow-hidden -translate-y-8 sm:-translate-y-0 md:-translate-y-15 lg:translate-y-0 -mt-14">
-        <Image
-          src="/Frame 77.svg"
-          alt="image"
-          fill
-          className="object-cover absolute opacity-50"
-        />
-
-        <div className="w-full flex flex-col lg:flex-row items-start justify-between gap-6 relative z-10">
-          <div className="flex gap-2.5">
-            <CustomeText
-              title="About"
-              className="font-medium text-3xl sm:text-4xl lg:text-5xl text-[#FCFCFD]"
-            />
-            <CustomeText
-              title="Me"
-              className="font-medium text-3xl sm:text-4xl lg:text-5xl text-[#FD853A]"
-            />
-          </div>
-        </div>
-        <div>
-          <div className="w-full md:w-11/12  z-20 mx-auto flex flex-col items-start gap-6 px-2 sm:px-0 pb-10 text-[16px] sm:text-[18px] text-center lg:text-[20px] text-[#ffffff]">
-            <p className=" w-full">
-              I am a graduate of the Faculty of Technology at University of Sri
-              Jayewardenepura, Sri Lanka, specializing in Industrial Biosystems
-              Technology. I am currently pursuing a Master&apos;s degree in
-              Forestry and Environmental Management to further enhance my
-              knowledge and expertise in sustainable natural resource
-              management, forest conservation, and environmental stewardship. I
-              am passionate about wildlife, forestry, environmental
-              conservation, and scientific research, and I continuously strive
-              to expand my skills and contribute meaningfully to the protection
-              and sustainable management of natural ecosystems.
-            </p>
-          </div>
-        </div>
+      <div className="w-full md:w-11/12 mx-auto flex flex-col items-start gap-6 px-2 sm:px-0 pb-0 -translate-y-10 text-[16px] sm:text-[18px] text-center lg:text-[20px] text-[#344054]">
+        <p className=" w-full">
+          I am a graduate of the Faculty of Technology at{" "}
+          <span className=" bg-[#FD853A] font-semibold">
+            University of Sri Jayewardenepura,
+          </span>{" "}
+          Sri Lanka, specializing in Industrial Biosystems Technology. I am
+          currently pursuing a Master&apos;s degree in{" "}
+          <span className=" bg-[#FD853A] font-semibold">
+            {" "}
+            Forestry and Environmental Management
+          </span>{" "}
+          to further enhance my knowledge and expertise in sustainable natural
+          resource management, forest conservation, and environmental
+          stewardship. I am passionate about{" "}
+          <span className=" bg-[#FD853A] font-semibold"> Wildlife,</span>{" "}
+          <span className=" bg-[#FD853A] font-semibold"> Forestry, </span>{" "}
+          <span className=" bg-[#FD853A] font-semibold">
+            {" "}
+            Environmental Conservation,{" "}
+          </span>
+          and{" "}
+          <span className=" bg-[#FD853A] font-semibold">
+            Scientific Research
+          </span>{" "}
+          and I continuously strive to expand my skills and contribute
+          meaningfully to the protection and sustainable management of natural
+          ecosystems.
+        </p>
       </div>
 
       {/* My Educational Qualification */}
-      <div className="w-full flex flex-col items-start mx-auto px-4 sm:px-6 lg:px-[71px] py-8 lg:py-24">
+      <div className="w-full flex flex-col items-start mx-auto px-4 sm:px-6 lg:px-[71px] py-8 lg:pt-24 lg:pb-10">
         <div className="w-full pb-10  lg:mb-5 md:flex  items-start justify-center space-x-2.5 text-center lg:text-left">
           <CustomeText
             title="My"
@@ -190,7 +183,7 @@ export default function Home() {
             </a>
           </p>
         </div>
-        <div className=" w-52 border-b border-gray-300 mb-20 mx-auto"></div>
+        <div className=" w-52 border-b border-gray-300 mb-5 mx-auto "></div>
         <div className="w-full lg:hidden">
           {experiences.map((exp, index) => (
             <div key={index} className="mb-8 last:mb-0">
@@ -227,7 +220,7 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="w-full hidden lg:flex justify-evenly">
+        <div className="w-full hidden scale-75 lg:flex justify-evenly">
           {/* <div className="flex flex-col justify-between w-[495px] gap-[60px]">
             {experiences.map((exp, index) => (
               <div key={index} className="flex flex-col gap-[14px]">
@@ -525,7 +518,7 @@ export default function Home() {
       </div>
 
       {/* Skills Slider */}
-      <div className="relative w-full h-[147px] bg-[#fb6514] rounded-tl-4xl rounded-br-4xl overflow-hidden">
+      <div className="relative w-full h-[147px] rounded-tl-4xl rounded-br-4xl overflow-hidden">
         <div className="absolute w-[5000px] h-[63px] bg-white -rotate-2 -mt-2 md:mt-0 md:-rotate-[1.9deg] z-10 -ml-2 flex items-center">
           <div className="marquee flex gap-8 w-max">
             {[...skills, ...skills].map((skill, index) => (
