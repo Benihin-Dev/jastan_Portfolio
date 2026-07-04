@@ -367,7 +367,7 @@ export default function Home() {
       </div>
 
       {/* Portfolio */}
-      <div className="w-full flex flex-col items-center px-4 sm:px-6 lg:px-[71px] py-12 sm:py-20 gap-10 lg:gap-12">
+      {/* <div className="w-full flex flex-col items-center px-4 sm:px-6 lg:px-[71px] py-12 sm:py-20 gap-10 lg:gap-12">
         <div className="w-full flex flex-col sm:flex-row justify-between items-start lg:items-center gap-6">
           <div className="flex flex-col items-start max-w-full lg:max-w-[643px]">
             <CustomeText
@@ -430,7 +430,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Testimonials */}
       <div className="relative flex flex-col w-full min-h-[900px] items-center px-4 sm:px-6 lg:px-[71px] py-12 sm:py-[96px]  gap-12 bg-[#171717] rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] overflow-hidden">
