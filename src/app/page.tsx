@@ -17,6 +17,7 @@ import {
 } from "../data/data";
 import { GenericSlider } from "@/components/ui/GenericSlider";
 import ClientOnly from "@/components/ui/ClientOnly";
+import SliderForReview from "@/components/SliderForReview";
 
 export default function Home() {
   return (
@@ -112,28 +113,25 @@ export default function Home() {
       <div className="w-full md:w-11/12 mx-auto flex flex-col items-start gap-6 px-2 sm:px-0 pb-0 -translate-y-10 text-[16px] sm:text-[18px] text-center lg:text-[20px] text-[#344054]">
         <p className=" w-full">
           I am a graduate of the Faculty of Technology at{" "}
-          <span className=" bg-[#FD853A] font-semibold">
+          <span className=" bg-[#FD853A] text-white">
             University of Sri Jayewardenepura,
           </span>{" "}
           Sri Lanka, specializing in Industrial Biosystems Technology. I am
           currently pursuing a Master&apos;s degree in{" "}
-          <span className=" bg-[#FD853A] font-semibold">
+          <span className=" bg-[#FD853A] text-white">
             {" "}
             Forestry and Environmental Management
           </span>{" "}
           to further enhance my knowledge and expertise in sustainable natural
           resource management, forest conservation, and environmental
           stewardship. I am passionate about{" "}
-          <span className=" bg-[#FD853A] font-semibold"> Wildlife,</span>{" "}
-          <span className=" bg-[#FD853A] font-semibold"> Forestry, </span>{" "}
-          <span className=" bg-[#FD853A] font-semibold">
-            {" "}
+          <span className=" bg-[#FD853A] text-white"> Wildlife,</span>{" "}
+          <span className=" bg-[#FD853A] text-white"> Forestry,</span>{" "}
+          <span className=" bg-[#FD853A] text-white">
             Environmental Conservation,{" "}
           </span>
           and{" "}
-          <span className=" bg-[#FD853A] font-semibold">
-            Scientific Research
-          </span>{" "}
+          <span className=" bg-[#FD853A] text-white">Scientific Research</span>{" "}
           and I continuously strive to expand my skills and contribute
           meaningfully to the protection and sustainable management of natural
           ecosystems.
@@ -426,12 +424,12 @@ export default function Home() {
       </div> */}
 
       {/* Testimonials */}
-      <div className="relative flex flex-col w-full min-h-[900px] items-center px-4 sm:px-6 lg:px-[71px] py-12 sm:py-[96px]  gap-12 bg-[#171717] rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] overflow-hidden">
+      <div className="relative flex flex-col w-full items-center py-10  gap-10 bg-[#171717] overflow-hidden">
         <Image
           src="/Frame 77.svg"
           alt="image"
           fill
-          className="object-cover absolute opacity-50"
+          className="object-cover opacity-50"
         />
 
         <div className="flex flex-col w-full max-w-[1299px] items-center gap-4 z-10 px-2">
@@ -442,28 +440,27 @@ export default function Home() {
             />
             <div className="flex flex-wrap gap-2.5 justify-center">
               <CustomeText
-                title="Speak to"
+                title="Reflect My"
                 className="font-medium text-[28px] sm:text-[36px] lg:text-[48px] text-[#FCFCFD]"
               />
               <CustomeText
-                title="My Result"
+                title="Journey"
                 className="font-medium text-[28px] sm:text-[36px] lg:text-[48px] text-[#FD853A]"
               />
             </div>
           </div>
           <p className="w-full max-w-[742px] text-[16px] sm:text-[18px] lg:text-[20px] text-[#F9FAFB] text-center leading-[1.6] px-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue
-            interdum ligula a dignissim.
+            Insights and feedback from professors, research collaborators, and
+            peers who've supported my path in environmental science and wildlife
+            conservation.
           </p>
         </div>
 
-        <div className="absolute bottom-[20%] left-0 right-0 w-full z-10">
-          <GenericSlider
-            data={reviews}
-            slidesPerView={3}
-            heightClass=""
-            cardType="review"
-          />
+        <div className=" bottom-[20%] left-0 right-0 w-full z-10">
+          <SliderForReview data={reviews} type="normal" />
+          <div className=" lg:hidden w-full -translate-y-16">
+            <SliderForReview data={reviews.toReversed()} type="rotate" />
+          </div>
         </div>
       </div>
 

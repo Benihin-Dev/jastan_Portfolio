@@ -10,7 +10,7 @@ interface BlogProps extends BlogType {
 
 const Blog: React.FC<BlogProps> = ({ image, button, name, date, title, priority = false }) => {
   return (
-    <div className="flex flex-col w-[416px] h-[699px] items-start gap-[35px]">
+    <div className="flex flex-col w-[416px] h-[699px] items-start gap-[35px] scale-80">
       <div className="relative w-full h-[432px] gap-[10px] items-start group">
         <Image
           src={image}

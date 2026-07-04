@@ -155,28 +155,28 @@ export const portfolioData: PortfolioItem[] = [
 
 export const reviews: Review[] = [
   {
-    name: "Mahesh Pokale",
-    role: "Web Designer",
+    name: "Dr. Malaka Perera",
+    role: "Wildlife Biologist",
     rating: 5,
-    text: "Consectetur adipiscing elit. Sed congue interdum ligula a dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis orci elementum egestas lobortis.",
+    text: "Exceptional field awareness and a genuine passion for conservation. Jastan's research work on aquaculture was thorough, well-documented.",
   },
   {
     name: "Sarah Johnson",
-    role: "Product Manager",
+    role: "Environmental Researcher",
     rating: 4,
-    text: "Excellent work! Very professional and meets deadlines consistently. Highly recommended for design and development projects.",
+    text: "A dedicated and detail-oriented researcher. Consistently reliable in fieldwork and always brings fresh insight to environmental projects.",
   },
   {
-    name: "John Doe",
-    role: "UI/UX Lead",
+    name: "Dr. Anushka Fernando",
+    role: "Forestry Consultant",
     rating: 5,
-    text: "Top quality design and coding. Strong attention to detail and highly collaborative throughout the project lifecycle.",
+    text: "Impressive knowledge of sustainable forest ecosystems. A collaborative and thoughtful presence in every research discussion.",
   },
   {
     name: "Aryan Sharma",
-    role: "Software Engineer",
+    role: "Conservation Officer",
     rating: 4,
-    text: "Innovative approach, clean design, and prompt delivery. Will work together again for sure!",
+    text: "Strong understanding of wildlife behavior and ecosystem dynamics. Brings a calm, informed approach to every we've worked on together.",
   },
 ];
 
