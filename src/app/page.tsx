@@ -134,14 +134,14 @@ export default function Home() {
             <p className=" w-full">
               I am a graduate of the Faculty of Technology at University of Sri
               Jayewardenepura, Sri Lanka, specializing in Industrial Biosystems
-              Technology. I am currently pursuing a Master's degree in Forestry
-              and Environmental Management to further enhance my knowledge and
-              expertise in sustainable natural resource management, forest
-              conservation, and environmental stewardship. I am passionate about
-              wildlife, forestry, environmental conservation, and scientific
-              research, and I continuously strive to expand my skills and
-              contribute meaningfully to the protection and sustainable
-              management of natural ecosystems.
+              Technology. I am currently pursuing a Master&apos;s degree in
+              Forestry and Environmental Management to further enhance my
+              knowledge and expertise in sustainable natural resource
+              management, forest conservation, and environmental stewardship. I
+              am passionate about wildlife, forestry, environmental
+              conservation, and scientific research, and I continuously strive
+              to expand my skills and contribute meaningfully to the protection
+              and sustainable management of natural ecosystems.
             </p>
           </div>
         </div>
@@ -165,16 +165,16 @@ export default function Home() {
         </div>
         <div className="w-full md:w-11/12  mx-auto flex flex-col items-start gap-6 px-2 sm:px-0 pb-10 text-[16px] sm:text-[18px] text-center lg:text-[20px] text-[#344054]">
           <p className=" w-full">
-            I completed my Bachelor's degree with a specialization in Industrial
-            Biosystems Technology. Throughout my degree, I gained comprehensive
-            knowledge in molecular biology, microbiology, biotechnology,
-            biopharmaceuticals, animal and plant cell culture, and bioprocess
-            technology. As part of my undergraduate studies, I conducted
-            research in the field of aquaculture titled "Impact of Salinity
-            Levels on the Growth Rate of Saline Tilapia in Cement Tanks." This
-            research was published at the International Conference on Innovation
-            and Emerging Technologies (ICIET) 2025, marking an important
-            milestone in my academic journey.
+            I completed my Bachelor&apos;s degree with a specialization in
+            Industrial Biosystems Technology. Throughout my degree, I gained
+            comprehensive knowledge in molecular biology, microbiology,
+            biotechnology, biopharmaceuticals, animal and plant cell culture,
+            and bioprocess technology. As part of my undergraduate studies, I
+            conducted research in the field of aquaculture titled &quot;Impact
+            of Salinity Levels on the Growth Rate of Saline Tilapia in Cement
+            Tanks.&quot; This research was published at the International
+            Conference on Innovation and Emerging Technologies (ICIET) 2025,
+            marking an important milestone in my academic journey.
           </p>
           <p className=" w-full">
             Ric, SCJ (2025). Impact of salinity levels on the growth rate of
