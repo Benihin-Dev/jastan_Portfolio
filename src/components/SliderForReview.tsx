@@ -9,9 +9,14 @@ import { Review } from "@/data/data";
 interface SliderForReviewProps {
   data: Review[];
   type: "normal" | "rotate" | string;
+  viewPort: "desktop" | "tablet" | "mobile" | string;
 }
 
-export default function SliderForReview({ data, type }: SliderForReviewProps) {
+export default function SliderForReview({
+  data,
+  type,
+  viewPort,
+}: SliderForReviewProps) {
   const slides = data.map((item) => item);
   const sliderRef = useRef<Slider>(null);
 
@@ -37,7 +42,9 @@ export default function SliderForReview({ data, type }: SliderForReviewProps) {
         dots={false}
         infinite={true}
         arrows={false}
-        slidesToShow={2.8}
+        slidesToShow={
+          viewPort === "desktop" ? 2.8 : viewPort === "tablet" ? 2 : 1
+        }
         slidesToScroll={1}
         autoplay={true}
         autoplaySpeed={6000}
@@ -61,13 +68,15 @@ export default function SliderForReview({ data, type }: SliderForReviewProps) {
           {
             breakpoint: 768,
             settings: {
-              slidesToShow: 1,
+              slidesToShow:
+                viewPort === "desktop" ? 2.6 : viewPort === "tablet" ? 2 : 1,
             },
           },
           {
             breakpoint: 576,
             settings: {
-              slidesToShow: 1,
+              slidesToShow:
+                viewPort === "desktop" ? 2.6 : viewPort === "tablet" ? 2 : 1,
             },
           },
         ]}

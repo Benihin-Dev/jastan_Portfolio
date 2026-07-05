@@ -4,7 +4,7 @@ import { Review } from '@/data/data';
 
 export default function ReviewCard({ name, role, rating, text }: Review) {
   return (
-    <div className="flex scale-80 flex-col w-full h-auto min-h-[200px] sm:min-h-[220px] lg:min-h-[265px] items-start gap-3 sm:gap-3.5 lg:gap-4 p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl lg:rounded-3xl bg-[#FFFFFF]/14 backdrop-blur-[14px] opacity-70 hover:opacity-100 transition-opacity duration-300">
+    <div className="flex scale-[85%] flex-col w-full h-auto min-h-[200px] sm:min-h-[220px] lg:min-h-[265px] items-start gap-3 sm:gap-3.5 lg:gap-4 p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl lg:rounded-3xl bg-[#FFFFFF]/14 backdrop-blur-[14px] opacity-70 hover:opacity-100 transition-opacity duration-300">
       {/* Header with Avatar and Info */}
       <div className="w-full flex flex-row gap-3 sm:gap-4 items-center">
         {/* Avatar */}

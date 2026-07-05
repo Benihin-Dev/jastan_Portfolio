@@ -424,7 +424,7 @@ export default function Home() {
       </div> */}
 
       {/* Testimonials */}
-      <div className="relative flex flex-col w-full items-center py-10  gap-10 bg-[#171717] overflow-hidden">
+      <div className="relative flex flex-col w-full items-center pt-16 pb-10  gap-10 bg-[#171717] overflow-hidden">
         <Image
           src="/Frame 77.svg"
           alt="image"
@@ -451,15 +451,30 @@ export default function Home() {
           </div>
           <p className="w-full max-w-[742px] text-[16px] sm:text-[18px] lg:text-[20px] text-[#F9FAFB] text-center leading-[1.6] px-2">
             Insights and feedback from professors, research collaborators, and
-            peers who&apos;ve supported my path in environmental science and wildlife
-            conservation.
+            peers who&apos;ve supported my path in environmental science and
+            wildlife conservation.
           </p>
         </div>
 
         <div className=" bottom-[20%] left-0 right-0 w-full z-10">
-          <SliderForReview data={reviews} type="normal" />
-          <div className=" lg:hidden w-full -translate-y-16">
-            <SliderForReview data={reviews.toReversed()} type="rotate" />
+          {/* for Desktop */}
+          <div className="hidden lg:flex w-full justify-center">
+            <SliderForReview data={reviews} type="normal" viewPort="desktop" />
+          </div>
+          {/* for Tablet */}
+          <div className=" hidden md:block lg:hidden w-full">
+            <SliderForReview data={reviews} type="normal" viewPort="tablet" />
+          </div>
+          {/* for Mobile */}
+          <div className=" md:hidden w-full">
+            <SliderForReview data={reviews} type="normal" viewPort="mobile" />
+            <div className=" w-full -translate-y-24">
+              <SliderForReview
+                data={reviews.toReversed()}
+                type="rotate"
+                viewPort="mobile"
+              />
+            </div>
           </div>
         </div>
       </div>
