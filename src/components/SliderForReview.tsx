@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import ReviewCard from "./ui/ReviewCard";
 
 interface SliderForReviewProps {
-  data: any[]; // replace `any` with your actual project item type
+  data: any[];
   type: "normal" | "rotate" | string;
 }
 
