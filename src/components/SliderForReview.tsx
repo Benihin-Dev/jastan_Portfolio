@@ -4,15 +4,16 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ReviewCard from "./ui/ReviewCard";
+import { Review } from "@/data/data";
 
 interface SliderForReviewProps {
-  data: any[];
+  data: Review[];
   type: "normal" | "rotate" | string;
 }
 
 export default function SliderForReview({ data, type }: SliderForReviewProps) {
   const slides = data.map((item) => item);
-  const sliderRef = useRef(null);
+  const sliderRef = useRef<Slider>(null);
 
   // Test by applying styles directly
   const dotStyles = {
@@ -42,16 +43,20 @@ export default function SliderForReview({ data, type }: SliderForReviewProps) {
         autoplaySpeed={6000}
         speed={500}
         dotsClass="slick-dots custom-dots top-[85%] md:left-[110px] lg:left-[210px] md:top-[-20%] "
-        customPaging={(i) => (
-          <div
-            className=" flex items-center justify-center gap-10"
-            style={
-              i === sliderRef.current?.innerSlider?.state.currentSlide
-                ? activeDotStyles
-                : dotStyles
+        customPaging={(i) => {
+          const currentSlide = (
+            sliderRef.current as unknown as {
+              innerSlider?: { state: { currentSlide: number } };
             }
-          ></div>
-        )}
+          )?.innerSlider?.state.currentSlide;
+
+          return (
+            <div
+              className="flex items-center justify-center gap-10"
+              style={i === currentSlide ? activeDotStyles : dotStyles}
+            ></div>
+          );
+        }}
         responsive={[
           {
             breakpoint: 768,
