@@ -1,10 +1,16 @@
-'use client';
-import { Star } from 'lucide-react';
-import { Review } from '@/data/data';
+"use client";
+import { Star } from "lucide-react";
+import { Review } from "@/data/data";
 
-export default function ReviewCard({ name, role, rating, text }: Review) {
+export default function ReviewCard({
+  name,
+  role,
+  country,
+  rating,
+  desc,
+}: Review) {
   return (
-    <div className="flex scale-[85%] flex-col w-full h-auto min-h-[200px] sm:min-h-[220px] lg:min-h-[265px] items-start gap-3 sm:gap-3.5 lg:gap-4 p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl lg:rounded-3xl bg-[#FFFFFF]/14 backdrop-blur-[14px] opacity-70 hover:opacity-100 transition-opacity duration-300">
+    <div className="flex scale-[85%] flex-col w-full h-auto min-h-[200px] sm:min-h-[220px] lg:min-h-[265px] items-start gap-3 sm:gap-3.5 lg:gap-4 p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl lg:rounded-3xl bg-[#FFFFFF]/14 backdrop-blur-[14px] focus:bg-white opacity-70 focus:opacity-100  hover:opacity-100 transition-opacity duration-300">
       {/* Header with Avatar and Info */}
       <div className="w-full flex flex-row gap-3 sm:gap-4 items-center">
         {/* Avatar */}
@@ -24,11 +30,16 @@ export default function ReviewCard({ name, role, rating, text }: Review) {
             />
           </svg>
         </div>
-        
+
         {/* Name and Role */}
         <div className="flex flex-col flex-1 min-w-0">
-          <h3 className="font-bold text-base sm:text-lg lg:text-xl xl:text-2xl text-[#FCFCFD] leading-tight">{name}</h3>
-          <span className="text-sm sm:text-base lg:text-lg text-[#FCFCFD]/80 leading-tight">{role}</span>
+          <h3 className="font-bold text-base sm:text-lg lg:text-xl xl:text-2xl text-[#FCFCFD] leading-tight">
+            {name}
+          </h3>
+          <span className="text-sm sm:text-base lg:text-lg text-[#FCFCFD]/80 leading-tight">
+            {role} {" - "}
+            {country}
+          </span>
         </div>
       </div>
 
@@ -36,12 +47,12 @@ export default function ReviewCard({ name, role, rating, text }: Review) {
       <div className="w-full flex items-center gap-2 sm:gap-3 lg:gap-4">
         <div className="flex gap-1 sm:gap-1.5">
           {[...Array(rating)].map((_, i) => (
-            <Star 
-              key={i} 
-              size={16} 
-              className="sm:w-5 sm:h-5 lg:w-6 lg:h-6 xl:w-7 xl:h-7" 
-              fill="#FD853A" 
-              stroke="#FD853A" 
+            <Star
+              key={i}
+              size={16}
+              className="sm:w-5 sm:h-5 lg:w-6 lg:h-6 xl:w-7 xl:h-7"
+              fill="#FD853A"
+              stroke="#FD853A"
             />
           ))}
         </div>
@@ -50,7 +61,7 @@ export default function ReviewCard({ name, role, rating, text }: Review) {
 
       {/* Review Text */}
       <p className="w-full text-sm sm:text-base lg:text-lg xl:text-xl text-[#F9FAFB] leading-relaxed">
-        {text}
+        {desc}
       </p>
     </div>
   );

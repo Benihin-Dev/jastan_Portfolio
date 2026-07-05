@@ -17,7 +17,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="relative w-full max-w-[1200px] h-[50px] bg-[#171717] text-white px-10 lg:px-2.5 rounded-[25px] sm:rounded-[35px] lg:rounded-[50px] backdrop-blur-[15px] border border-white mx-auto flex items-center justify-between z-50">
+    <nav className="relative w-full max-w-[1284px] h-[80px] bg-[#171717] text-white px-10 lg:px-2.5 rounded-[25px] sm:rounded-[35px] lg:rounded-[50px] backdrop-blur-[15px] border border-white mx-auto flex items-center justify-between z-50">
       {/* Left Menu (Desktop) */}
       <div className="hidden lg:flex flex-1 justify-start gap-2.5">
         {menuItems.slice(0, 2).map((item) => (
@@ -26,7 +26,7 @@ const Navbar = () => {
             className="flex w-[45%] items-center justify-around"
           >
             <button
-              className={`w-[139px] h-[40px] flex items-center justify-center rounded-[60px] text-base font-medium transition duration-300 ${selected === item.label ? "bg-[#FD853A] font-bold" : "bg-transparent hover:bg-[#232323]"}`}
+              className={`w-[139px] h-[60px] flex items-center justify-center rounded-[60px] text-base font-medium transition duration-300 ${selected === item.label ? "bg-[#FD853A] font-bold" : "bg-transparent hover:bg-[#232323]"}`}
               onClick={() => setSelected(item.label)}
             >
               {item.label}
@@ -38,10 +38,10 @@ const Navbar = () => {
       {/* Logo */}
       <div
         onClick={() => setSelected("Home")}
-        className={`flex flex-col items-center flex-shrink-0 cursor-pointer border-x-2 px-12  rounded-full ${selected === "Home" ? "border-[#fd853a]" : " border-transparent hover:bg-[#232323]"} transition duration-300`}
+        className={`flex flex-col items-center flex-shrink-0 cursor-pointer border-x-2 px-12  rounded-full ${selected === "Home" ? "border-[#fd853a]" : " border-transparent hover:bg-[#232323]"} transition duration-300 h-[60px]`}
       >
-        <div className=" translate-y-2 text-[#fd853a] rounded-full flex items-center justify-center mb-1">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <div className=" translate-y-1 text-[#fd853a] rounded-full flex items-center justify-center mb-1">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
             <text x="4" y="18" fontSize="16" fontWeight="bold" fill="#fd853a">
               JR
             </text>
@@ -60,7 +60,7 @@ const Navbar = () => {
             className="flex w-[45%] items-center justify-around"
           >
             <button
-              className={`w-[139px] h-[40px] flex items-center justify-center rounded-[60px] text-base font-medium transition duration-300 ${selected === item.label ? "bg-[#FD853A] font-bold" : "bg-transparent hover:bg-[#232323]"}`}
+              className={`w-[139px] h-[60px] flex items-center justify-center rounded-[60px] text-base font-medium transition duration-300 ${selected === item.label ? "bg-[#FD853A] font-bold" : "bg-transparent hover:bg-[#232323]"}`}
               onClick={() => setSelected(item.label)}
             >
               {item.label}

@@ -5,19 +5,11 @@ import Image from "next/image";
 import { Star } from "lucide-react";
 import OrangeButton from "@/components/ui/OrangeButton";
 // import ArrowButton from "@/components/ui/ArrowButton";
-import {
-  experiences,
-  // buttons,
-  // iconAndText,
-  skills,
-  blogs,
-  // portfolioData,
-  // cardData,
-  reviews,
-} from "../data/data";
+import { skills, blogs } from "../data/data";
 import { GenericSlider } from "@/components/ui/GenericSlider";
 import ClientOnly from "@/components/ui/ClientOnly";
-import SliderForReview from "@/components/SliderForReview";
+import Testimonials from "@/components/Testimonials";
+import Education from "@/components/Education";
 
 export default function Home() {
   return (
@@ -25,8 +17,8 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <div className="group flex flex-col md:flex-row w-full min-h-[600px] sm:min-h-[700px] lg:h-[700] lg:-mb-2 xl:mb-0 xl:h-[846px] px-4 sm:px-6 md:px-8 gap-6 sm:gap-8 md:gap-[71px] items-center justify-center mt-6">
-        <div className="hidden lg:flex flex-col w-[328px] h-[138px] items-start justify-start transition-transform duration-300 ease-in-out group-hover:-translate-y-[250px]">
+      <div className="group flex flex-col md:flex-row w-full  px-4 sm:px-6 md:px-8 gap-6 sm:gap-8 md:gap-[71px] items-center justify-center mt-6 ">
+        <div className="hidden lg:flex flex-col w-[328px] h-[138px] items-start justify-start transition-transform duration-300 ease-in-out group-hover:-translate-y-[250px] group-focus:-translate-y-[250px]">
           <div className="text-[#344054] text-[36px] leading-none">&quot;</div>
           <div className="text-[#344054] text-[16px] w-full font-medium leading-snug relative">
             <p className="absolute top-0 left-0 w-[130%]">
@@ -36,8 +28,8 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative w-full flex flex-col items-center justify-center  ">
-          <div className="flex w-full flex-col items-center justify-center  transition-all duration-300 ease-in-out group-hover:translate-y-[280px] group-hover:opacity-0 px-4 sm:px-0">
+        <div className="relative w-full flex flex-col items-center justify-center   ">
+          <div className="flex w-full flex-col items-center justify-center  transition-all  duration-300 ease-in-out group-hover:translate-y-[280px] group-hover:opacity-0 px-4 sm:px-0">
             <ClientOnly>
               <button className="h-[45px] px-[26px] py-[13px] translate-y-0 md:translate-y-10 rounded-full border border-[#171717] flex items-center justify-center bg-white mt-10">
                 Hello!
@@ -91,7 +83,7 @@ export default function Home() {
             />
 
             <div className="absolute bottom-[10%] z-30 w-full hidden md:flex justify-center">
-              <DualToggleButtons />
+              <DualToggleButtons left="Resume" right="Hire Me" />
             </div>
           </div>
         </div>
@@ -110,7 +102,7 @@ export default function Home() {
       </div>
 
       {/* About Me */}
-      <div className="w-full md:w-11/12 mx-auto flex flex-col items-start gap-6 px-2 sm:px-0 pb-0 -translate-y-10 text-[16px] sm:text-[18px] text-center lg:text-[20px] text-[#344054]">
+      {/* <div className="w-full md:w-11/12 mx-auto flex flex-col items-start gap-6 px-2 sm:px-0 pb-0 -translate-y-10 text-[16px] sm:text-[18px] text-center lg:text-[20px] text-[#344054]">
         <p className=" w-full">
           I am a graduate of the Faculty of Technology at{" "}
           <span className=" bg-[#FD853A] text-white">
@@ -136,161 +128,60 @@ export default function Home() {
           meaningfully to the protection and sustainable management of natural
           ecosystems.
         </p>
+      </div> */}
+      <div className="relative flex flex-col w-full gap-16 sm:gap-[96px] items-center px-4 sm:px-6 lg:px-[71px] py-16 sm:py-[60px] bg-[#171717] rounded-[30px] sm:rounded-[50px] overflow-hidden  -mt-12 lg:-mt-28">
+        <Image
+          src="/Frame 77.svg"
+          alt="image"
+          fill
+          className="object-cover absolute opacity-50"
+        />
+
+        <div className="w-full flex flex-col items-start justify-between gap-6 relative z-10">
+          <div className="flex gap-2.5">
+            <CustomeText
+              title="About"
+              className="font-medium text-3xl sm:text-4xl lg:text-5xl text-[#FCFCFD]"
+            />
+            <CustomeText
+              title="Me"
+              className="font-medium text-3xl sm:text-4xl lg:text-5xl text-[#FD853A]"
+            />
+          </div>
+          <div className="relative flex  justify-center items-center   w-full rounded-[37px] lg:rounded-[40px] bg-white/10 backdrop-blur-[15px] border border-white/50  transition-colors duration-300 ease-in-out overflow-hidden px-4 lg:px-16 py-16 text-gray-300">
+            <p className=" w-full text-center">
+              I am a graduate of the Faculty of Technology at{" "}
+              <span className=" bg-[#FD853A] text-white">
+                University of Sri Jayewardenepura,
+              </span>{" "}
+              Sri Lanka, specializing in Industrial Biosystems Technology. I am
+              currently pursuing a Master&apos;s degree in{" "}
+              <span className=" bg-[#FD853A] text-white">
+                {" "}
+                Forestry and Environmental Management
+              </span>{" "}
+              to further enhance my knowledge and expertise in sustainable
+              natural resource management, forest conservation, and
+              environmental stewardship. I am passionate about{" "}
+              <span className=" bg-[#FD853A] text-white"> Wildlife,</span>{" "}
+              <span className=" bg-[#FD853A] text-white"> Forestry,</span>{" "}
+              <span className=" bg-[#FD853A] text-white">
+                Environmental Conservation,{" "}
+              </span>
+              and{" "}
+              <span className=" bg-[#FD853A] text-white">
+                Scientific Research
+              </span>{" "}
+              and I continuously strive to expand my skills and contribute
+              meaningfully to the protection and sustainable management of
+              natural ecosystems.
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* My Educational Qualification */}
-      <div className="w-full flex flex-col items-start mx-auto px-4 sm:px-6 lg:px-[71px] py-8 lg:pt-24 lg:pb-10">
-        <div className="w-full pb-10  lg:mb-5 md:flex  items-start justify-center space-x-2.5 text-center lg:text-left">
-          <CustomeText
-            title="My"
-            className="font-medium text-4xl sm:text-5xl lg:text-6xl text-[#344054]"
-          />
-          <CustomeText
-            title="Educational"
-            className="font-medium text-4xl sm:text-5xl lg:text-6xl text-[#FD853A]"
-          />
-          <CustomeText
-            title="Qualification"
-            className="font-medium text-4xl sm:text-5xl lg:text-6xl text-[#FD853A]"
-          />
-        </div>
-        <div className="w-full md:w-11/12  mx-auto flex flex-col items-start gap-6 px-2 sm:px-0 pb-10 text-[16px] sm:text-[18px] text-center lg:text-[20px] text-[#344054]">
-          <p className=" w-full">
-            I completed my Bachelor&apos;s degree with a specialization in
-            Industrial Biosystems Technology. Throughout my degree, I gained
-            comprehensive knowledge in molecular biology, microbiology,
-            biotechnology, biopharmaceuticals, animal and plant cell culture,
-            and bioprocess technology. As part of my undergraduate studies, I
-            conducted research in the field of aquaculture titled &quot;Impact
-            of Salinity Levels on the Growth Rate of Saline Tilapia in Cement
-            Tanks.&quot; This research was published at the International
-            Conference on Innovation and Emerging Technologies (ICIET) 2025,
-            marking an important milestone in my academic journey.
-          </p>
-          <p className=" w-full">
-            Ric, SCJ (2025). Impact of salinity levels on the growth rate of
-            saline tilapia in cement tanks. In Proceedings of the International
-            Conference on Innovation and Emerging Technologies (ICIET 2025) (p.
-            66). Faculty of Technology, University of Sri Jayewardenepura.
-            <br />{" "}
-            <a
-              href="https://iciet.sjp.ac.lk/conference-proceedings/"
-              className="text-blue-500 underline wrap-normal"
-            >
-              https://iciet.sjp.ac.lk/conference-proceedings/
-            </a>
-          </p>
-        </div>
-        <div className=" w-52 border-b border-gray-300 mb-5 mx-auto "></div>
-        <div className="w-full lg:hidden">
-          {experiences.map((exp, index) => (
-            <div key={index} className="mb-8 last:mb-0">
-              <div className="flex items-start gap-4">
-                <div className="relative flex-shrink-0 mt-2">
-                  <div className="w-6 h-6 rounded-full border-2 border-dashed border-[#1D2939] bg-white" />
-                  <div
-                    className={`absolute top-1 left-1 w-4 h-4 rounded-full ${exp.dotColor}`}
-                  />
-                </div>
-
-                <div className="flex-1">
-                  <CustomeText
-                    title={exp.company}
-                    className="font-semibold text-[#1D2939] text-[20px] sm:text-[24px] mb-1"
-                  />
-                  <CustomeText
-                    title={exp.duration}
-                    className="text-[#98A2B3] text-[14px] sm:text-[16px] mb-2"
-                  />
-                  <CustomeText
-                    title={exp.role}
-                    className="font-semibold text-[#1D2939] text-[18px] sm:text-[20px] mb-2"
-                  />
-                  {exp.desc && (
-                    <CustomeText
-                      title={exp.desc}
-                      className="text-[#98A2B3] text-[14px] sm:text-[16px] leading-relaxed"
-                    />
-                  )}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="w-full hidden scale-75 lg:flex justify-evenly">
-          {/* <div className="flex flex-col justify-between w-[495px] gap-[60px]">
-            {experiences.map((exp, index) => (
-              <div key={index} className="flex flex-col gap-[14px]">
-                <CustomeText
-                  title={exp.company}
-                  className="font-semibold text-[#1D2939] text-[40px]"
-                />
-                <CustomeText
-                  title={exp.duration}
-                  className="text-2xl text-[#98A2B3]"
-                />
-              </div>
-            ))}
-          </div> */}
-          <div className="flex flex-col justify-between w-[500px] gap-[60px]">
-            {experiences.map((exp, index) => (
-              <div key={index} className="flex flex-col gap-[14px] relative">
-                <CustomeText
-                  title={exp.role}
-                  className="font-semibold text-[#1D2939] text-[40px] opacity-0"
-                />
-                {exp.desc && (
-                  <CustomeText
-                    title={exp.desc}
-                    className="text-2xl text-[#98A2B3] opacity-0"
-                  />
-                )}
-                <div key={index} className="flex flex-col gap-[14px] absolute">
-                  <CustomeText
-                    title={exp.company}
-                    className="font-semibold text-[#1D2939] text-[40px]"
-                  />
-                  <CustomeText
-                    title={exp.duration}
-                    className="text-2xl text-[#98A2B3]"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="relative flex flex-col items-center justify-between">
-            <div className="absolute top-0 bottom-0 w-[2px] border-l-2 border-dashed border-[#1D2939]" />
-            {experiences.map((exp, index) => (
-              <div
-                key={index}
-                className={` relative flex items-center justify-center w-12 h-12 ${index === 1 ? "-translate-y-[160%]" : index === 2 ? "-translate-y-[180%]" : "translate-0"} `}
-              >
-                <div className="absolute w-12 h-12 rounded-full border-2 border-dashed border-[#1D2939] bg-white" />
-                <div className={`w-9 h-9 rounded-full z-10 ${exp.dotColor}`} />
-              </div>
-            ))}
-          </div>
-
-          <div className="flex flex-col justify-between w-[500px] gap-[60px]">
-            {experiences.map((exp, index) => (
-              <div key={index} className="flex flex-col gap-[14px]">
-                <CustomeText
-                  title={exp.role}
-                  className="font-semibold text-[#1D2939] text-[40px]"
-                />
-                {exp.desc && (
-                  <CustomeText
-                    title={exp.desc}
-                    className="text-2xl text-[#98A2B3]"
-                  />
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      <Education />
 
       {/* Hire Me */}
       <div className="w-full flex flex-col lg:flex-row items-center justify-between px-6 lg:px-[71px] py-20 lg:py-[122px] bg-[#F2F4F7] rounded-[32px] lg:rounded-[50px] gap-12 lg:gap-[96px]">
@@ -350,7 +241,7 @@ export default function Home() {
           </div>
 
           <ClientOnly>
-            <button className="w-full cursor-pointer sm:w-auto px-6 py-4 rounded-[20px] border border-[#151515] text-[#151515] font-semibold text-2xl sm:text-[28px] transition-all duration-300 hover:bg-[#151515] hover:text-white">
+            <button className="w-full cursor-pointer sm:w-auto px-6 py-4 rounded-[20px] border border-[#151515] text-[#151515] font-semibold text-2xl sm:text-[28px] transition-all duration-300 hover:bg-[#151515] hover:text-white focus:bg-[#151515] focus:text-white">
               Hire me
             </button>
           </ClientOnly>
@@ -424,63 +315,10 @@ export default function Home() {
       </div> */}
 
       {/* Testimonials */}
-      <div className="relative flex flex-col w-full items-center pt-16 pb-10  gap-10 bg-[#171717] overflow-hidden">
-        <Image
-          src="/Frame 77.svg"
-          alt="image"
-          fill
-          className="object-cover opacity-50"
-        />
-
-        <div className="flex flex-col w-full max-w-[1299px] items-center gap-4 z-10 px-2">
-          <div className="flex flex-col items-center max-w-full sm:max-w-[448px]">
-            <CustomeText
-              title="Testimonials That"
-              className="font-medium text-[28px] sm:text-[36px] lg:text-[48px] text-[#FCFCFD] text-center"
-            />
-            <div className="flex flex-wrap gap-2.5 justify-center">
-              <CustomeText
-                title="Reflect My"
-                className="font-medium text-[28px] sm:text-[36px] lg:text-[48px] text-[#FCFCFD]"
-              />
-              <CustomeText
-                title="Journey"
-                className="font-medium text-[28px] sm:text-[36px] lg:text-[48px] text-[#FD853A]"
-              />
-            </div>
-          </div>
-          <p className="w-full max-w-[742px] text-[16px] sm:text-[18px] lg:text-[20px] text-[#F9FAFB] text-center leading-[1.6] px-2">
-            Insights and feedback from professors, research collaborators, and
-            peers who&apos;ve supported my path in environmental science and
-            wildlife conservation.
-          </p>
-        </div>
-
-        <div className=" bottom-[20%] left-0 right-0 w-full z-10">
-          {/* for Desktop */}
-          <div className="hidden lg:flex w-full justify-center">
-            <SliderForReview data={reviews} type="normal" viewPort="desktop" />
-          </div>
-          {/* for Tablet */}
-          <div className=" hidden md:block lg:hidden w-full">
-            <SliderForReview data={reviews} type="normal" viewPort="tablet" />
-          </div>
-          {/* for Mobile */}
-          <div className=" md:hidden w-full">
-            <SliderForReview data={reviews} type="normal" viewPort="mobile" />
-            <div className=" w-full -translate-y-24">
-              <SliderForReview
-                data={reviews.toReversed()}
-                type="rotate"
-                viewPort="mobile"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+      <Testimonials />
 
       {/* Contact */}
-      <div className="w-full bg-white flex flex-col items-center justify-center py-16 px-4 sm:px-6 lg:px-[71px] gap-10">
+      <div className="w-full bg-white flex flex-col items-center justify-center py-16 lg:py-20 scale-75 px-4 sm:px-6 lg:px-[71px] gap-10">
         <div className="w-full max-w-4xl text-center flex flex-col items-center gap-4">
           <CustomeText
             title="Have an Awesome Research"
@@ -530,32 +368,32 @@ export default function Home() {
       </div>
 
       {/* Skills Slider */}
-      <div className="relative w-full h-[147px] rounded-tl-4xl rounded-br-4xl overflow-hidden">
-        <div className="absolute w-[5000px] h-[63px] bg-white -rotate-2 -mt-2 md:mt-0 md:-rotate-[1.9deg] z-10 -ml-2 flex items-center">
-          <div className="marquee flex gap-8 w-max">
-            {[...skills, ...skills].map((skill, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-5 text-[#000000] text-[48px] whitespace-nowrap"
-              >
-                <svg
-                  width="34"
-                  height="34"
-                  viewBox="0 0 35 35"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+      {/* <div className="relative w-full h-[147px] rounded-tl-4xl rounded-br-4xl overflow-hidden">
+          <div className="absolute w-[5000px] h-[63px] bg-white -rotate-2 -mt-2 md:mt-0 md:-rotate-[1.9deg] z-10 -ml-2 flex items-center">
+            <div className="marquee flex gap-8 w-max">
+              {[...skills, ...skills].map((skill, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-5 text-[#000000] text-[48px] whitespace-nowrap"
                 >
-                  <path
-                    d="M16.4828 0.257982L21.715 12.3411L34.2082 16.5003L22.1251 21.7324L17.9659 34.2256L12.7337 22.1425L0.240553 17.9833L12.3237 12.7512L16.4828 0.257982Z"
-                    fill="#FD853A"
-                  />
-                </svg>
-                {skill}
-              </div>
-            ))}
+                  <svg
+                    width="34"
+                    height="34"
+                    viewBox="0 0 35 35"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16.4828 0.257982L21.715 12.3411L34.2082 16.5003L22.1251 21.7324L17.9659 34.2256L12.7337 22.1425L0.240553 17.9833L12.3237 12.7512L16.4828 0.257982Z"
+                      fill="#FD853A"
+                    />
+                  </svg>
+                  {skill}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </div>
+        </div> */}
 
       {/* Blog */}
       <div className="flex flex-col w-fll h-fit items-center gap-12 px-[71px] py-[97px]">

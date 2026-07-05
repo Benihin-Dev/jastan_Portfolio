@@ -31,8 +31,9 @@ export interface PortfolioItem {
 export interface Review {
   name: string;
   role: string;
+  country: string;
   rating: number;
-  text: string;
+  desc: string;
 }
 
 export interface CardData {
@@ -157,26 +158,30 @@ export const reviews: Review[] = [
   {
     name: "Dr. Malaka Perera",
     role: "Wildlife Biologist",
+    country: "Canada",
     rating: 5,
-    text: "Exceptional field awareness and a genuine passion for conservation. Jastan's research work on aquaculture was thorough, well-documented.",
+    desc: "Exceptional field awareness and a genuine passion for conservation. Jastan's research work on aquaculture was thorough, well-documented.",
   },
   {
     name: "Sarah Johnson",
     role: "Environmental Researcher",
+    country: "Norway",
     rating: 4,
-    text: "A dedicated and detail-oriented researcher. Consistently reliable in fieldwork and always brings fresh insight to environmental projects.",
+    desc: "A dedicated and detail-oriented researcher. Consistently reliable in fieldwork and always brings fresh insight to environmental projects.",
   },
   {
     name: "Dr. Anushka Fernando",
     role: "Forestry Consultant",
+    country: "India",
     rating: 5,
-    text: "Impressive knowledge of sustainable forest ecosystems. A collaborative and thoughtful presence in every research discussion.",
+    desc: "Impressive knowledge of sustainable forest ecosystems. A collaborative and thoughtful presence in every research discussion.",
   },
   {
     name: "Aryan Sharma",
     role: "Conservation Officer",
+    country: "USA",
     rating: 4,
-    text: "Strong understanding of wildlife behavior and ecosystem dynamics. Brings a calm, informed approach to every we've worked on together.",
+    desc: "Strong understanding of wildlife behavior and ecosystem dynamics. Brings a calm, informed approach to every we've worked on together.",
   },
 ];
 

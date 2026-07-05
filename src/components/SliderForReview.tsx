@@ -84,16 +84,14 @@ export default function SliderForReview({
         {slides.map((item, i) => (
           <div
             key={i}
-            onClick={() => {
-              console.log(slides);
-            }}
             className={` w-full h-full scale-x-110 ${type === "rotate" ? "rotate-180" : ""} `}
           >
             <ReviewCard
               name={item.name}
               role={item.role}
+              country={item.country}
               rating={item.rating}
-              text={item.text}
+              desc={item.desc}
             />
           </div>
         ))}
