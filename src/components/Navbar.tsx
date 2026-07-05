@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const Navbar = () => {
   const menuItems = [
@@ -38,16 +39,19 @@ const Navbar = () => {
       {/* Logo */}
       <div
         onClick={() => setSelected("Home")}
-        className={`flex flex-col items-center flex-shrink-0 cursor-pointer border-x-2 px-12  rounded-full ${selected === "Home" ? "border-[#fd853a]" : " border-transparent hover:bg-[#232323]"} transition duration-300 h-[60px]`}
+        className={`flex flex-col items-center flex-shrink-0 cursor-pointer border-x-2 px-12  rounded-full ${selected === "Home" ? "border-[#d2cac6]" : " border-transparent hover:bg-[#232323]"} transition duration-300 h-[60px]`}
       >
         <div className=" translate-y-1 text-[#fd853a] rounded-full flex items-center justify-center mb-1">
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-            <text x="4" y="18" fontSize="16" fontWeight="bold" fill="#fd853a">
-              JR
-            </text>
-          </svg>
+          <Image
+            src="/logo.png"
+            alt="Frame Decoration"
+            width={30}
+            height={30}
+            className="size-7"
+            priority
+          />
         </div>
-        <span className="font-bold -translate-y-2 text-sm sm:text-base lg:text-lg tracking-wide">
+        <span className="font-bold text-[#fd853aec] -translate-y-2 text-sm sm:text-base lg:text-lg tracking-wide">
           Jastan Ric
         </span>
       </div>

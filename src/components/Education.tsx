@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import CustomeText from "@/components/ui/CustomeText";
 import { experiences } from "@/data/data";
 import PopupForStudyInfo from "@/components/ui/PopupForStudyInfo";
-import { Link, ArrowUpRight, X } from "lucide-react";
-import {} from "lucide-react";
+import { Link, X } from "lucide-react";
 
 export default function Education() {
   const [popUpState, setPopUpState] = useState<boolean>(false);

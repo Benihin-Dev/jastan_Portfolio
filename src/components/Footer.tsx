@@ -10,6 +10,7 @@ import { ArrowUpRight } from "lucide-react";
 import CustomeText from "./ui/CustomeText";
 import Link from "next/link";
 import ClientOnly from "./ui/ClientOnly";
+import Image from "next/image";
 
 const Footer = () => {
   const navigation = ["Home", "About", "Qualification", "Blogs", "Contact"];
@@ -47,28 +48,17 @@ const Footer = () => {
       <div className="flex flex-col lg:flex-row justify-between w-full max-w-[1298px] h-auto lg:h-[239px] gap-8 lg:gap-0 mt-8 md:mt-0">
         <div className="w-full lg:w-[635px] h-full flex flex-col items-start justify-start gap-6 lg:gap-10">
           <div className="flex gap-3 sm:gap-4 items-center flex-shrink-0 cursor-pointer">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 bg-[#FD853A] rounded-full flex items-center justify-center mb-1">
-              <svg
-                width="20"
-                height="20"
-                className="sm:w-6 sm:h-6 lg:w-6 lg:h-6"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <text
-                  x="4"
-                  y="18"
-                  fontSize="12"
-                  className="sm:text-sm lg:text-base"
-                  fontWeight="bold"
-                  fill="white"
-                >
-                  JR
-                </text>
-              </svg>
+            <div className="  flex items-center justify-center mb-1">
+              <Image
+                src="/logo.png"
+                alt="Frame Decoration"
+                width={20}
+                height={20}
+                className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10"
+                priority
+              />
             </div>
-            <span className="font-bold text-base sm:text-lg tracking-wide cursor-pointer">
+            <span className="font-bold text-base sm:text-lg text-[#FD853A] tracking-wide cursor-pointer -translate-x-2">
               Jastan Ric
             </span>
           </div>

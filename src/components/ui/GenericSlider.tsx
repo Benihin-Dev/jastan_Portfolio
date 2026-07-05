@@ -74,6 +74,7 @@ export function GenericSlider<T extends AllowedCard>({
                   <ReviewCard
                     name={item.name}
                     role={item.role}
+                    country={item.country}
                     rating={item.rating}
                     desc={item.desc}
                   />
@@ -171,6 +172,7 @@ export function GenericSlider<T extends AllowedCard>({
                 <ReviewCard
                   name={item.name}
                   role={item.role}
+                  country={item.country}
                   rating={item.rating}
                   desc={item.desc}
                 />
