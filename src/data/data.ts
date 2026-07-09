@@ -19,6 +19,7 @@ export interface Blog {
   name: string;
   date: string;
   title: string;
+  link: string;
 }
 
 export interface PortfolioItem {
@@ -105,25 +106,52 @@ export const skills: string[] = [
 
 export const blogs: Blog[] = [
   {
-    image: "/Rectangle 6.svg",
+    image: "/elephant.png",
     button: "Read More",
-    name: "Mahesh Pokale",
-    date: "10 Nov, 2024",
-    title: "Design Unraveled: Behind the Scenes of UI/UX Magic",
+    name: "Asian Elephant",
+    date: "06 July, 2026",
+    title: "Elephas maximus",
+    link: "https://thecanofy.blogspot.com/2026/07/asian-elephant.html",
   },
   {
-    image: "/Frame 60.svg",
+    image: "/bear.png",
     button: "Explore",
-    name: "Sarah Johnson",
-    date: "12 Dec, 2024",
-    title: "Mastering Tailwind: Tips for Clean UI Development",
+    name: "Sloth Bear",
+    date: "06 July, 2026",
+    title: "Melursus ursinus",
+    link: "https://thecanofy.blogspot.com/2026/07/sloth-bear.html",
   },
   {
-    image: "/Rectangle 6 (1).svg",
-    button: "Check Now",
-    name: "John Doe",
-    date: "1 Jan, 2025",
-    title: "Modern Web Development in 2025",
+    image: "/leopard.png",
+    button: "Read More",
+    name: "Leopard",
+    date: "06 July, 2026",
+    title: "Panthera pardus",
+    link: "https://thecanofy.blogspot.com/2026/07/sri-lankan-leopard.html",
+  },
+  {
+    image: "/elephant.png",
+    button: "Read More",
+    name: "Asian Elephant",
+    date: "06 July, 2026",
+    title: "Elephas maximus",
+    link: "https://thecanofy.blogspot.com/2026/07/asian-elephant.html",
+  },
+  {
+    image: "/bear.png",
+    button: "Explore",
+    name: "Sloth Bear",
+    date: "06 July, 2026",
+    title: "Melursus ursinus",
+    link: "https://thecanofy.blogspot.com/2026/07/sloth-bear.html",
+  },
+  {
+    image: "/leopard.png",
+    button: "Read More",
+    name: "Leopard",
+    date: "06 July, 2026",
+    title: "Panthera pardus",
+    link: "https://thecanofy.blogspot.com/2026/07/sri-lankan-leopard.html",
   },
 ];
 

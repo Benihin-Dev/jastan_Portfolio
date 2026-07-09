@@ -89,6 +89,7 @@ export function GenericSlider<T extends AllowedCard>({
                       button={item.button}
                       name={item.name}
                       date={item.date}
+                      link={item.link}
                       title={item.title}
                       priority={index === 0}
                     />
@@ -103,7 +104,7 @@ export function GenericSlider<T extends AllowedCard>({
 
   return (
     <div
-      className={`relative w-full flex flex-col justify-center items-center ${heightClass || ""}`}
+      className={`relative w-full flex flex-col justify-center items-center scale-140 md:scale-100 ${heightClass || ""}`}
     >
       <div
         className={`w-full px-4 sm:px-6 lg:px-0 ${!isReview ? "max-w-[1440px]" : ""}`}
@@ -114,7 +115,7 @@ export function GenericSlider<T extends AllowedCard>({
           centeredSlides={isReview}
           loop={true}
           autoplay={{
-            delay: 3000,
+            delay: 4500,
             disableOnInteraction: false,
           }}
           pagination={{ clickable: true }}
@@ -188,6 +189,7 @@ export function GenericSlider<T extends AllowedCard>({
                     name={item.name}
                     date={item.date}
                     title={item.title}
+                    link={item.link}
                     priority={index === 0}
                   />
                 )}

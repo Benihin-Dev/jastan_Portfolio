@@ -151,7 +151,7 @@ export default function Education() {
       {isVisible && (
         <div
           onClick={closePopup}
-          className={`transition-opacity duration-200 w-full h-full bg-[#18181874] backdrop-blur-[5px] fixed top-0 left-0 flex justify-center items-center z-50 ${
+          className={`transition-opacity duration-200 w-full h-full bg-[#18181874] backdrop-blur-[5px] fixed top-0 left-0 flex justify-center items-center z-[69] ${
             popUpState ? "opacity-100" : "opacity-0"
           }`}
         >

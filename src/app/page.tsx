@@ -317,7 +317,7 @@ export default function Home() {
       <Testimonials />
 
       {/* Contact */}
-      <div className="w-full bg-white flex flex-col items-center justify-center py-16 lg:py-20 scale-75 px-4 sm:px-6 lg:px-[71px] gap-10">
+      <div className="w-full bg-white flex flex-col items-center justify-center py-16 lg:pt-32 scale-85 px-4 sm:px-6 lg:px-[71px] gap-10">
         <div className="w-full max-w-4xl text-center flex flex-col items-center gap-4">
           <CustomeText
             title="Have an Awesome Research"
@@ -395,12 +395,14 @@ export default function Home() {
         </div> */}
 
       {/* Blog */}
-      <div className="flex flex-col w-fll h-fit items-center gap-12 px-[71px] py-[97px]">
-        <div className="w-[1298px] h-[126px] flex flex-col lg:flex-row items-center justify-between gap-6 mb-6 md:mb-0">
+      <div className="flex flex-col w-full h-fit items-center gap-12 px-[71px] py-[97px]">
+        <div className="w-[1298px]  flex flex-col lg:flex-row items-center justify-between gap-6 mb-6 md:mb-0">
           <h1 className="text-[#344054] w-fit md:min-w-[215px] h-full font-bold text-4xl md:text-5xl">
             From my blog post
           </h1>
-          <OrangeButton title="See All" className="w-[300px] md:w-fit" />
+          <a href="https://thecanofy.blogspot.com/" target="blank">
+            <OrangeButton title="See All" className=" " />
+          </a>
         </div>
         <GenericSlider
           data={blogs}
