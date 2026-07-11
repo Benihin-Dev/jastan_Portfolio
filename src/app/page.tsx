@@ -149,31 +149,16 @@ export default function Home() {
           </div>
           <div className="relative flex  justify-center items-center   w-full rounded-[37px] lg:rounded-[40px] bg-white/10 backdrop-blur-[15px] border border-white/50  transition-colors duration-300 ease-in-out overflow-hidden px-4 lg:px-16 py-16 text-gray-300">
             <p className=" w-full text-center">
-              I am a graduate of the Faculty of Technology at{" "}
-              <span className=" bg-[#FD853A] text-white">
-                University of Sri Jayewardenepura,
-              </span>{" "}
-              Sri Lanka, specializing in Industrial Biosystems Technology. I am
-              currently pursuing a Master&apos;s degree in{" "}
-              <span className=" bg-[#FD853A] text-white">
-                {" "}
-                Forestry and Environmental Management
-              </span>{" "}
-              to further enhance my knowledge and expertise in sustainable
-              natural resource management, forest conservation, and
-              environmental stewardship. I am passionate about{" "}
-              <span className=" bg-[#FD853A] text-white"> Wildlife,</span>{" "}
-              <span className=" bg-[#FD853A] text-white"> Forestry,</span>{" "}
-              <span className=" bg-[#FD853A] text-white">
-                Environmental Conservation,{" "}
-              </span>
-              and{" "}
-              <span className=" bg-[#FD853A] text-white">
-                Scientific Research
-              </span>{" "}
-              and I continuously strive to expand my skills and contribute
-              meaningfully to the protection and sustainable management of
-              natural ecosystems.
+              I am a graduate of the Faculty of Technology at University of Sri
+              Jayewardenepura, Sri Lanka, specializing in Industrial Biosystems
+              Technology. I am currently pursuing a Master&apos;s degree in
+              Forestry and Environmental Management to further enhance my
+              knowledge and expertise in sustainable natural resource
+              management, forest conservation, and environmental stewardship. I
+              am passionate about Wildlife, Forestry, Environmental
+              Conservation, and Scientific Research and I continuously strive to
+              expand my skills and contribute meaningfully to the protection and
+              sustainable management of natural ecosystems.
             </p>
           </div>
         </div>
@@ -183,26 +168,8 @@ export default function Home() {
       <Education />
 
       {/* Hire Me */}
-      <div className="w-full flex flex-col lg:flex-row items-center justify-between px-6 lg:px-[71px] py-20 lg:py-[122px] bg-[#F2F4F7] rounded-[32px] lg:rounded-[50px] gap-12 lg:gap-[96px]">
-        <div className="relative w-full max-w-[500px] aspect-square group mx-auto lg:mx-0">
-          <Image
-            src="/Property 1=Default.svg"
-            alt="Hire me"
-            fill
-            className="object-contain z-10 transition-all duration-300 ease-in-out group-hover:translate-y-3"
-            priority
-          />
-
-          <Image
-            src="/Property 1=Variant2.svg"
-            alt="Hire me"
-            fill
-            className="object-contain absolute -translate-y-[15px] transition-all duration-300 ease-in-out opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-110"
-            priority
-          />
-        </div>
-
-        <div className="w-full max-w-xl flex flex-col items-start gap-8">
+      <div className="w-full flex flex-col lg:flex-row items-center justify-between px-6 lg:px-[80px] py-20 lg:py-[122px] bg-[#F2F4F7] rounded-[32px] lg:rounded-[50px] gap-12 lg:gap-[96px]">
+        <div className="w-full  max-w-[500px] flex flex-col items-start gap-8">
           <div className="flex flex-wrap text-4xl sm:text-5xl lg:text-6xl font-semibold gap-2">
             <CustomeText title="Why" className="text-[#344054]" />
             <CustomeText title="Hire me" className="text-[#FD853A]" />
@@ -244,6 +211,23 @@ export default function Home() {
               Hire me
             </button>
           </ClientOnly>
+        </div>
+        <div className="relative w-full max-w-xl  aspect-square group mx-auto lg:mx-0">
+          <Image
+            src="/Property 1=Default.svg"
+            alt="Hire me"
+            fill
+            className="object-contain -scale-x-100 z-10 transition-all duration-300 ease-in-out group-hover:translate-y-3"
+            priority
+          />
+
+          <Image
+            src="/Property 1=Variant2.svg"
+            alt="Hire me"
+            fill
+            className="object-contain absolute -translate-y-[15px] transition-all duration-300 ease-in-out opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-110"
+            priority
+          />
         </div>
       </div>
 
@@ -396,7 +380,7 @@ export default function Home() {
 
       {/* Blog */}
       <div className="flex flex-col w-full h-fit items-center gap-12 px-[71px] py-[97px]">
-        <div className="w-[1298px]  flex flex-col lg:flex-row items-center justify-between gap-6 mb-6 md:mb-0">
+        <div className="  w-full flex flex-col lg:flex-row items-center justify-between gap-6 pb-10 mb-6 md:mb-0">
           <h1 className="text-[#344054] w-fit md:min-w-[215px] h-full font-bold text-4xl md:text-5xl">
             From my blog post
           </h1>

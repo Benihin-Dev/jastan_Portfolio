@@ -17,28 +17,16 @@ export default function PopupForStudyInfo() {
         />
       </div>
       <p className=" w-full">
-        I completed my Bachelor&apos;s degree with a specialization in{" "}
-        <span className=" bg-[#FD853A] text-white">
-          {" "}
-          Industrial Biosystems Technology.
-        </span>{" "}
-        Throughout my degree, I gained comprehensive knowledge in molecular
-        biology, microbiology, biotechnology, biopharmaceuticals, animal and
-        plant cell culture, and bioprocess technology. As part of my
-        undergraduate studies, I conducted research in the field of aquaculture
-        titled{" "}
-        <span className=" bg-[#FD853A] text-white">
-          {" "}
-          &quot;Impact of Salinity Levels on the Growth Rate of Saline Tilapia
-          in Cement Tanks.&quot;
-        </span>{" "}
-        This research was published at the{" "}
-        <span className=" bg-[#FD853A] text-white">
-          {" "}
-          International Conference on Innovation and Emerging Technologies
-          (ICIET) 2025,
-        </span>{" "}
-        marking an important milestone in my academic journey.
+        I completed my Bachelor&apos;s degree with a specialization in
+        Industrial Biosystems Technology. Throughout my degree, I gained
+        comprehensive knowledge in molecular biology, microbiology,
+        biotechnology, biopharmaceuticals, animal and plant cell culture, and
+        bioprocess technology. As part of my undergraduate studies, I conducted
+        research in the field of aquaculture titled &quot;Impact of Salinity
+        Levels on the Growth Rate of Saline Tilapia in Cement Tanks.&quot; This
+        research was published at the International Conference on Innovation and
+        Emerging Technologies (ICIET) 2025, marking an important milestone in my
+        academic journey.
       </p>
       <p className=" w-full">
         Ric, SCJ (2025). Impact of salinity levels on the growth rate of saline

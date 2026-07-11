@@ -1,7 +1,7 @@
 import React from "react";
 import {
   FacebookIcon,
-  YoutubeIcon,
+  AtSign,
   InstagramIcon,
   TwitterIcon,
   MessageCircle,
@@ -15,11 +15,14 @@ import Image from "next/image";
 const Footer = () => {
   const navigation = ["Home", "About", "Qualification", "Blogs", "Contact"];
   const iconsAndUrl = [
-    { icon: FacebookIcon, url: "https://facebook.com" },
-    { icon: YoutubeIcon, url: "https://youtube.com" },
-    { icon: MessageCircle, url: "https://whatsapp.com" },
-    { icon: InstagramIcon, url: "https://instagram.com" },
-    { icon: TwitterIcon, url: "https://twitter.com" },
+    { icon: MessageCircle, url: "https://wa.me/94754540123" },
+    { icon: FacebookIcon, url: "https://www.facebook.com/share/1BPtbdticF/" },
+    {
+      icon: InstagramIcon,
+      url: "https://www.instagram.com/jastanric?utm_source=qr&igsh=MXNrOXF3YXljcmY1aQ==",
+    },
+    { icon: AtSign, url: "https://www.threads.com/@jastanric" },
+    { icon: TwitterIcon, url: "https://x.com/jastanric" },
   ];
 
   const contact = ["+94 754 540 123", "jastanric@outlook.com"];
