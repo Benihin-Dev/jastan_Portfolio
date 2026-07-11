@@ -125,11 +125,11 @@ export function GenericSlider<T extends AllowedCard>({
               spaceBetween: 16,
             },
             640: {
-              slidesPerView: isPortfolio || isBlog || isReview ? 1 : 2,
+              slidesPerView: isPortfolio || isBlog || isReview ? 1 : 3,
               spaceBetween: 18,
             },
             850: {
-              slidesPerView: isPortfolio || isBlog || isReview ? 1 : 2,
+              slidesPerView: isPortfolio || isBlog || isReview ? 1 : 3,
               spaceBetween: 20,
             },
             1024: {

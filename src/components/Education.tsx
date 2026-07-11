@@ -37,7 +37,7 @@ export default function Education() {
           className="font-medium text-4xl sm:text-5xl lg:text-6xl text-[#FD853A]"
         />
       </div>
-      <div className="w-full lg:hidden">
+      <div className="w-full pt-10 md:hidden">
         {experiences.map((exp, index) => (
           <div
             key={index}
@@ -78,7 +78,7 @@ export default function Education() {
           </div>
         ))}
       </div>
-      <div className="w-full hidden scale-75 lg:flex justify-evenly">
+      <div className="w-full hidden scale-75 md:flex justify-evenly">
         <div className="flex flex-col justify-between w-[500px] gap-[60px]">
           {experiences.map((exp, index) => (
             <div key={index} className="flex flex-col gap-[14px] relative">

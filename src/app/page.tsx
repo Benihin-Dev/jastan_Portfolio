@@ -4,11 +4,10 @@ import DualToggleButtons from "@/components/ui/DualButtons";
 import Image from "next/image";
 import { Star } from "lucide-react";
 import OrangeButton from "@/components/ui/OrangeButton";
-import { blogs } from "../data/data";
-import { GenericSlider } from "@/components/ui/GenericSlider";
 import ClientOnly from "@/components/ui/ClientOnly";
 import Testimonials from "@/components/Testimonials";
 import Education from "@/components/Education";
+import SliderForBlog from "@/components/SliderForBlog";
 
 export default function Home() {
   return (
@@ -379,21 +378,24 @@ export default function Home() {
         </div> */}
 
       {/* Blog */}
-      <div className="flex flex-col w-full h-fit items-center gap-12 px-[71px] py-[97px]">
-        <div className="  w-full flex flex-col lg:flex-row items-center justify-between gap-6 pb-10 mb-6 md:mb-0">
-          <h1 className="text-[#344054] w-fit md:min-w-[215px] h-full font-bold text-4xl md:text-5xl">
+      <div className="flex flex-col w-full h-fit items-center gap-12 px-5 md:px-[71px] border">
+        <div className="  w-full flex flex-col lg:flex-row items-center justify-between gap-6">
+          <h1 className="text-[#344054] w-fit  h-full font-bold text-2xl md:text-5xl">
             From my blog post
           </h1>
           <a href="https://thecanofy.blogspot.com/" target="blank">
             <OrangeButton title="See All" className=" " />
           </a>
         </div>
-        <GenericSlider
-          data={blogs}
-          slidesPerView={3}
-          heightClass=""
-          cardType="blog"
-        />
+        <div className=" w-full md:hidden">
+          <SliderForBlog viewPort="mobile" />
+        </div>
+        <div className=" w-full hidden md:block lg:hidden">
+          <SliderForBlog viewPort="tablet" />
+        </div>
+        <div className=" w-full hidden lg:block">
+          <SliderForBlog viewPort="desktop" />
+        </div>
       </div>
     </div>
   );

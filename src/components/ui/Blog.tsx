@@ -15,7 +15,7 @@ const Blog: React.FC<BlogProps> = ({
   priority = false,
 }) => {
   return (
-    <div className="flex relative flex-col w-full items-start gap-[35px]  s md:scale-80">
+    <div className=" w-full md:scale-80">
       <a href={link} target="blank">
         <div className="relative w-full  rounded-3xl gap-[10px] overflow-hidden items-start group ">
           <Image

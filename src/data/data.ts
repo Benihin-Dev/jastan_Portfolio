@@ -15,9 +15,9 @@ export interface IconAndText {
 
 export interface Blog {
   image: string;
-  button: string;
+  button?: string;
   name: string;
-  date: string;
+  date?: string;
   title: string;
   link: string;
 }
