@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import {
   FacebookIcon,
   AtSign,
@@ -11,6 +13,9 @@ import CustomeText from "./ui/CustomeText";
 import Link from "next/link";
 import ClientOnly from "./ui/ClientOnly";
 import Image from "next/image";
+
+const SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbz-xZziHZR0U5_AuKoM7xP5HEgvQ6rC6Hp6t6-exZihfGruWgPqmKXrU5r1X7kFLnhj/exec";
 
 const Footer = () => {
   const navigation = ["Home", "About", "Qualification", "Blogs", "Contact"];
@@ -26,6 +31,57 @@ const Footer = () => {
   ];
 
   const contact = ["+94 754 540 123", "jastanric@outlook.com"];
+
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const isValidEmail = (value: string) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+  const handleSubscribe = async () => {
+    if (!email.trim()) {
+      setStatus("error");
+      setErrorMsg("Please enter your email.");
+      return;
+    }
+    if (!isValidEmail(email)) {
+      setStatus("error");
+      setErrorMsg("Please enter a valid email.");
+      return;
+    }
+
+    setStatus("loading");
+    setErrorMsg("");
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "contact",
+          email,
+        }),
+      });
+
+      // no-cors gives an opaque response, so we assume success if no throw
+      setStatus("success");
+      setEmail("");
+    } catch (err) {
+      console.error("Subscribe error:", err);
+      setStatus("error");
+      setErrorMsg("Something went wrong. Please try again.");
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleSubscribe();
+    }
+  };
 
   return (
     <footer className="w-full min-h-[400px] lg:h-[685px] px-4 sm:px-6 lg:px-[71px] py-[30px] sm:py-[35px] lg:py-[40px] flex flex-col bg-[#272727] rounded-t-2xl sm:rounded-t-3xl text-white justify-between">
@@ -45,7 +101,7 @@ const Footer = () => {
         </ClientOnly>
       </div>
 
-      <div className="border border-[#475467] w-full mt-6 md:mt-0"></div>
+      <div className="border border-[#475467] w-full mt-6 sm:mb-6 mb-0 lg:mt-0"></div>
 
       {/* Navigation Links */}
       <div className="flex flex-col lg:flex-row justify-between w-full max-w-[1298px] h-auto lg:h-[239px] gap-8 lg:gap-0 mt-8 md:mt-0">
@@ -134,11 +190,22 @@ const Footer = () => {
           <div className="relative w-full h-[45px] sm:h-[48px] lg:h-[51px]">
             <ClientOnly>
               <input
-                type="text"
+                type="email"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  if (status !== "idle") setStatus("idle");
+                }}
+                onKeyDown={handleKeyDown}
                 placeholder="Email Address"
-                className="w-full h-full bg-white text-black text-[14px] sm:text-[15px] lg:text-[16px] px-3 sm:px-4 py-2 sm:py-3 pr-12 rounded-[8px] sm:rounded-[10px] border-none outline-none"
+                disabled={status === "loading"}
+                className="w-full h-full bg-white text-black text-[14px] sm:text-[15px] lg:text-[16px] px-3 sm:px-4 py-2 sm:py-3 pr-12 rounded-[8px] sm:rounded-[10px] border-none outline-none disabled:opacity-70"
               />
-              <button className="absolute top-0 right-0 h-full w-[45px] sm:w-[48px] lg:w-[51px] bg-[#FD853A] rounded-r-[8px] sm:rounded-r-[10px] flex items-center justify-center cursor-pointer hover:bg-[#e46e24] transition-colors">
+              <button
+                onClick={handleSubscribe}
+                disabled={status === "loading"}
+                className="absolute top-0 right-0 h-full w-[45px] sm:w-[48px] lg:w-[51px] bg-[#FD853A] rounded-r-[8px] sm:rounded-r-[10px] flex items-center justify-center cursor-pointer hover:bg-[#e46e24] transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+              >
                 <svg
                   width="20"
                   height="21"
@@ -154,6 +221,16 @@ const Footer = () => {
                 </svg>
               </button>
             </ClientOnly>
+            {status === "error" && (
+              <p className="absolute -bottom-6 left-0 text-red-400 text-[13px]">
+                {errorMsg}
+              </p>
+            )}
+            {status === "success" && (
+              <p className="absolute -bottom-6 left-0 text-green-400 text-[13px]">
+                Thanks! I&apos;ll be in touch soon.
+              </p>
+            )}
           </div>
         </div>
       </div>

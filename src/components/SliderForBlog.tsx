@@ -16,22 +16,25 @@ export default function SliderForBlog({ viewPort }: SliderForBlogProps) {
 
   // Test by applying styles directly
   const dotStyles = {
-    width: "35px",
-    height: "3px",
-    borderRadius: "5%",
-    backgroundColor: "#a0a0a0",
+    width: "18px",
+    height: "18px",
+    borderRadius: "9999px",
+    backgroundColor: "#d1d5db",
+    transition: "all 0.3s ease",
   };
 
   const activeDotStyles = {
     ...dotStyles,
-    backgroundColor: "#000000",
+    width: "60px", // longer, pill shape
+    borderRadius: "10px",
+    backgroundColor: "#fd853a",
   };
 
   return (
     <div className={` w-full px-1 sm:px-0  pb-10  h-full  relative  `}>
       <Slider
         ref={sliderRef}
-        dots={false}
+        dots={true}
         infinite={true}
         arrows={false}
         slidesToShow={
@@ -39,9 +42,9 @@ export default function SliderForBlog({ viewPort }: SliderForBlogProps) {
         }
         slidesToScroll={1}
         autoplay={true}
-        autoplaySpeed={6000}
+        autoplaySpeed={4000}
         speed={500}
-        dotsClass="slick-dots custom-dots top-[85%] md:left-[110px] lg:left-[210px] md:top-[-20%] "
+        dotsClass="slick-dots flex item-center  justify-center -gap-2 md:gap-2 custom-dots  "
         customPaging={(i) => {
           const currentSlide = (
             sliderRef.current as unknown as {
@@ -51,7 +54,7 @@ export default function SliderForBlog({ viewPort }: SliderForBlogProps) {
 
           return (
             <div
-              className="flex items-center justify-center gap-10"
+              className="flex items-center scale-80 md:scale-100 justify-center gap-12"
               style={i === currentSlide ? activeDotStyles : dotStyles}
             ></div>
           );
@@ -74,7 +77,7 @@ export default function SliderForBlog({ viewPort }: SliderForBlogProps) {
         ]}
       >
         {slides.map((item, i) => (
-          <div key={i} className={` w-full h-full px-5 md:px-0  `}>
+          <div key={i} className={` w-full h-full pb-10 sm:pb-0 px-5 md:px-0  `}>
             <Blog
               name={item.name}
               image={item.image}

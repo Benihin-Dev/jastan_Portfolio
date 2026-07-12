@@ -37,7 +37,7 @@ export default function Education() {
           className="font-medium text-4xl sm:text-5xl lg:text-6xl text-[#FD853A]"
         />
       </div>
-      <div className="w-full pt-10 md:hidden">
+      <div className="w-full sm:px-5 pt-10 md:hidden">
         {experiences.map((exp, index) => (
           <div
             key={index}

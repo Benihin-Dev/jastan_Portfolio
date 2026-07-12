@@ -34,10 +34,10 @@ const Blog: React.FC<BlogProps> = ({
 
           <div className="absolute  rounded-3xl w-full h-4/5 top-0 group-hover:-translate-y-[50%] md:group-hover:translate-y-[0%] md:-translate-y-[50%] duration-400 transition-all left-0 z-20 bg-gradient-to-b from-[#2a512ad1]  md:from-[#2a512ade]  flex to-transparent ">
             <div className=" w-full px-5 md:px-10 md:py-10 py-5">
-              <p className=" text-sm md:text-xl scale-y-130 text-[#72be5f] tracking-[2px]">
+              <p className=" text-sm md:text-xl scale-y-130 text-[#6bc255] tracking-[2px]">
                 {name}
               </p>
-              <p className=" text-sm md:text-2xl italic text-white leading-4 md:leading-6">
+              <p className=" text-sm md:text-2xl italic text-[#cdcdcd] leading-4 md:leading-6">
                 {title}
               </p>
             </div>

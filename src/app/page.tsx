@@ -8,6 +8,7 @@ import ClientOnly from "@/components/ui/ClientOnly";
 import Testimonials from "@/components/Testimonials";
 import Education from "@/components/Education";
 import SliderForBlog from "@/components/SliderForBlog";
+import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
@@ -72,8 +73,8 @@ export default function Home() {
             </div>
 
             <Image
-              src="/girl.svg"
-              alt="abhiruchi"
+              src="/jastan3.png"
+              alt="jastanRic"
               width={952}
               height={636}
               className="relative z-20 w-full h-auto object-contain mt-5"
@@ -135,30 +136,43 @@ export default function Home() {
           className="object-cover absolute opacity-50"
         />
 
-        <div className="w-full flex flex-col items-start justify-between gap-6 relative z-10">
-          <div className="flex gap-2.5">
-            <CustomeText
-              title="About"
-              className="font-medium text-3xl sm:text-4xl lg:text-5xl text-[#FCFCFD]"
-            />
-            <CustomeText
-              title="Me"
-              className="font-medium text-3xl sm:text-4xl lg:text-5xl text-[#FD853A]"
-            />
+        <div className=" w-full flex items-center justify-between">
+          <div className="w-full md:w-3/5 flex flex-col items-start justify-between gap-6 relative z-10">
+            <div className="flex gap-2.5">
+              <CustomeText
+                title="About"
+                className="font-medium text-3xl sm:text-4xl lg:text-5xl text-[#FCFCFD]"
+              />
+              <CustomeText
+                title="Me"
+                className="font-medium text-3xl sm:text-4xl lg:text-5xl text-[#FD853A]"
+              />
+            </div>
+            <div className="relative flex  justify-center items-center   w-full rounded-[37px] lg:rounded-[40px] bg-white/10 backdrop-blur-[15px] border border-white/50  transition-colors duration-300 ease-in-out overflow-hidden px-4 lg:px-16 py-16 text-gray-300">
+              <p className=" w-full text-center">
+                I am a graduate of the Faculty of Technology at University of
+                Sri Jayewardenepura, Sri Lanka, specializing in Industrial
+                Biosystems Technology. I am currently pursuing a Master&apos;s
+                degree in Forestry and Environmental Management to further
+                enhance my knowledge and expertise in sustainable natural
+                resource management, forest conservation, and environmental
+                stewardship. I am passionate about Wildlife, Forestry,
+                Environmental Conservation, and Scientific Research and I
+                continuously strive to expand my skills and contribute
+                meaningfully to the protection and sustainable management of
+                natural ecosystems.
+              </p>
+            </div>
           </div>
-          <div className="relative flex  justify-center items-center   w-full rounded-[37px] lg:rounded-[40px] bg-white/10 backdrop-blur-[15px] border border-white/50  transition-colors duration-300 ease-in-out overflow-hidden px-4 lg:px-16 py-16 text-gray-300">
-            <p className=" w-full text-center">
-              I am a graduate of the Faculty of Technology at University of Sri
-              Jayewardenepura, Sri Lanka, specializing in Industrial Biosystems
-              Technology. I am currently pursuing a Master&apos;s degree in
-              Forestry and Environmental Management to further enhance my
-              knowledge and expertise in sustainable natural resource
-              management, forest conservation, and environmental stewardship. I
-              am passionate about Wildlife, Forestry, Environmental
-              Conservation, and Scientific Research and I continuously strive to
-              expand my skills and contribute meaningfully to the protection and
-              sustainable management of natural ecosystems.
-            </p>
+          <div className=" hidden md:flex w-[40%] ">
+            <Image
+              src="/jastan2.png"
+              alt="jastanRic"
+              width={952}
+              height={636}
+              className="relative z-20 w-full scale-120 translate-y-16 h-auto object-contain mt-5"
+              priority
+            />{" "}
           </div>
         </div>
       </div>
@@ -168,21 +182,21 @@ export default function Home() {
 
       {/* Hire Me */}
       <div className="w-full flex flex-col lg:flex-row items-center justify-between px-6 lg:px-[80px] py-20 lg:py-[122px] bg-[#F2F4F7] rounded-[32px] lg:rounded-[50px] gap-12 lg:gap-[96px]">
-        <div className="w-full  max-w-[500px] flex flex-col items-start gap-8">
+        <div className="w-full  max-w-[500px] flex flex-col lg:items-end gap-8">
           <div className="flex flex-wrap text-4xl sm:text-5xl lg:text-6xl font-semibold gap-2">
             <CustomeText title="Why" className="text-[#344054]" />
             <CustomeText title="Hire me" className="text-[#FD853A]" />
             <CustomeText title="?" className="text-[#344054]" />
           </div>
 
-          <p className="text-[#98A2B3] text-base sm:text-lg lg:text-xl leading-relaxed max-w-lg">
+          <p className="text-[#98A2B3] lg:text-right text-base sm:text-lg lg:text-xl leading-relaxed max-w-lg">
             I am passionate about wildlife and have strong field awareness
             developed through my academic background. My ability to understand
             animal behavior and communicate clearly adds value in creating an
             informative, safe, and memorable wildlife experience.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-8 w-full">
+          <div className="flex flex-col sm:flex-row lg:justify-end gap-8 w-full">
             <div className="flex flex-col">
               <CustomeText
                 title="Flora"
@@ -206,20 +220,22 @@ export default function Home() {
           </div>
 
           <ClientOnly>
-            <button className="w-full cursor-pointer sm:w-auto px-6 py-4 rounded-[20px] border border-[#151515] text-[#151515] font-semibold text-2xl sm:text-[28px] transition-all duration-300 hover:bg-[#151515] hover:text-white focus:bg-[#151515] focus:text-white">
+            <button className="w-full md:w-fit cursor-pointer sm:w-auto px-6 py-4 rounded-[20px] border border-[#151515] text-[#151515] font-semibold text-2xl sm:text-[28px] transition-all duration-300 hover:bg-[#151515] hover:text-white focus:bg-[#151515] focus:text-white">
               Hire me
             </button>
           </ClientOnly>
         </div>
         <div className="relative w-full max-w-xl  aspect-square group mx-auto lg:mx-0">
           <Image
-            src="/Property 1=Default.svg"
+            src="/jastan1.png"
             alt="Hire me"
             fill
-            className="object-contain -scale-x-100 z-10 transition-all duration-300 ease-in-out group-hover:translate-y-3"
+            className="object-contain -scale-x-100 z-20 transition-all duration-300 ease-in-out group-hover:translate-y-3"
             priority
           />
-
+          <div className=" absolute w-3/5 h-[70%] translate-1/3 z-10 rounded-[20%] bg-[#feb173] top-0 left-0">
+            <div className=" relative w-full h-full"></div>
+          </div>
           <Image
             src="/Property 1=Variant2.svg"
             alt="Hire me"
@@ -300,54 +316,7 @@ export default function Home() {
       <Testimonials />
 
       {/* Contact */}
-      <div className="w-full bg-white flex flex-col items-center justify-center py-16 lg:pt-32 scale-85 px-4 sm:px-6 lg:px-[71px] gap-10">
-        <div className="w-full max-w-4xl text-center flex flex-col items-center gap-4">
-          <CustomeText
-            title="Have an Awesome Research"
-            className="font-semibold text-3xl sm:text-4xl md:text-5xl lg:text-[64px] text-[#344054]"
-          />
-          <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4">
-            <CustomeText
-              title="Idea?"
-              className="font-semibold text-3xl sm:text-4xl md:text-5xl lg:text-[64px] text-[#344054]"
-            />
-            <CustomeText
-              title="Let's Discuss"
-              className="font-semibold text-3xl sm:text-4xl md:text-5xl lg:text-[64px] text-[#FD853A]"
-            />
-          </div>
-        </div>
-
-        <div className="w-full max-w-3xl flex md:flex-row items-center justify-between gap-4 px-3 py-2 md:px-6 md:py-4 rounded-full border border-[#E4E7EC] bg-white">
-          <div className="w-9 h-9 md:w-[50px] md:h-[50px] flex items-center justify-center rounded-full bg-[#FFEAD5] shrink-0">
-            <Image src="/sms.svg" alt="message icon" width={24} height={24} />
-          </div>
-
-          <ClientOnly>
-            <input
-              type="text"
-              placeholder="Enter Email Address"
-              className="w-full md:flex-1 px-4 py-2 rounded-full text-center md:text-left text-base sm:text-lg outline-none bg-transparent text-[#1D2939] placeholder:text-[#667085]"
-            />
-
-            <button className="w-fit px-6 md:px-12 py-1 md:py-3 rounded-full bg-[#FD853A] hover:bg-[#e4752f] text-white text-lg font-semibold transition duration-300">
-              Send
-            </button>
-          </ClientOnly>
-        </div>
-
-        {/* <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-sm sm:text-base font-medium text-[#000000]">
-          {iconAndText.map((data, index) => {
-            const Icon = data.icon;
-            return (
-              <div key={index} className="flex items-center gap-2">
-                <Icon size={20} />
-                {data.name}
-              </div>
-            );
-          })}
-        </div> */}
-      </div>
+      <Contact />
 
       {/* Skills Slider */}
       {/* <div className="relative w-full h-[147px] rounded-tl-4xl rounded-br-4xl overflow-hidden">
@@ -378,7 +347,7 @@ export default function Home() {
         </div> */}
 
       {/* Blog */}
-      <div className="flex flex-col w-full h-fit items-center gap-12 px-5 md:px-[71px] border">
+      <div className="flex flex-col w-full h-fit items-center gap-12 px-5 md:px-[71px]">
         <div className="  w-full flex flex-col lg:flex-row items-center justify-between gap-6">
           <h1 className="text-[#344054] w-fit  h-full font-bold text-2xl md:text-5xl">
             From my blog post
