@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 
@@ -17,6 +17,42 @@ const Navbar = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const scrollToSection = (label: string) => {
+    setSelected(label);
+    setIsMobileMenuOpen(false);
+    const id = label.toLowerCase();
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  // Scroll-spy: highlight nav item based on which section is in view
+  useEffect(() => {
+    const sectionIds = ["home", "about", "qualification", "blogs", "contact"];
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            const label =
+              id === "home" ? "Home" : id.charAt(0).toUpperCase() + id.slice(1);
+            setSelected(label);
+          }
+        });
+      },
+      { rootMargin: "-45% 0px -45% 0px", threshold: 0 },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <nav className="relative w-full max-w-[1284px] h-[80px] bg-[#171717] text-white px-10 lg:px-2.5 rounded-[25px] sm:rounded-[35px] lg:rounded-[50px] backdrop-blur-[15px] border border-white mx-auto flex items-center justify-between z-50">
       {/* Left Menu (Desktop) */}
@@ -28,7 +64,7 @@ const Navbar = () => {
           >
             <button
               className={`w-[139px] h-[60px] flex items-center justify-center rounded-[60px] text-base font-medium transition duration-300 ${selected === item.label ? "bg-[#FD853A] font-bold" : "bg-transparent hover:bg-[#232323]"}`}
-              onClick={() => setSelected(item.label)}
+              onClick={() => scrollToSection(item.label)}
             >
               {item.label}
             </button>
@@ -38,7 +74,7 @@ const Navbar = () => {
 
       {/* Logo */}
       <div
-        onClick={() => setSelected("Home")}
+        onClick={() => scrollToSection("Home")}
         className={`flex flex-col items-center flex-shrink-0 cursor-pointer border-x-2 px-12  rounded-full ${selected === "Home" ? "border-[#d2cac6]" : " border-transparent hover:bg-[#232323]"} transition duration-300 h-[60px]`}
       >
         <div className=" translate-y-1 text-[#fd853a] rounded-full flex items-center justify-center mb-1">
@@ -65,7 +101,7 @@ const Navbar = () => {
           >
             <button
               className={`w-[139px] h-[60px] flex items-center justify-center rounded-[60px] text-base font-medium transition duration-300 ${selected === item.label ? "bg-[#FD853A] font-bold" : "bg-transparent hover:bg-[#232323]"}`}
-              onClick={() => setSelected(item.label)}
+              onClick={() => scrollToSection(item.label)}
             >
               {item.label}
             </button>
@@ -89,10 +125,7 @@ const Navbar = () => {
               <button
                 key={item.label}
                 className={`w-full h-[50px] flex items-center justify-center rounded-[25px] text-base font-medium transition duration-300 ${selected === item.label ? "bg-[#FD853A] font-bold" : "bg-transparent hover:bg-[#232323]"}`}
-                onClick={() => {
-                  setSelected(item.label);
-                  setIsMobileMenuOpen(false);
-                }}
+                onClick={() => scrollToSection(item.label)}
               >
                 {item.label}
               </button>

@@ -9,6 +9,7 @@ import Testimonials from "@/components/Testimonials";
 import Education from "@/components/Education";
 import SliderForBlog from "@/components/SliderForBlog";
 import Contact from "@/components/Contact";
+import HireMe from "@/components/HireMe";
 
 export default function Home() {
   return (
@@ -16,7 +17,10 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <div className="group flex flex-col md:flex-row w-full  px-4 sm:px-6 md:px-8 gap-6 sm:gap-8 md:gap-[71px] items-center justify-center mt-6 ">
+      <div
+        id="home"
+        className="group flex flex-col md:flex-row w-full  px-4 sm:px-6 md:px-8 gap-6 sm:gap-8 md:gap-[71px] items-center justify-center mt-6 "
+      >
         <div className="hidden lg:flex flex-col w-[328px] h-[138px] items-start justify-start transition-transform duration-300 ease-in-out group-hover:-translate-y-[250px] group-focus:-translate-y-[250px]">
           <div className="text-[#344054] text-[36px] leading-none">&quot;</div>
           <div className="text-[#344054] text-[16px] w-full font-medium leading-snug relative">
@@ -128,7 +132,10 @@ export default function Home() {
           ecosystems.
         </p>
       </div> */}
-      <div className="relative flex flex-col w-full gap-16 sm:gap-[96px] items-center px-4 sm:px-6 lg:px-[71px] py-16 sm:py-[60px] bg-[#171717] rounded-[30px] sm:rounded-[50px] overflow-hidden  -mt-12 lg:-mt-28">
+      <div
+        id="about"
+        className="relative flex flex-col w-full gap-16 sm:gap-[96px] items-center px-4 sm:px-6 lg:px-[71px] py-16 sm:py-[60px] bg-[#171717] rounded-[30px] sm:rounded-[50px] overflow-hidden  -mt-12 lg:-mt-28"
+      >
         <Image
           src="/Frame 77.svg"
           alt="image"
@@ -178,73 +185,12 @@ export default function Home() {
       </div>
 
       {/* My Educational Qualification */}
-      <Education />
+      <div id="qualification">
+        <Education />
+      </div>
 
       {/* Hire Me */}
-      <div className="w-full flex flex-col lg:flex-row items-center justify-between px-6 lg:px-[80px] py-20 lg:py-[122px] bg-[#F2F4F7] rounded-[32px] lg:rounded-[50px] gap-12 lg:gap-[96px]">
-        <div className="w-full  max-w-[500px] flex flex-col lg:items-end gap-8">
-          <div className="flex flex-wrap text-4xl sm:text-5xl lg:text-6xl font-semibold gap-2">
-            <CustomeText title="Why" className="text-[#344054]" />
-            <CustomeText title="Hire me" className="text-[#FD853A]" />
-            <CustomeText title="?" className="text-[#344054]" />
-          </div>
-
-          <p className="text-[#98A2B3] lg:text-right text-base sm:text-lg lg:text-xl leading-relaxed max-w-lg">
-            I am passionate about wildlife and have strong field awareness
-            developed through my academic background. My ability to understand
-            animal behavior and communicate clearly adds value in creating an
-            informative, safe, and memorable wildlife experience.
-          </p>
-
-          <div className="flex flex-col sm:flex-row lg:justify-end gap-8 w-full">
-            <div className="flex flex-col">
-              <CustomeText
-                title="Flora"
-                className="text-[32px] sm:text-[36px] font-medium text-[#1D2939]"
-              />
-              <CustomeText
-                title="Plant Expertise"
-                className="text-lg text-[#667085]"
-              />
-            </div>
-            <div className="flex flex-col">
-              <CustomeText
-                title="Fauna"
-                className="text-[32px] sm:text-[36px] font-medium text-[#1D2939]"
-              />
-              <CustomeText
-                title="Animal Expertise"
-                className="text-lg text-[#667085]"
-              />
-            </div>
-          </div>
-
-          <ClientOnly>
-            <button className="w-full md:w-fit cursor-pointer sm:w-auto px-6 py-4 rounded-[20px] border border-[#151515] text-[#151515] font-semibold text-2xl sm:text-[28px] transition-all duration-300 hover:bg-[#151515] hover:text-white focus:bg-[#151515] focus:text-white">
-              Hire me
-            </button>
-          </ClientOnly>
-        </div>
-        <div className="relative w-full max-w-xl  aspect-square group mx-auto lg:mx-0">
-          <Image
-            src="/jastan1.png"
-            alt="Hire me"
-            fill
-            className="object-contain -scale-x-100 z-20 transition-all duration-300 ease-in-out group-hover:translate-y-3"
-            priority
-          />
-          <div className=" absolute w-3/5 h-[70%] translate-1/3 z-10 rounded-[20%] bg-[#feb173] top-0 left-0">
-            <div className=" relative w-full h-full"></div>
-          </div>
-          <Image
-            src="/Property 1=Variant2.svg"
-            alt="Hire me"
-            fill
-            className="object-contain absolute -translate-y-[15px] transition-all duration-300 ease-in-out opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-110"
-            priority
-          />
-        </div>
-      </div>
+      <HireMe />
 
       {/* Portfolio */}
       {/* <div className="w-full flex flex-col items-center px-4 sm:px-6 lg:px-[71px] py-12 sm:py-20 gap-10 lg:gap-12">
@@ -316,7 +262,9 @@ export default function Home() {
       <Testimonials />
 
       {/* Contact */}
-      <Contact />
+      <div id="contact">
+        <Contact />
+      </div>
 
       {/* Skills Slider */}
       {/* <div className="relative w-full h-[147px] rounded-tl-4xl rounded-br-4xl overflow-hidden">
@@ -347,7 +295,10 @@ export default function Home() {
         </div> */}
 
       {/* Blog */}
-      <div className="flex flex-col w-full h-fit items-center gap-12 px-5 md:px-[71px]">
+      <div
+        id="blogs"
+        className="flex flex-col w-full h-fit items-center gap-12 px-5 md:px-[71px]"
+      >
         <div className="  w-full flex flex-col lg:flex-row items-center justify-between gap-6">
           <h1 className="text-[#344054] w-fit  h-full font-bold text-2xl md:text-5xl">
             From my blog post
