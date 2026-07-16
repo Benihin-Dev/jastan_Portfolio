@@ -81,11 +81,11 @@ export default function Home() {
               width={888}
               height={888}
               quality={90}
-              className="relative z-20  border w-full lg:w-11/12 mx-auto  h-auto object-cover mt-5"
+              className="relative z-20 lg:-translate-y-5  border w-full lg:w-11/12 mx-auto  h-auto object-cover mt-5"
               priority
             />
 
-            <div className="absolute bottom-[10%] z-30 w-full hidden md:flex justify-center">
+            <div className="absolute bottom-[10%] z-50 w-full hidden md:flex justify-center">
               <DualToggleButtons left="Resume" right="Hire Me" />
             </div>
           </div>
@@ -134,7 +134,7 @@ export default function Home() {
       </div> */}
       <div
         id="about"
-        className="relative flex flex-col w-full gap-16 sm:gap-[96px] items-center px-4 sm:px-6 lg:px-[71px] py-16 sm:py-[60px] bg-[#171717] rounded-[30px] sm:rounded-[50px] overflow-hidden  -mt-12 lg:-mt-28"
+        className="relative sm:-translate-y-20 md:-translate-y-20 lg:-translate-y-6 flex flex-col w-full gap-16 sm:gap-[96px] items-center px-4 sm:px-6 lg:px-[71px] py-16 sm:py-[60px] bg-[#171717] rounded-[30px] sm:rounded-[50px] overflow-hidden  -mt-12 lg:-mt-28"
       >
         <Image
           src="/Frame 77.svg"
