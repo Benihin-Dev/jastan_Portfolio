@@ -31,10 +31,10 @@ export default function SliderForBlog({ viewPort }: SliderForBlogProps) {
   };
 
   return (
-    <div className={` w-full px-1 sm:px-0  pb-10  h-full  relative  `}>
+    <div className={` w-full px-1 sm:px-0 h-full  relative  `}>
       <Slider
         ref={sliderRef}
-        dots={true}
+        dots={false}
         infinite={true}
         arrows={false}
         slidesToShow={
@@ -54,7 +54,7 @@ export default function SliderForBlog({ viewPort }: SliderForBlogProps) {
 
           return (
             <div
-              className="flex items-center scale-80 md:scale-100 justify-center gap-12"
+              className="flex items-center md:translate-y-5 scale-80 md:scale-100 justify-center gap-12"
               style={i === currentSlide ? activeDotStyles : dotStyles}
             ></div>
           );
@@ -77,12 +77,13 @@ export default function SliderForBlog({ viewPort }: SliderForBlogProps) {
         ]}
       >
         {slides.map((item, i) => (
-          <div key={i} className={` w-full h-full pb-10 sm:pb-0 px-5 md:px-0  `}>
+          <div key={i} className={` w-full h-full `}>
             <Blog
               name={item.name}
               image={item.image}
               title={item.title}
               link={item.link}
+              date={item.date}
             />
           </div>
         ))}

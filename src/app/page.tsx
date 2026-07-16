@@ -3,7 +3,6 @@ import CustomeText from "@/components/ui/CustomeText";
 import DualToggleButtons from "@/components/ui/DualButtons";
 import Image from "next/image";
 import { Star } from "lucide-react";
-import OrangeButton from "@/components/ui/OrangeButton";
 import ClientOnly from "@/components/ui/ClientOnly";
 import Testimonials from "@/components/Testimonials";
 import Education from "@/components/Education";
@@ -69,19 +68,20 @@ export default function Home() {
               <Image
                 src="/Frame 68.svg"
                 alt="Frame Decoration"
-                width={1017}
+                width={1024}
                 height={688}
-                className="object-contain w-full h-auto"
+                className="object-contain w-full  h-auto"
                 priority
               />
             </div>
 
             <Image
-              src="/jastan3.png"
+              src="/jastanR1.png"
               alt="jastanRic"
-              width={952}
-              height={636}
-              className="relative z-20 w-full h-auto object-contain mt-5"
+              width={888}
+              height={888}
+              quality={90}
+              className="relative z-20  border w-full lg:w-11/12 mx-auto  h-auto object-cover mt-5"
               priority
             />
 
@@ -297,15 +297,15 @@ export default function Home() {
       {/* Blog */}
       <div
         id="blogs"
-        className="flex flex-col w-full h-fit items-center gap-12 px-5 md:px-[71px]"
+        className="flex flex-col w-full h-fit items-center gap-12 px-5 md:px-[71px] bg-[#f2f4f7] py-10 relative"
       >
         <div className="  w-full flex flex-col lg:flex-row items-center justify-between gap-6">
-          <h1 className="text-[#344054] w-fit  h-full font-bold text-2xl md:text-5xl">
-            From my blog post
+          <h1 className="text-[#344054] w-full md:pb-5 font-semibold text-center text-4xl md:text-5xl">
+            Latest blogs
           </h1>
-          <a href="https://thecanofy.blogspot.com/" target="blank">
+          {/* <a href="https://thecanofy.blogspot.com/" target="blank">
             <OrangeButton title="See All" className=" " />
-          </a>
+          </a> */}
         </div>
         <div className=" w-full md:hidden">
           <SliderForBlog viewPort="mobile" />
@@ -316,6 +316,14 @@ export default function Home() {
         <div className=" w-full hidden lg:block">
           <SliderForBlog viewPort="desktop" />
         </div>
+        <div className=" w-full flex items-center  justify-center">
+          <a href="https://thecanofy.blogspot.com/" target="blank">
+            <button className=" border border-gray-400 px-5 py-2 text-[#344054] cursor-pointer hover:border-gray-700 duration-300 transition-all rounded-[2px]">
+              LEARN MORE
+            </button>
+          </a>
+        </div>
+        <div className=" w-full h-52 absolute top-[100%] z-0 left-0  bg-[#f2f4f7]"></div>
       </div>
     </div>
   );

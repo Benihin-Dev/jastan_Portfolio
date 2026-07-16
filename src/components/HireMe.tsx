@@ -63,7 +63,7 @@ export default function HireMe() {
           src="/jastan1.png"
           alt="Hire me"
           fill
-          className="object-contain -scale-x-100 z-20 transition-all duration-300 ease-in-out group-hover:translate-y-3"
+          className="object-contain z-20 transition-all duration-300 ease-in-out group-hover:translate-y-3"
           priority
         />
         <div className=" absolute w-3/5 h-[70%] translate-1/3 z-10 rounded-[20%] bg-[#feb173] top-0 left-0">
