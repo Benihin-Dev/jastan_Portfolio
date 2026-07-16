@@ -76,7 +76,7 @@ export default function Home() {
             </div>
 
             <Image
-              src="/jastanR1.png"
+              src="/jastanR3.png"
               alt="jastanRic"
               width={888}
               height={888}
