@@ -79,12 +79,6 @@ export default function Testimonials() {
   const [popUpState, setPopUpState] = useState<boolean>(false);
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
-  const handlePopup = () => {
-    setIsVisible(true);
-    // slight delay so the element is mounted before opacity transitions in
-    requestAnimationFrame(() => setPopUpState(true));
-  };
-
   const closePopup = () => {
     setPopUpState(false); // triggers fade-out transition
     setTimeout(() => setIsVisible(false), 300); // matches duration-300, then unmounts/hides
@@ -139,8 +133,15 @@ export default function Testimonials() {
 
       <div className="bottom-[20%] left-0 right-0 w-full z-10">
         {/* for Desktop */}
-        <div className="hidden lg:flex w-full justify-center">
+        <div className="hidden lg:flex 2xl:hidden w-full justify-center">
           <SliderForReview data={reviewData} type="normal" viewPort="desktop" />
+        </div>{" "}
+        <div className="hidden 2xl:flex w-full justify-center">
+          <SliderForReview
+            data={reviewData}
+            type="normal"
+            viewPort="L-desktop"
+          />
         </div>
         {/* for Tablet */}
         <div className="hidden md:block lg:hidden w-full">
@@ -161,19 +162,18 @@ export default function Testimonials() {
         <div className=" w-full flex items-center justify-end -translate-y-16 sm:translate-y-0">
           <div className="flex items-center justify-center gap-2 scale-80 translate-x-[10%] sm:translate-x-0 sm:scale-100">
             {/* left Button */}
-            <button
-              onClick={() => {
-                handlePopup();
-              }}
-              className={`group flex items-center justify-center gap-2.5 px-5 py-2.5 rounded-xl transition-all duration-300 ease-in-out cursor-pointer bg-white/10 backdrop-blur-[5px] text-[white] border border-[#c9c9c994] shadow-md  hover:bg-[#ffffff70]  hover:text-[#000000] `}
-            >
-              {" "}
-              <span className=" whitespace-nowrap">Share Your Sighting</span>
-              <CopyPlus
-                size={16}
-                className={`transition-all duration-300 opacity-100 translate-x-0 group-hover:opacity-100`}
-              />
-            </button>
+            <a href="https://g.page/r/CaGmieHCmSRvEBM/review">
+              <button
+                className={`group flex items-center justify-center gap-2.5 px-5 py-2.5 rounded-xl transition-all duration-300 ease-in-out cursor-pointer bg-white/10 backdrop-blur-[5px] text-[white] border border-[#c9c9c994] shadow-md  hover:bg-[#ffffff70]  hover:text-[#000000] `}
+              >
+                {" "}
+                <span className=" whitespace-nowrap">Share Your Sighting</span>
+                <CopyPlus
+                  size={16}
+                  className={`transition-all duration-300 opacity-100 translate-x-0 group-hover:opacity-100`}
+                />
+              </button>
+            </a>
 
             {/* right Me Button */}
             <button
@@ -189,15 +189,11 @@ export default function Testimonials() {
           </div>
         </div>
       </div>
-
-      <div
-        onClick={() => {
-          handlePopup();
-        }}
-        className=" absolute -top-0 -translate-y-1/2 left-5 size-[64px] cursor-pointer hover:scale-110 border border-[#f2f4f7] focus:scale-110 duration-300 flex items-center justify-center bg-[#fd853ae2] backdrop-blur-[14px] rounded-full z-[60]"
-      >
-        <CircleFadingPlus className=" font-thin size-12 text-[#000000] " />
-      </div>
+      <a href="https://g.page/r/CaGmieHCmSRvEBM/review">
+        <div className=" absolute -top-0 -translate-y-1/2 left-5 size-[64px] cursor-pointer hover:scale-110 border border-[#f2f4f7] focus:scale-110 duration-300 flex items-center justify-center bg-[#fd853ae2] backdrop-blur-[14px] rounded-full z-[60]">
+          <CircleFadingPlus className=" font-thin size-12 text-[#000000] " />
+        </div>
+      </a>
       {/* Form for get reviews */}
       {isVisible && (
         <div

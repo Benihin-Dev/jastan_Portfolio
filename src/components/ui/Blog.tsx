@@ -47,14 +47,14 @@ const Blog: React.FC<BlogProps> = ({
     // </div>
     <div className=" w-full md:px-5 pb-2 ">
       <a href={link}>
-        <div className=" w-full px-5 py-8 cursor-pointer group duration-300 transition-all  bg-white shadow-[6px_6px_2px_-2px_#bababa]">
-          <div className=" w-full h-fit overflow-hidden">
+        <div className=" w-full px-5 py-8 my-2 cursor-pointer   duration-300 transition-all  hover:scale-103  bg-white shadow-[6px_6px_2px_-2px_#bababa]">
+          <div className=" w-full h-fit  ">
             <Image
               src={image}
               alt="image"
               width={426}
               height={300}
-              className="w-full h-full group-hover:scale-110  object-cover cursor-pointer bg-[#bababa] transition-all duration-400"
+              className="w-full h-full  object-cover cursor-pointer bg-[#bababa] transition-all duration-400"
               priority={priority}
             />
           </div>

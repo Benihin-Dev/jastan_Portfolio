@@ -22,8 +22,8 @@ export default function Education() {
     setTimeout(() => setIsVisible(false), 300); // matches duration-300, then unmounts/hides
   };
   return (
-    <div className="w-full flex flex-col items-start mx-auto px-4 sm:px-6 lg:px-[71px] py-8 lg:pt-24 lg:pb-10">
-      <div className="w-full pb-20 md:pb-10 md:flex  items-start justify-center space-x-2.5 text-center lg:text-lef translate-y-10">
+    <div className="w-full flex flex-col items-start mx-auto pb-10 md:pb-16 lg:pb-0">
+      <div className="w-full pb-20 md:pb-10 md:flex items-start justify-center space-x-2.5 text-center lg:text-lef translate-y-10">
         <CustomeText
           title="My"
           className="font-medium text-4xl sm:text-5xl lg:text-6xl text-[#344054]"
@@ -37,7 +37,7 @@ export default function Education() {
           className="font-medium text-4xl sm:text-5xl lg:text-6xl text-[#FD853A]"
         />
       </div>
-      <div className="w-full sm:px-5 pt-10 md:hidden">
+      <div className="w-11/12 mx-auto sm:px-5 pt-10 lg:hidden">
         {experiences.map((exp, index) => (
           <div
             key={index}
@@ -78,7 +78,7 @@ export default function Education() {
           </div>
         ))}
       </div>
-      <div className="w-full hidden scale-75 md:flex justify-evenly">
+      <div className="w-full hidden scale-75 -translate-x-8 lg:flex justify-evenly">
         <div className="flex flex-col justify-between w-[500px] gap-[60px]">
           {experiences.map((exp, index) => (
             <div key={index} className="flex flex-col gap-[14px] relative">
@@ -106,7 +106,7 @@ export default function Education() {
           ))}
         </div>
 
-        <div className="relative flex flex-col items-center justify-between">
+        <div className="relative flex -translate-x-5 flex-col items-center justify-between">
           <div className="absolute top-0 bottom-0 w-[2px] border-l-2 border-dashed border-[#1D2939]" />
           {experiences.map((exp, index) => (
             <div
@@ -119,7 +119,7 @@ export default function Education() {
           ))}
         </div>
         <div
-          className={` flex  flex-col justify-between w-[500px] gap-[60px] translate-x-10`}
+          className={` flex  flex-col justify-between w-[500px] lg:w-[500px] xl:w-[600px] 2xl:w-[700px] gap-[60px] translate-x-10`}
         >
           {experiences.map((exp, index) => (
             <div

@@ -60,7 +60,7 @@ export const experiences: Experience[] = [
   {
     company: "University of Sri Jayewardenepura",
     duration: "July 2026 – Present",
-    role: "Forestry and Environmental science",
+    role: "Forestry and Environmental Management",
     desc: "Reading",
     dotColor: "bg-[#FD853A]",
   },
@@ -106,7 +106,7 @@ export const skills: string[] = [
 
 export const blogs: Blog[] = [
   {
-    image: "/blog1.png",
+    image: "/elephant.png",
     button: "Read More",
     name: "Asian Elephant",
     date: "06 July, 2026",
@@ -114,7 +114,7 @@ export const blogs: Blog[] = [
     link: "https://thecanofy.blogspot.com/2026/07/asian-elephant.html",
   },
   {
-    image: "/blog2.png",
+    image: "/bear.png",
     button: "Explore",
     name: "Sloth Bear",
     date: "06 July, 2026",
@@ -122,7 +122,7 @@ export const blogs: Blog[] = [
     link: "https://thecanofy.blogspot.com/2026/07/sloth-bear.html",
   },
   {
-    image: "/blog3.png",
+    image: "/leopard.png",
     button: "Read More",
     name: "Leopard",
     date: "06 July, 2026",
@@ -130,7 +130,7 @@ export const blogs: Blog[] = [
     link: "https://thecanofy.blogspot.com/2026/07/sri-lankan-leopard.html",
   },
   {
-    image: "/blog1.png",
+    image: "/elephant.png",
     button: "Read More",
     name: "Asian Elephant",
     date: "06 July, 2026",
@@ -138,7 +138,7 @@ export const blogs: Blog[] = [
     link: "https://thecanofy.blogspot.com/2026/07/asian-elephant.html",
   },
   {
-    image: "/blog2.png",
+    image: "/bear.png",
     button: "Explore",
     name: "Sloth Bear",
     date: "06 July, 2026",
@@ -146,7 +146,7 @@ export const blogs: Blog[] = [
     link: "https://thecanofy.blogspot.com/2026/07/sloth-bear.html",
   },
   {
-    image: "/blog3.png",
+    image: "/leopard1.png",
     button: "Read More",
     name: "Leopard",
     date: "06 July, 2026",

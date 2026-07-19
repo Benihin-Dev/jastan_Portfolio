@@ -41,7 +41,7 @@ export default function SliderForBlog({ viewPort }: SliderForBlogProps) {
           viewPort === "desktop" ? 3 : viewPort === "tablet" ? 2 : 1
         }
         slidesToScroll={1}
-        autoplay={true}
+        autoplay={viewPort !== "desktop" ? true : false}
         autoplaySpeed={4000}
         speed={500}
         dotsClass="slick-dots flex item-center  justify-center -gap-2 md:gap-2 custom-dots  "

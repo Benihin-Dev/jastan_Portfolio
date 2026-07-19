@@ -112,7 +112,7 @@ const Footer = () => {
       <div className="border border-[#475467] w-full mt-6 sm:mb-6 mb-0 lg:mt-0"></div>
 
       {/* Navigation Links */}
-      <div className="flex flex-col lg:flex-row justify-between w-full max-w-[1298px] h-auto lg:h-[239px] gap-8 lg:gap-0 mt-8 md:mt-0">
+      <div className="flex flex-col lg:flex-row justify-between w-full h-auto lg:h-[239px] gap-8 lg:gap-0 mt-8 md:mt-0">
         <div className="w-full lg:w-[635px] h-full flex flex-col items-start justify-start gap-6 lg:gap-10">
           <div className="flex gap-3 sm:gap-4 items-center flex-shrink-0 cursor-pointer">
             <div className="  flex items-center justify-center mb-1">
@@ -155,7 +155,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-5 lg:gap-7">
+        <div className="flex flex-col gap-5 lg:gap-7 lg:pr-10">
           <CustomeText
             title="Navigation"
             className="text-[18px] sm:text-[19px] lg:text-[20px] font-semibold text-[#FD853A]"
@@ -173,7 +173,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-5 lg:gap-7">
+        <div className="flex flex-col lg:hidden 2xl:flex gap-5 lg:gap-7">
           <CustomeText
             title="Contact"
             className="text-[18px] sm:text-[19px] lg:text-[20px] font-semibold text-[#FD853A]"
@@ -240,12 +240,30 @@ const Footer = () => {
               </p>
             )}
           </div>
+          <div className="border-b border-[#475467] w-full my-5 hidden lg:block 2xl:hidden"></div>
+
+          <div className="lg:flex 2xl:hidden flex-col hidden gap-5 lg:gap-7">
+            <CustomeText
+              title="Contact"
+              className="text-[18px] sm:text-[19px] lg:text-[20px] font-semibold text-[#FD853A]"
+            />
+            <div className="flex flex-col gap-3 lg:gap-5">
+              {contact.map((key, idx) => (
+                <span
+                  key={idx}
+                  className="text-[#FCFCFD] text-[14px] sm:text-[15px] lg:text-[16px] cursor-pointer hover:text-[#FD853A] transition-colors"
+                >
+                  {key}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="border border-[#475467] w-full mt-8 lg:mt-16"></div>
+      <div className="border border-[#475467] w-full mt-8 lg:mt-16 "></div>
 
-      <div className="flex flex-col sm:flex-row w-full max-w-[1298px] h-auto lg:h-[26px] items-start justify-between gap-4 sm:gap-0 mt-6 md:mt-0">
+      <div className="flex flex-col sm:flex-row w-full  h-auto lg:h-[26px] items-start justify-between gap-4 sm:gap-0 mt-6 md:mt-0">
         <p className="w-full sm:w-[415px] h-auto lg:h-[26px] text-[16px] sm:text-[18px] lg:text-[20px] text-white text-center sm:text-left">
           Copyright© 2026 JR. All Rights Reserved.
         </p>

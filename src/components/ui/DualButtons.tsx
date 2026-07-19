@@ -40,6 +40,12 @@ export default function DualToggleButtons({ left, right }: btnText) {
       </a>
       {/* right Me Button */}
       <button
+        onClick={() =>
+          document.getElementById("contact")?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          })
+        }
         onMouseEnter={() => setActive("right")}
         className={`group flex items-center justify-center gap-2.5 px-5 py-2.5 rounded-[60px] transition-all duration-300 ease-in-out cursor-pointer
           ${

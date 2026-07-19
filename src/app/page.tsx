@@ -13,12 +13,14 @@ import HireMe from "@/components/HireMe";
 export default function Home() {
   return (
     <div className="relative min-h-screen w-full bg-white py-10 flex flex-col items-center justify-start">
-      <Navbar />
+      <div className=" fixed z-[99] top-7 left-0 w-full">
+        <Navbar />
+      </div>
 
       {/* Hero Section */}
       <div
         id="home"
-        className="group flex flex-col md:flex-row w-full  px-4 sm:px-6 md:px-8 gap-6 sm:gap-8 md:gap-[71px] items-center justify-center mt-6 "
+        className="group flex flex-col md:flex-row w-full  px-4 sm:px-6 md:px-8 gap-6 sm:gap-8 md:gap-[71px] items-center justify-center mt-20 scroll-mt-[100px] "
       >
         <div className="hidden lg:flex flex-col w-[328px] h-[138px] items-start justify-start transition-transform duration-300 ease-in-out group-hover:-translate-y-[250px] group-focus:-translate-y-[250px]">
           <div className="text-[#344054] text-[36px] leading-none">&quot;</div>
@@ -59,7 +61,7 @@ export default function Home() {
             />
           </div>
 
-          <div className="relative w-full max-w-[952px] aspect-[3/2] flex flex-col items-center justify-center -translate-y-[10%] sm:-translate-y-[15%] md:-translate-y-[20%] mx-auto px-4">
+          <div className="relative w-full max-w-[952px] aspect-[3/2] flex flex-col items-center justify-center  mx-auto px-4">
             <div className="absolute bottom-0 z-0 w-[90%] max-w-[812px] aspect-[2/1] overflow-hidden flex items-center justify-center pointer-events-auto">
               <div className="absolute w-full h-full bg-[#FEB273] rounded-t-full" />
             </div>
@@ -70,7 +72,7 @@ export default function Home() {
                 alt="Frame Decoration"
                 width={1024}
                 height={688}
-                className="object-contain w-full  h-auto"
+                className="object-contain w-full h-auto"
                 priority
               />
             </div>
@@ -81,11 +83,11 @@ export default function Home() {
               width={888}
               height={888}
               quality={90}
-              className="relative z-20 lg:-translate-y-5  border w-full lg:w-11/12 mx-auto  h-auto object-cover mt-5"
+              className="absolute bottom-0 z-20 w-full md:w-10/12 lg:w-11/12 xl:w-10/12 mx-auto h-auto object-cover"
               priority
             />
 
-            <div className="absolute bottom-[10%] z-50 w-full hidden md:flex justify-center">
+            <div className="absolute bottom-[10%] z-50 w-full scale-75 md:scale-100 flex justify-center">
               <DualToggleButtons left="Resume" right="Hire Me" />
             </div>
           </div>
@@ -105,36 +107,9 @@ export default function Home() {
       </div>
 
       {/* About Me */}
-      {/* <div className="w-full md:w-11/12 mx-auto flex flex-col items-start gap-6 px-2 sm:px-0 pb-0 -translate-y-10 text-[16px] sm:text-[18px] text-center lg:text-[20px] text-[#344054]">
-        <p className=" w-full">
-          I am a graduate of the Faculty of Technology at{" "}
-          <span className=" bg-[#FD853A] text-white">
-            University of Sri Jayewardenepura,
-          </span>{" "}
-          Sri Lanka, specializing in Industrial Biosystems Technology. I am
-          currently pursuing a Master&apos;s degree in{" "}
-          <span className=" bg-[#FD853A] text-white">
-            {" "}
-            Forestry and Environmental Management
-          </span>{" "}
-          to further enhance my knowledge and expertise in sustainable natural
-          resource management, forest conservation, and environmental
-          stewardship. I am passionate about{" "}
-          <span className=" bg-[#FD853A] text-white"> Wildlife,</span>{" "}
-          <span className=" bg-[#FD853A] text-white"> Forestry,</span>{" "}
-          <span className=" bg-[#FD853A] text-white">
-            Environmental Conservation,{" "}
-          </span>
-          and{" "}
-          <span className=" bg-[#FD853A] text-white">Scientific Research</span>{" "}
-          and I continuously strive to expand my skills and contribute
-          meaningfully to the protection and sustainable management of natural
-          ecosystems.
-        </p>
-      </div> */}
       <div
         id="about"
-        className="relative sm:-translate-y-20 md:-translate-y-20 lg:-translate-y-6 flex flex-col w-full gap-16 sm:gap-[96px] items-center px-4 sm:px-6 lg:px-[71px] py-16 sm:py-[60px] bg-[#171717] rounded-[30px] sm:rounded-[50px] overflow-hidden  -mt-12 lg:-mt-28"
+        className="relative flex flex-col w-full mb-10  items-center px-6 sm:px-6 md:px-16 lg:px-20  bg-[#171717] rounded-[30px] sm:rounded-[50px] overflow-hidden scroll-mt-[100px] "
       >
         <Image
           src="/Frame 77.svg"
@@ -142,21 +117,20 @@ export default function Home() {
           fill
           className="object-cover absolute opacity-50"
         />
-
-        <div className=" w-full flex items-center justify-between">
-          <div className="w-full md:w-3/5 flex flex-col items-start justify-between gap-6 relative z-10">
-            <div className="flex gap-2.5">
-              <CustomeText
-                title="About"
-                className="font-medium text-3xl sm:text-4xl lg:text-5xl text-[#FCFCFD]"
-              />
-              <CustomeText
-                title="Me"
-                className="font-medium text-3xl sm:text-4xl lg:text-5xl text-[#FD853A]"
-              />
-            </div>
-            <div className="relative flex  justify-center items-center   w-full rounded-[37px] lg:rounded-[40px] bg-white/10 backdrop-blur-[15px] border border-white/50  transition-colors duration-300 ease-in-out overflow-hidden px-4 lg:px-16 py-16 text-gray-300">
-              <p className=" w-full text-center">
+        <div className="flex gap-2.5 z-10 pt-5 w-full items-start max-w-7xl">
+          <CustomeText
+            title="About"
+            className="font-medium text-3xl sm:text-4xl lg:text-5xl text-[#FCFCFD]"
+          />
+          <CustomeText
+            title="Me"
+            className="font-medium text-3xl sm:text-4xl lg:text-5xl text-[#FD853A]"
+          />
+        </div>
+        <div className=" w-full flex items-center justify-between max-w-[120 0px] 2xl: max-w-7xl">
+          <div className="w-full lg:w-[70%] xl:w-[60% py-10 xl:py-0 flex flex-col  items-center justify-between gap-6 relative z-10">
+            <div className="relative flex  justify-center items-center w-full rounded-[37px] lg:rounded-[40px] bg-white/10 backdrop-blur-[15px] border border-white/50  transition-colors duration-300 ease-in-out overflow-hidden text-justify p-10 text-gray-300 xl:text-lg">
+              <p className=" w-full">
                 I am a graduate of the Faculty of Technology at University of
                 Sri Jayewardenepura, Sri Lanka, specializing in Industrial
                 Biosystems Technology. I am currently pursuing a Master&apos;s
@@ -171,13 +145,13 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className=" hidden md:flex w-[40%] ">
+          <div className=" hidden lg:flex w-[30%] xl:w-[40%] items-end justify-end">
             <Image
               src="/jastan2.png"
               alt="jastanRic"
-              width={952}
-              height={636}
-              className="relative z-20 w-full scale-120 translate-y-16 h-auto object-contain mt-5"
+              width={920}
+              height={66}
+              className="relative z-20 w-full xl:w-10/12 2xl:w-8/12 scale-120 xl:scale-110 2xl:-translate-y-5 translate-y-2 mx-auto h-auto object-containt translate-x-10"
               priority
             />{" "}
           </div>
@@ -185,84 +159,18 @@ export default function Home() {
       </div>
 
       {/* My Educational Qualification */}
-      <div id="qualification">
+      <div id="qualification" className="scroll-mt-[50px] ">
         <Education />
       </div>
 
       {/* Hire Me */}
       <HireMe />
 
-      {/* Portfolio */}
-      {/* <div className="w-full flex flex-col items-center px-4 sm:px-6 lg:px-[71px] py-12 sm:py-20 gap-10 lg:gap-12">
-        <div className="w-full flex flex-col sm:flex-row justify-between items-start lg:items-center gap-6">
-          <div className="flex flex-col items-start max-w-full lg:max-w-[643px]">
-            <CustomeText
-              title="Lets Have a look at"
-              className="font-semibold text-[32px] sm:text-[48px] lg:text-[64px] text-[#344054]"
-            />
-            <div className="flex items-start justify-start gap-4 flex-wrap">
-              <CustomeText
-                title="my"
-                className="font-semibold text-[32px] sm:text-[48px] lg:text-[64px] text-[#344054]"
-              />
-              <CustomeText
-                title="Portfolio"
-                className="font-semibold text-[32px] sm:text-[48px] lg:text-[64px] text-[#FD853A]"
-              />
-            </div>
-          </div>
-
-          <div className="shrink-0">
-            <OrangeButton title="See All" />
-          </div>
-        </div>
-
-        <div className="w-full flex flex-col items-center gap-10 lg:gap-12 max-w-[1290px]">
-          <GenericSlider
-            data={portfolioData}
-            slidesPerView={2}
-            heightClass="h-auto"
-            cardType="portfolio"
-          />
-
-          <div className="w-full max-w-[947px] flex flex-wrap justify-center gap-4 sm:gap-[14px] items-center">
-            <ClientOnly>
-              {buttons.map((text, index) => (
-                <button
-                  key={index}
-                  className="px-6 sm:px-8 py-3 rounded-[24px] bg-[#F2F4F7] text-[#000000] text-[16px] sm:text-[18px] lg:text-[20px] hover:bg-[#FD853A] hover:text-white transition-colors duration-300"
-                >
-                  {text}
-                </button>
-              ))}
-            </ClientOnly>
-          </div>
-
-          <div className="flex flex-col w-full max-w-[742px] items-start gap-6 px-4 sm:px-0">
-            <div className="flex flex-col sm:flex-row w-full items-start sm:items-center gap-4 sm:gap-[18px]">
-              <CustomeText
-                title="Lirante - Food Delivery Solution"
-                className="font-bold text-[28px] sm:text-[32px] lg:text-[40px] text-[#344054]"
-              />
-              <div className="w-[50px] h-[50px] sm:w-[58px] sm:h-[58px] rounded-full bg-[#FD853A] hidden md:flex items-center justify-center transition-all duration-300">
-                <ArrowButton className="transition-all duration-300 stroke-white -rotate-45" />
-              </div>
-            </div>
-            <p className="text-[16px] sm:text-[18px] lg:text-[20px] text-[#344054] text-center sm:text-left">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              congue interdum ligula a dignissim. Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit. Sed lobortis orci elementum egestas
-              lobortis.
-            </p>
-          </div>
-        </div>
-      </div> */}
-
       {/* Testimonials */}
       <Testimonials />
 
       {/* Contact */}
-      <div id="contact">
+      <div id="contact" className="scroll-mt-[100px] ">
         <Contact />
       </div>
 
@@ -300,9 +208,16 @@ export default function Home() {
         className="flex flex-col w-full h-fit items-center gap-12 px-5 md:px-[71px] bg-[#f2f4f7] py-10 relative"
       >
         <div className="  w-full flex flex-col lg:flex-row items-center justify-between gap-6">
-          <h1 className="text-[#344054] w-full md:pb-5 font-semibold text-center text-4xl md:text-5xl">
-            Latest blogs
-          </h1>
+          <div className="w-full pb-20 md:pb-10 md:flex  items-start justify-center space-x-2.5 text-center lg:text-lef translate-y-10">
+            <CustomeText
+              title="Read my latest"
+              className="font-medium text-4xl sm:text-5xl lg:text-6xl text-[#344054]"
+            />
+            <CustomeText
+              title="blog..."
+              className="font-medium text-4xl sm:text-5xl lg:text-6xl text-[#FD853A]"
+            />
+          </div>
           {/* <a href="https://thecanofy.blogspot.com/" target="blank">
             <OrangeButton title="See All" className=" " />
           </a> */}
@@ -318,12 +233,12 @@ export default function Home() {
         </div>
         <div className=" w-full flex items-center  justify-center">
           <a href="https://thecanofy.blogspot.com/" target="blank">
-            <button className=" border border-gray-400 px-5 py-2 text-[#344054] cursor-pointer hover:border-gray-700 duration-300 transition-all rounded-[2px]">
+            <button className="w-full scale-90 md:w-fit cursor-pointer sm:w-auto px-6 py-4 rounded-[20px] border border-[#151515] text-[#151515] font-semibold text-2xl sm:text-[28px] transition-all duration-300 hover:bg-[#151515] hover:text-white focus:bg-[#151515] focus:text-white">
               LEARN MORE
             </button>
           </a>
         </div>
-        <div className=" w-full h-52 absolute top-[100%] z-0 left-0  bg-[#f2f4f7]"></div>
+        <div className="w-full h-52 absolute top-[100%] z-0 left-0  bg-[#f2f4f7]"></div>
       </div>
     </div>
   );

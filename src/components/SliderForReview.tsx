@@ -9,7 +9,7 @@ import { Review } from "@/data/data";
 interface SliderForReviewProps {
   data: Review[];
   type: "normal" | "rotate" | string;
-  viewPort: "desktop" | "tablet" | "mobile" | string;
+  viewPort: "L-desktop" | "desktop" | "tablet" | "mobile" | string;
 }
 
 export default function SliderForReview({
@@ -43,7 +43,13 @@ export default function SliderForReview({
         infinite={true}
         arrows={false}
         slidesToShow={
-          viewPort === "desktop" ? 2.8 : viewPort === "tablet" ? 2 : 1
+          viewPort === "L-desktop"
+            ? 3
+            : viewPort === "desktop"
+              ? 2.8
+              : viewPort === "tablet"
+                ? 2
+                : 1
         }
         slidesToScroll={1}
         autoplay={true}
@@ -64,22 +70,6 @@ export default function SliderForReview({
             ></div>
           );
         }}
-        responsive={[
-          {
-            breakpoint: 768,
-            settings: {
-              slidesToShow:
-                viewPort === "desktop" ? 2.6 : viewPort === "tablet" ? 2 : 1,
-            },
-          },
-          {
-            breakpoint: 576,
-            settings: {
-              slidesToShow:
-                viewPort === "desktop" ? 2.6 : viewPort === "tablet" ? 2 : 1,
-            },
-          },
-        ]}
       >
         {slides.map((item, i) => (
           <div

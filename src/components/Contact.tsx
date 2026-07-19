@@ -35,49 +35,55 @@ export default function Contact() {
   };
 
   return (
-    <div className="w-full bg-white flex flex-col items-center justify-center py-16 lg:pt-32 scale-85 px-4 sm:px-6 lg:px-[71px] gap-10">
-      <div className="w-full max-w-4xl text-center flex flex-col items-center gap-4">
-        <CustomeText
-          title="Have an Awesome Research"
-          className="font-semibold text-3xl sm:text-4xl md:text-5xl lg:text-[64px] text-[#344054]"
-        />
-        <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4">
+    <div className="w-full bg-white flex flex-col items-center justify-center py-16 lg:pb-20 scale-85 px-4 sm  lg:px-[60px] gap-10">
+      <div className="w-fit max-w-5xl text-center flex flex-col items-center gap-4">
+        <div className="flex flex-wrap whitespace-nowrap justify-center items-center gap-3 sm:gap-4 relative">
           <CustomeText
-            title="Idea?"
-            className="font-semibold text-3xl sm:text-4xl md:text-5xl lg:text-[64px] text-[#344054]"
+            title="Your Gateway to the "
+            className="font-semibold text-3xl sm:text-4xl md:text-[60px] lg:text-[64px] text-[#344054]"
           />
           <CustomeText
-            title="Let's Discuss"
-            className="font-semibold text-3xl sm:text-4xl md:text-5xl lg:text-[64px] text-[#FD853A]"
+            title="Wild"
+            className="font-semibold text-3xl sm:text-4xl md:text-[60px] lg:text-[64px] text-[#FD853A]"
           />
         </div>
+        <p className=" text-center text-gray-600 lg:max-w-none max-w-lg md:max-w-2xl">
+          Join my WhatsApp Channel for exclusive safari updates, wildlife
+          discoveries, and educational content.
+        </p>
       </div>
 
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-3xl flex md:flex-row items-center justify-between gap-4 px-3 py-2 md:px-6 md:py-4 rounded-full border duration-300 transition-all hover:border-[#7f7f7f8e]  border-[#E4E7EC] bg-white"
+        className="w-full max-w-3xl flex md:flex-row items-center justify-between gap-4 px-3 py-2 md:px-6 md:py-4 rounded-full border duration-300 transition-all hover:border-[#7f7f7f8e]  border-[#E4E7EC] bg-[white]"
       >
-        <div className="w-9 h-9 md:w-[50px] md:h-[50px] flex items-center justify-center rounded-full bg-[#FFEAD5] shrink-0">
-          <Image src="/sms.svg" alt="message icon" width={24} height={24} />
+        <div className="w-9 h-9 md:w-[50px] md:h-[50px] flex items-center justify-center rounded-full bg-[#eeebe7a8] shrink-0">
+          <Image
+            src="/whatsapp.svg"
+            alt="message icon"
+            width={28}
+            height={28}
+          />
         </div>
 
         <ClientOnly>
           <input
             type="email"
             required
+            disabled
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter Email Address"
+            placeholder="Join My WhatsApp Channel"
             className="w-full md:flex-1 px-4 py-2 rounded-full text-center md:text-left text-base sm:text-lg outline-none bg-transparent text-[#1D2939] placeholder:text-[#667085]"
           />
-
-          <button
-            type="submit"
-            disabled={status === "loading"}
-            className="w-fit px-6 md:px-12 py-1 md:py-3 rounded-full bg-[#FD853A] hover:bg-[#e4752f] text-white text-lg font-semibold transition duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
-          >
-            {status === "loading" ? "Sending..." : "Send"}
-          </button>
+          <a href="https://whatsapp.com/channel/0029Vb8Ui719mrGlCeEiwj43">
+            <button
+              type="submit"
+              className="w-fit px-6 md:px-12 py-1 md:py-3 rounded-full bg-[#FD853A] hover:bg-[#e4752f] text-white text-lg font-semibold transition duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              {status === "loading" ? "Sending..." : "Explore"}
+            </button>
+          </a>
         </ClientOnly>
       </form>
 
