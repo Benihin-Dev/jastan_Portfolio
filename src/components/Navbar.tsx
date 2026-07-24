@@ -67,7 +67,7 @@ const Navbar = () => {
       requestAnimationFrame(() => {
         const currentY = window.scrollY;
         const delta = currentY - lastScrollY.current;
-        console.log("scrollY:", currentY, "delta:", delta);
+        // console.log("scrollY:", currentY, "delta:", delta);
         setScrollPosition(currentY);
 
         if (currentY <= AT_TOP_THRESHOLD) {
@@ -122,7 +122,7 @@ const Navbar = () => {
         showNav
           ? "translate-y-4 lg:translate-y-8"
           : " translate-y-4 lg:-translate-y-[100%]"
-      } ${scrollPosition >= 5 ? "w-1/10 left-0 lg:w-full lg:bg-[#171717ed] lg:backdrop-blur-[15px] lg:border lg:border-[#ffffff4e]" : "  w-full lg:inset-x-0 bg-[#171717ed] backdrop-blur-[15px] lg:border border-[#ffffff1a]"}`}
+      } ${scrollPosition >= 5 ? "w-1/10 left-0 lg:inset-x-0 lg:w-full lg:bg-[#171717ed] lg:backdrop-blur-[15px] lg:border lg:border-[#ffffff4e]" : "  w-full lg:inset-x-0 bg-[#171717ed] backdrop-blur-[15px] lg:border border-[#ffffff1a]"}`}
     >
       {/* Left Menu (Desktop) */}
       <div className="hidden lg:flex flex-1 justify-start gap-2.5">
