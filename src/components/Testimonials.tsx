@@ -124,11 +124,6 @@ export default function Testimonials() {
             />
           </div>
         </div>
-        <p className="w-full max-w-[742px] text-[16px] sm:text-[18px] lg:text-[20px] text-[#F9FAFB] text-center leading-[1.6] px-2">
-          Insights and feedback from professors, research collaborators, and
-          peers who&apos;ve supported my path in environmental science and
-          wildlife conservation.
-        </p>
       </div>
 
       <div className="bottom-[20%] left-0 right-0 w-full z-10">

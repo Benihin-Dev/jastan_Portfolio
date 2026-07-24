@@ -77,7 +77,10 @@ export default function SliderForBlog({ viewPort }: SliderForBlogProps) {
         ]}
       >
         {slides.map((item, i) => (
-          <div key={i} className={` w-full h-full `}>
+          <div
+            key={i}
+            className={` w-full h-full ${viewPort === "mobile" ? "px-5" : "px-0"} `}
+          >
             <Blog
               name={item.name}
               image={item.image}

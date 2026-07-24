@@ -47,7 +47,7 @@ const Blog: React.FC<BlogProps> = ({
     // </div>
     <div className=" w-full md:px-5 pb-2 ">
       <a href={link}>
-        <div className=" w-full px-5 py-8 my-2 cursor-pointer   duration-300 transition-all  hover:scale-103  bg-white shadow-[6px_6px_2px_-2px_#bababa]">
+        <div className=" w-full px-5 py-8 my-2 cursor-pointer  border border-gray-300  duration-300 transition-all  hover:scale-103  bg-white shadow-[8px_8px_2px_-2px_#bababa]">
           <div className=" w-full h-fit  ">
             <Image
               src={image}

@@ -14,10 +14,13 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showNav, setShowNav] = useState(true);
   const lastScrollY = useRef(0);
+  const [scrollPosition, setScrollPosition] = useState(0);
   const ticking = useRef(false);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setIsMobileMenuOpen((prev) => !prev);
   };
 
   const scrollToSection = (label: string) => {
@@ -30,28 +33,47 @@ const Navbar = () => {
     }
   };
 
-  // Show/hide navbar based on scroll direction
+  // Close mobile menu when clicking outside of it
   useEffect(() => {
-    const AT_TOP_THRESHOLD = 40; // px — stay pinned/visible near the top
-    const SCROLL_DELTA_MIN = 5; // px — ignore tiny jitter
+    if (!isMobileMenuOpen) return;
+
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as Node;
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(target) &&
+        menuButtonRef.current &&
+        !menuButtonRef.current.contains(target)
+      ) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isMobileMenuOpen]);
+
+  // Show/hide navbar based on scroll direction + close mobile menu on scroll
+  useEffect(() => {
+    const AT_TOP_THRESHOLD = 40;
+    const SCROLL_DELTA_MIN = 5;
 
     const handleScroll = () => {
+      if (isMobileMenuOpen) setIsMobileMenuOpen(false);
+
       if (ticking.current) return;
       ticking.current = true;
 
       requestAnimationFrame(() => {
         const currentY = window.scrollY;
         const delta = currentY - lastScrollY.current;
+        console.log("scrollY:", currentY, "delta:", delta);
+        setScrollPosition(currentY);
 
         if (currentY <= AT_TOP_THRESHOLD) {
-          // Normal top position — always visible, no hide/show logic
           setShowNav(true);
         } else if (Math.abs(delta) > SCROLL_DELTA_MIN) {
-          if (delta > 0) {
-            setShowNav(false); // scrolling down -> hide (slide up out of view)
-          } else {
-            setShowNav(true); // scrolling up -> show (slide down into view)
-          }
+          setShowNav(delta <= 0);
         }
 
         lastScrollY.current = currentY;
@@ -61,7 +83,7 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isMobileMenuOpen]);
 
   // Scroll-spy: highlight nav item based on which section is in view
   useEffect(() => {
@@ -96,11 +118,11 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 inset-x-0 z-50 w-full max-w-[1284px] h-[70px] lg:h-[80px] bg-[#171717ed] text-white px-10 lg:px-2.5 rounded-[20px] sm:rounded-[35px] lg:rounded-[50px] backdrop-blur-[15px] border border-[#ffffff4e] mx-auto flex items-center justify-between transition-transform duration-300 ease-in-out ${
+      className={`fixed top-0 z-50  max-w-[1284px] h-[70px] lg:h-[80px]  text-white px-10 lg:px-2.5 rounded-[20px] sm:rounded-[35px] lg:rounded-[50px]  mx-auto flex items-center justify-between transition-all duration-300 ease-in-out ${
         showNav
           ? "translate-y-4 lg:translate-y-8"
-          : "-translate-y-[110%] lg:-translate-y-[100%]"
-      }`}
+          : " translate-y-4 lg:-translate-y-[100%]"
+      } ${scrollPosition >= 5 ? "w-1/10 left-0 lg:w-full lg:bg-[#171717ed] lg:backdrop-blur-[15px] lg:border lg:border-[#ffffff4e]" : "  w-full lg:inset-x-0 bg-[#171717ed] backdrop-blur-[15px] lg:border border-[#ffffff1a]"}`}
     >
       {/* Left Menu (Desktop) */}
       <div className="hidden lg:flex flex-1 justify-start gap-2.5">
@@ -122,9 +144,11 @@ const Navbar = () => {
       {/* Logo */}
       <div
         onClick={() => scrollToSection("Home")}
-        className={`flex flex-col items-center flex-shrink-0 cursor-pointer border-x-2 px-12 -translate-x-7 lg:-translate-x-0 scale-80 lg:scale-100 rounded-full ${selected === "Home" ? "border-[#d2cac6]" : " border-transparent hover:bg-[#232323]"} transition duration-300 h-[60px]`}
+        className={`flex flex-col items-center bg-[#272727] lg:bg-transparent flex-shrink-0 cursor-pointer border-x-2 -translate-x-7 lg:-translate-x-0 scale-80 lg:scale-100 rounded-full ${selected === "Home" ? "border-[#d2cac6]" : " border-transparent hover:bg-[#232323]"} transition-all duration-300 h-[60px] ${scrollPosition >= 5 ? "  px-3.5 lg:px-12" : " px-12"}`}
       >
-        <div className=" translate-y-1 text-[#fd853a]  rounded-full flex items-center justify-center mb-3 lg:mb-1">
+        <div
+          className={`${scrollPosition >= 5 ? " scale-125 translate-y-3.5 lg:translate-y-1 lg:scale-100" : "translate-y-1"} text-[#fd853a]  rounded-full flex items-center justify-center mb-3 lg:mb-1 `}
+        >
           <Image
             src="/logo.png"
             alt="Frame Decoration"
@@ -134,9 +158,19 @@ const Navbar = () => {
             priority
           />
         </div>
-        <span className="font-bold text-[#fd853aec] -translate-y-2 text-sm sm:text-base lg:text-lg tracking-wide">
+        <span
+          className={` ${scrollPosition >= 5 ? " hidden lg:block" : ""} font-bold text-[#fd853aec] -translate-y-2 text-sm sm:text-base lg:text-lg tracking-wide `}
+        >
           Jastan Ric
         </span>
+        <div
+          onClick={(e) => {
+            e.stopPropagation();
+            setScrollPosition(0);
+            setIsMobileMenuOpen(true);
+          }}
+          className={` w-full h-full rounded-full  absolute left-0 top-0 ${scrollPosition >= 5 ? " lg:hidden" : "hidden"}`}
+        ></div>
       </div>
 
       {/* Right Menu (Desktop) */}
@@ -158,28 +192,36 @@ const Navbar = () => {
 
       {/* Mobile Menu Button */}
       <button
-        className="lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-[#FD853A] hover:bg-[#e67a2e] transition-colors"
+        ref={menuButtonRef}
+        className={` flex items-center justify-center w-10 h-10 rounded-full bg-[#FD853A] hover:bg-[#e67a2e] transition-colors ${scrollPosition >= 5 ? "hidden" : "lg:hidden"}`}
         onClick={toggleMobileMenu}
       >
         {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
       </button>
 
       {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <div className=" absolute top-[100%] left-0 right-0 mt-2 bg-[#171717e6] backdrop-blur-3xl rounded-[25px] border border-white   lg:hidden z-40">
-          <div className="flex flex-col p-4 gap-2">
-            {menuItems.map((item) => (
-              <button
-                key={item.label}
-                className={`w-full h-[50px] flex items-center justify-center rounded-[25px] text-base font-medium transition duration-300 ${selected === item.label ? "bg-[#FD853A] font-bold" : "bg-transparent hover:bg-[#232323]"}`}
-                onClick={() => scrollToSection(item.label)}
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
+      <div
+        ref={mobileMenuRef}
+        className={`absolute top-[100%] left-0 right-0 mt-2 bg-[#171717e6] backdrop-blur-3xl rounded-[25px] border border-[#a5a2a2a9] lg:hidden z-40 overflow-hidden transition-all duration-400 ease-in-out origin-top ${
+          isMobileMenuOpen
+            ? "opacity-100 translate-y-0 scale-y-100 pointer-events-auto"
+            : "opacity-0 -translate-y-0 scale-y-60 pointer-events-none"
+        }`}
+      >
+        <div className="flex flex-col p-4 gap-2">
+          {menuItems.map((item) => (
+            <button
+              key={item.label}
+              className={`w-full h-[50px] flex items-center justify-center rounded-[25px] text-base font-medium transition duration-200 ${selected === item.label ? "bg-[#FD853A] font-bold" : "bg-transparent hover:bg-[#232323]"} ${
+                isMobileMenuOpen ? "-translate-y-0" : "-translate-y-full"
+              }`}
+              onClick={() => scrollToSection(item.label)}
+            >
+              {item.label}
+            </button>
+          ))}
         </div>
-      )}
+      </div>
     </nav>
   );
 };

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import CustomeText from "@/components/ui/CustomeText";
 import { experiences } from "@/data/data";
 import PopupForStudyInfo from "@/components/ui/PopupForStudyInfo";
-import { Link, X } from "lucide-react";
+import { Link } from "lucide-react";
 
 export default function Education() {
   const [popUpState, setPopUpState] = useState<boolean>(false);
@@ -23,18 +23,14 @@ export default function Education() {
   };
   return (
     <div className="w-full flex flex-col items-start mx-auto pb-10 md:pb-16 lg:pb-0">
-      <div className="w-full pb-20 md:pb-10 md:flex items-start justify-center space-x-2.5 text-center lg:text-lef translate-y-10">
+      <div className="w-full pb-16 md:pb-10 md:flex items-start justify-center space-x-2.5 text-center lg:text-lef translate-y-10">
         <CustomeText
           title="My"
-          className="font-medium text-4xl sm:text-5xl lg:text-6xl text-[#344054]"
+          className="font-medium text-[32px] sm:text-5xl lg:text-6xl text-[#344054]"
         />
         <CustomeText
-          title="Educational"
-          className="font-medium text-4xl sm:text-5xl lg:text-6xl text-[#FD853A]"
-        />
-        <CustomeText
-          title="Qualification"
-          className="font-medium text-4xl sm:text-5xl lg:text-6xl text-[#FD853A]"
+          title="Educational Qualification"
+          className="font-medium text-[32px] sm:text-5xl lg:text-6xl text-[#FD853A]"
         />
       </div>
       <div className="w-11/12 mx-auto sm:px-5 pt-10 lg:hidden">
@@ -46,7 +42,7 @@ export default function Education() {
             }}
             className="mb-8 last:mb-0"
           >
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-4 relative">
               <div className="relative flex-shrink-0 mt-2">
                 <div className="w-6 h-6 rounded-full border-2 border-dashed border-[#1D2939] bg-white" />
                 <div
@@ -57,7 +53,7 @@ export default function Education() {
               <div className="flex-1">
                 <CustomeText
                   title={exp.company}
-                  className="font-semibold text-[#1D2939] text-[20px] sm:text-[24px] mb-1"
+                  className="font-semibold text-[#1D2939] text-[20px] sm:text-[24px] mb-1 pr-5"
                 />
                 <CustomeText
                   title={exp.duration}
@@ -73,6 +69,11 @@ export default function Education() {
                     className="text-[#98A2B3] text-[14px] sm:text-[16px] leading-relaxed"
                   />
                 )}
+              </div>
+              <div
+                className={` absolute left-[100%] -translate-x-5 text-gray-500 xl:left-[90%] top-0 translate-y-1/3 hover:text-[#FD853A]  duration-300 ${index === 1 ? "block" : "hidden"}`}
+              >
+                <Link className="size-5" />
               </div>
             </div>
           </div>
@@ -119,7 +120,7 @@ export default function Education() {
           ))}
         </div>
         <div
-          className={` flex  flex-col justify-between w-[500px] lg:w-[500px] xl:w-[600px] 2xl:w-[700px] gap-[60px] translate-x-10`}
+          className={` flex flex-col justify-between w-[500px] lg:w-[500px] xl:w-[600px] 2xl:w-[700px] gap-[60px] translate-x-10`}
         >
           {experiences.map((exp, index) => (
             <div
@@ -162,14 +163,14 @@ export default function Education() {
             }`}
           >
             <PopupForStudyInfo />
-            <div className="w-11/12 sm:w-10/12 lg:w-8/12 mx-auto mt-1 flex items-center justify-end">
+            <div className="w-11/12 sm:w-10/12 lg:w-8/12 mx-auto mt-1 flex items-center justify-center">
               <button
                 onClick={closePopup}
-                className={`group flex items-center justify-center gap-2.5 px-5 py-2.5 rounded-[60px] transition-all duration-300 ease-in-out cursor-pointerborder-white bg-[#ffffff59]  backdrop-blur-[5px]  hover:bg-[#FD853A]  text-white border border-[white]"
+                className={`group flex items-center w-full sm:w-fit justify-center gap-2.5 px-10 py-2.5 rounded-[60px] transition-all duration-300 ease-in-out cursor-pointerborder-white bg-[#ffffff59]  backdrop-blur-[5px]  hover:bg-[#FD853A]  text-white border border-[white]"
           }`}
               >
                 Close
-                <X size={16} className={`transition-all duration-300 `} />
+                {/* <X size={16} className={`transition-all duration-300 `} /> */}
               </button>
             </div>
           </div>

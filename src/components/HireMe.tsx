@@ -8,6 +8,25 @@ export default function HireMe() {
   return (
     <div className="w-full flex  items-center justify-between px-6 py-20 bg-[#F2F4F7] ">
       <div className=" w-full mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 xl:max-w-5xl 2xl:max-w-7xl ">
+       <div className="relative w-full max-w-xl lg:hidden flex  aspect-square group mx-auto lg:mx-0">
+          <Image
+            src="/jastan4.png"
+            alt="Hire me"
+            fill
+            className="object-contain z-20 transition-all duration-300 ease-in-out group-hover:translate-y-3"
+            priority
+          />
+          <div className=" absolute w-[60%] h-[75%] bottom-0 translate-x-1/3 z-10 rounded-[15%] bg-[#feb173]">
+            <div className=" relative w-full h-full"></div>
+          </div>
+          <Image
+            src="/Property 1=Variant2.svg"
+            alt="Hire me"
+            fill
+            className="object-contain absolute lg:-translate-y-[15px] transition-all duration-300 ease-in-out lg:opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-110"
+            priority
+          />
+        </div>
         <div className="w-full sm:max-w-[600px] md:max-w-[700px] max-w-[500px] flex flex-col lg:items-end gap-8">
           <div className="flex flex-wrap text-4xl sm:text-5xl lg:text-6xl font-semibold gap-2">
             <CustomeText title="Why" className="text-[#344054]" />
@@ -59,7 +78,7 @@ export default function HireMe() {
             </button>
           </ClientOnly>
         </div>
-        <div className="relative w-full max-w-xl  aspect-square group mx-auto lg:mx-0">
+        <div className="relative w-full max-w-xl hidden lg:flex  aspect-square group mx-auto lg:mx-0">
           <Image
             src="/jastan4.png"
             alt="Hire me"

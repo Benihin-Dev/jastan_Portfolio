@@ -26,11 +26,14 @@ const Footer = () => {
       icon: InstagramIcon,
       url: "https://www.instagram.com/jastanric?utm_source=qr&igsh=MXNrOXF3YXljcmY1aQ==",
     },
-    { icon: AtSign, url: "https://www.threads.com/@jastanric" },
+    { icon: AtSign, url: "https://www.threads.net/@jastanric" },
     { icon: TwitterIcon, url: "https://x.com/jastanric" },
   ];
 
-  const contact = ["+94 754 540 123", "jastanric@outlook.com"];
+  const contact = [
+    { name: "+94 754 540 123", url: "https://wa.me/94754540123" },
+    { name: "jastanric@outlook.com", url: "mailto:jastanric@outlook.com" },
+  ];
 
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<
@@ -84,28 +87,25 @@ const Footer = () => {
   };
 
   return (
-    <footer className="w-full min-h-[400px] lg:h-[685px] px-4 sm:px-6 lg:px-[71px] py-[30px] sm:py-[35px] lg:py-[40px] flex flex-col bg-[#272727] rounded-t-2xl sm:rounded-t-3xl text-white justify-between z-20 relative">
+    <footer
+      id="contact"
+      className="w-full min-h-[400px] lg:h-[685px] px-4 sm:px-6 lg:px-[71px] py-[30px] sm:py-[35px] lg:py-[40px] flex flex-col bg-[#272727] rounded-t-2xl sm:rounded-t-3xl text-white justify-between z-20 relative"
+    >
       {/* Top Section */}
       <div className="w-full flex flex-col md:flex-row items-center justify-between gap-6">
         <h1 className="font-semibold leading-tight text-[32px] sm:text-[40px] lg:text-[48px] xl:text-[64px] text-[#FCFCFD] text-center lg:text-left">
           Let&apos;s Connect There
         </h1>
         <ClientOnly>
-          <button
-            onClick={() =>
-              document.getElementById("contact")?.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-              })
-            }
-            className="group flex items-center justify-center gap-2 w-full sm:w-[180px] lg:w-[202px] h-[50px] sm:h-[56px] lg:h-[62px] px-4 sm:px-5 py-2 sm:py-2.5 text-white text-base sm:text-lg font-semibold rounded-full bg-[#FD853A] cursor-pointer hover:bg-[#e46e24] transition-colors"
-          >
-            Hire Me
-            <ArrowUpRight
-              size={24}
-              className="sm:w-7 sm:h-7 lg:w-8 lg:h-8 transition-transform duration-300 group-hover:rotate-45"
-            />
-          </button>
+          <a href="https://wa.me/94754540123">
+            <button className="group flex items-center justify-center gap-2 w-full sm:w-[180px] lg:w-[202px] h-[50px] sm:h-[56px] lg:h-[62px] px-4 sm:px-5 py-2 sm:py-2.5 text-white text-base sm:text-lg font-semibold rounded-full bg-[#FD853A] cursor-pointer hover:bg-[#e46e24] transition-colors">
+              Hire Me
+              <ArrowUpRight
+                size={24}
+                className="sm:w-7 sm:h-7 lg:w-8 lg:h-8 transition-transform duration-300 group-hover:rotate-45"
+              />
+            </button>
+          </a>
         </ClientOnly>
       </div>
 
@@ -140,7 +140,7 @@ const Footer = () => {
               return (
                 <Link
                   key={idx}
-                  href={`https://${item.url}`}
+                  href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10  rounded-full flex hover:scale-110 transition-transform bg-[#333333] hover:bg-[#444444] items-center justify-center"
@@ -179,13 +179,12 @@ const Footer = () => {
             className="text-[18px] sm:text-[19px] lg:text-[20px] font-semibold text-[#FD853A]"
           />
           <div className="flex flex-col gap-3 lg:gap-5">
-            {contact.map((key, idx) => (
-              <span
-                key={idx}
-                className="text-[#FCFCFD] text-[14px] sm:text-[15px] lg:text-[16px] cursor-pointer hover:text-[#FD853A] transition-colors"
-              >
-                {key}
-              </span>
+            {contact.map((item, idx) => (
+              <a key={idx} href={item.url}>
+                <span className="text-[#FCFCFD] text-[14px] sm:text-[15px] lg:text-[16px] cursor-pointer hover:text-[#FD853A] transition-colors">
+                  {item.name}
+                </span>
+              </a>
             ))}
           </div>
         </div>
@@ -248,13 +247,12 @@ const Footer = () => {
               className="text-[18px] sm:text-[19px] lg:text-[20px] font-semibold text-[#FD853A]"
             />
             <div className="flex flex-col gap-3 lg:gap-5">
-              {contact.map((key, idx) => (
-                <span
-                  key={idx}
-                  className="text-[#FCFCFD] text-[14px] sm:text-[15px] lg:text-[16px] cursor-pointer hover:text-[#FD853A] transition-colors"
-                >
-                  {key}
-                </span>
+              {contact.map((item, idx) => (
+                <a key={idx} href={item.url}>
+                  <span className="text-[#FCFCFD] text-[14px] sm:text-[15px] lg:text-[16px] cursor-pointer hover:text-[#FD853A] transition-colors">
+                    {item.name}
+                  </span>
+                </a>
               ))}
             </div>
           </div>

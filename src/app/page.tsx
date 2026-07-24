@@ -33,35 +33,35 @@ export default function Home() {
         </div>
 
         <div className="relative w-full flex flex-col items-center justify-center   ">
-          <div className="flex w-full flex-col items-center justify-center  transition-all  duration-300 ease-in-out group-hover:translate-y-[280px] group-hover:opacity-0 px-4 sm:px-0">
+          <div className="flex w-full flex-col items-center justify-center  transition-all  duration-300 ease-in-out group-hover:translate-y-[280px] group-hover:opacity-0 px-4 sm:px-0 ">
             <ClientOnly>
-              <button className="h-[45px] px-[26px] py-[13px] translate-y-0 md:translate-y-10 rounded-full border border-[#171717] flex items-center justify-center bg-white mt-10">
+              <button className="h-[45px] px-[26px] py-[13px] translate-y-0 md:translate-y-10 rounded-full border border-[#171717] flex items-center justify-center bg-white mt-5 lg:mt-10">
                 Hello!
               </button>
             </ClientOnly>
-            <div className="flex flex-col sm:flex-row sm:gap-2 items-center sm:items-end mb-1 mt-6 sm:mt-8">
+            <div className="flex flex-col sm:flex-row sm:gap-2 items-center sm:items-end mb-1 mt-6 sm:mt-8 ">
               <CustomeText
                 title="I'm"
-                className="text-[#171717] font-semibold text-4xl sm:text-5xl md:text-7xl xl:text-[74px]"
+                className="text-[#171717] font-semibold text-5xl md:text-7xl xl:text-[74px]"
               />
               <div className="flex items-end">
                 <CustomeText
                   title="Jastan Ric"
-                  className="text-[#FD853A] font-semibold text-4xl sm:text-5xl md:text-7xl xl:text-[74px]"
+                  className="text-[#FD853A] font-semibold text-5xl md:text-7xl xl:text-[74px]"
                 />
                 <CustomeText
                   title=","
-                  className="text-[#171717] font-semibold text-4xl sm:text-5xl md:text-7xl xl:text-[74px]"
+                  className="text-[#171717] font-semibold text-5xl md:text-7xl xl:text-[74px]"
                 />
               </div>
             </div>
             <CustomeText
               title="Environmental Steward"
-              className="text-[#171717] font-semibold text-4xl sm:text-5xl md:text-7xl xl:text-[74px] scale-y-110  text-center"
+              className="text-[#171717] font-semibold text-5xl md:text-7xl xl:text-[74px] scale-y-110  text-center"
             />
           </div>
 
-          <div className="relative w-full max-w-[952px] aspect-[3/2] flex flex-col items-center justify-center  mx-auto px-4">
+          <div className="relative w-full max-w-[952px] mt-16 aspect-[3/2] flex flex-col items-center justify-center  mx-auto px-4">
             <div className="absolute bottom-0 z-0 w-[90%] max-w-[812px] aspect-[2/1] overflow-hidden flex items-center justify-center pointer-events-auto">
               <div className="absolute w-full h-full bg-[#FEB273] rounded-t-full" />
             </div>
@@ -83,7 +83,7 @@ export default function Home() {
               width={888}
               height={888}
               quality={90}
-              className="absolute bottom-0 z-20 w-full md:w-10/12 lg:w-11/12 xl:w-10/12 mx-auto h-auto object-cover"
+              className="absolute bottom-0 z-20 w-full  translate-y-10 sm:w-10/12 md:w-10/12 lg:w-11/12 xl:w-10/12 mx-auto h-auto object-cover"
               priority
             />
 
@@ -109,7 +109,7 @@ export default function Home() {
       {/* About Me */}
       <div
         id="about"
-        className="relative flex flex-col w-full mb-10  items-center px-6 sm:px-6 md:px-16 lg:px-20  bg-[#171717] rounded-[30px] sm:rounded-[50px] overflow-hidden scroll-mt-[100px] "
+        className="relative flex flex-col w-full mb-10 z-30 items-center px-6 sm:px-6 md:px-16 lg:px-20  bg-[#171717] rounded-[30px] sm:rounded-[50px] overflow-hidden scroll-mt-[100px] "
       >
         <Image
           src="/Frame 77.svg"
@@ -170,7 +170,7 @@ export default function Home() {
       <Testimonials />
 
       {/* Contact */}
-      <div id="contact" className="scroll-mt-[100px] ">
+      <div className="scroll-mt-[100px] ">
         <Contact />
       </div>
 
@@ -205,9 +205,9 @@ export default function Home() {
       {/* Blog */}
       <div
         id="blogs"
-        className="flex flex-col w-full h-fit items-center gap-12 px-5 md:px-[71px] bg-[#f2f4f7] py-10 relative"
+        className="flex flex-col w-full h-fit items-center gap-12 sm:px-5 md:px-[71px] bg-[#f2f4f7] py-10 relative"
       >
-        <div className="  w-full flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div className="  w-full flex flex-col  lg:flex-row items-center justify-between gap-6">
           <div className="w-full pb-20 md:pb-10 md:flex  items-start justify-center space-x-2.5 text-center lg:text-lef translate-y-10">
             <CustomeText
               title="Read my latest"
