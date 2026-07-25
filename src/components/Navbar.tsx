@@ -118,11 +118,11 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 z-50  max-w-[1284px] h-[70px] lg:h-[80px]  text-white px-10 lg:px-2.5 rounded-[20px] sm:rounded-[35px] lg:rounded-[50px]  mx-auto flex items-center justify-between transition-all duration-300 ease-in-out ${
+      className={`fixed top-0 z-50  max-w-[1284px] h-[70px] lg:h-[80px]  text-white px-10 lg:px-2.5 rounded-[20px] sm:rounded-[35px] lg:rounded-[50px]  mx-auto flex items-center justify-between transition-all duration-100 ease-in-out ${
         showNav
           ? "translate-y-4 lg:translate-y-8"
           : " translate-y-4 lg:-translate-y-[100%]"
-      } ${scrollPosition >= 5 ? "w-1/10 left-0 lg:inset-x-0 lg:w-full lg:bg-[#171717ed] lg:backdrop-blur-[15px] lg:border lg:border-[#ffffff4e]" : "  w-full lg:inset-x-0 bg-[#171717ed] backdrop-blur-[15px] lg:border border-[#ffffff1a]"}`}
+      } ${scrollPosition >= 5 ? "w- left-0 lg:inset-x-0 lg:w-full lg:bg-[#171717ed] lg:backdrop-blur-[15px] lg:border lg:border-[#ffffff4e]" : "  w-full lg:inset-x-0 bg-[#171717ed] backdrop-blur-[15px] lg:border border-[#ffffff1a]"}`}
     >
       {/* Left Menu (Desktop) */}
       <div className="hidden lg:flex flex-1 justify-start gap-2.5">
@@ -144,7 +144,7 @@ const Navbar = () => {
       {/* Logo */}
       <div
         onClick={() => scrollToSection("Home")}
-        className={`flex flex-col items-center bg-[#272727] lg:bg-transparent flex-shrink-0 cursor-pointer border-x-2 -translate-x-7 lg:-translate-x-0 scale-80 lg:scale-100 rounded-full ${selected === "Home" ? "border-[#d2cac6]" : " border-transparent hover:bg-[#232323]"} transition-all duration-300 h-[60px] ${scrollPosition >= 5 ? "  px-3.5 lg:px-12" : " px-12"}`}
+        className={`flex flex-col items-center lg:bg-transparent flex-shrink-0 cursor-pointer border-x-2 -translate-x-7 lg:-translate-x-0 scale-80 lg:scale-100 rounded-full ${selected === "Home" ? "border-[#d2cac6]" : " border-transparent hover:bg-[#232323]"} transition-all duration-300 h-[60px] ${scrollPosition >= 5 ? " bg-[#272727] px-3.5 lg:px-12" : " px-12"}`}
       >
         <div
           className={`${scrollPosition >= 5 ? " scale-125 translate-y-3.5 lg:translate-y-1 lg:scale-100" : "translate-y-1"} text-[#fd853a]  rounded-full flex items-center justify-center mb-3 lg:mb-1 `}
@@ -193,7 +193,7 @@ const Navbar = () => {
       {/* Mobile Menu Button */}
       <button
         ref={menuButtonRef}
-        className={` flex items-center justify-center w-10 h-10 rounded-full bg-[#FD853A] hover:bg-[#e67a2e] transition-colors ${scrollPosition >= 5 ? "hidden" : "lg:hidden"}`}
+        className={`   w-10 h-10 rounded-full bg-[#FD853A] hover:bg-[#e67a2e] transition-colors ${scrollPosition >= 5 ? " opacity-0  delay-300 transition-all pointer-events-none" : " items-center justify-center flex lg:hidden"}`}
         onClick={toggleMobileMenu}
       >
         {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
