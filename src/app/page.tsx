@@ -83,7 +83,7 @@ export default function Home() {
               width={888}
               height={888}
               quality={90}
-              className="absolute bottom-0 z-20 w-full  translate-y-10 sm:w-10/12 md:w-10/12 lg:w-11/12 xl:w-10/12 mx-auto h-auto object-cover"
+              className="absolute bottom-0 z-20 w-full  translate-y-5 md:translate-y-10 max-w-[420] sm:max-w-full sm:w-9/12 md:w-10/12 lg:w-11/12 xl:w-10/12 mx-auto h-auto object-cover"
               priority
             />
 

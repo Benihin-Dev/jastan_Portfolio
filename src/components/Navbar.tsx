@@ -118,11 +118,11 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 z-50  max-w-[1284px] h-[70px] lg:h-[80px]  text-white px-10 lg:px-2.5 rounded-[20px] sm:rounded-[35px] lg:rounded-[50px]  mx-auto flex items-center justify-between transition-all duration-100 ease-in-out ${
+      className={`fixed top-0 z-50  max-w-[1284px] h-[70px] lg:h-[80px]  text-white px-8 scale-94 lg:scale-100 lg:p x-3 rounded-[40px] lg:rounded-[50px]  mx-auto flex items-center justify-between transition-all duration-200 ease-in-out ${
         showNav
           ? "translate-y-4 lg:translate-y-8"
           : " translate-y-4 lg:-translate-y-[100%]"
-      } ${scrollPosition >= 5 ? "w- left-0 lg:inset-x-0 lg:w-full lg:bg-[#171717ed] lg:backdrop-blur-[15px] lg:border lg:border-[#ffffff4e]" : "  w-full lg:inset-x-0 bg-[#171717ed] backdrop-blur-[15px] lg:border border-[#ffffff1a]"}`}
+      } ${scrollPosition >= 5 ? "left-0 lg:inset-x-0 lg:w-full lg:bg-[#171717ed] lg:backdrop-blur-[15px] border border-transparent lg:border-[#ffffff4e]" : " w-full lg:inset-x-0 bg-[#171717ed] backdrop-blur-[15px] lg:border-transparent border border-[#ffffff1a]"}`}
     >
       {/* Left Menu (Desktop) */}
       <div className="hidden lg:flex flex-1 justify-start gap-2.5">
@@ -193,7 +193,7 @@ const Navbar = () => {
       {/* Mobile Menu Button */}
       <button
         ref={menuButtonRef}
-        className={`   w-10 h-10 rounded-full bg-[#FD853A] hover:bg-[#e67a2e] transition-colors ${scrollPosition >= 5 ? " opacity-0  delay-300 transition-all pointer-events-none" : " items-center justify-center flex lg:hidden"}`}
+        className={`   w-10 h-10 rounded-full bg-[#FD853A] hover:bg-[#e67a2e] transition-colors ${scrollPosition >= 5 ? " opacity-0  delay-300 transition-all pointer-events-none lg:hidden" : " items-center justify-center flex lg:hidden"}`}
         onClick={toggleMobileMenu}
       >
         {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}

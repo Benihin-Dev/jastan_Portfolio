@@ -11,7 +11,6 @@ const Blog: React.FC<BlogProps> = ({
   name,
   title,
   link,
-  date,
   priority = false,
 }) => {
   return (
@@ -62,8 +61,8 @@ const Blog: React.FC<BlogProps> = ({
             <h2 className=" font-semibold text-xl text-[#262626] scale-y-110 pb-1">
               {name}
             </h2>
-            <p className=" text-gray-500  font-thin">
-              {date} | <span className=" italic"> {title}</span>
+            <p className=" text-gray-600  font-thin">
+              <span className=" italic"> {title}</span>
             </p>
           </div>
         </div>
