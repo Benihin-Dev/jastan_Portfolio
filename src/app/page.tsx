@@ -205,10 +205,10 @@ export default function Home() {
       {/* Blog */}
       <div
         id="blogs"
-        className="flex flex-col w-full h-fit items-center gap-12 sm:px-5 md:px-[71px] bg-[#f2f4f7] py-10 relative"
+        className="flex flex-col w-full h-fit items-center gap-12 sm:px-5 md:px-[71px] bg-[#f2f4f7] py-5 md:py-10 relative"
       >
         <div className="  w-full flex flex-col  lg:flex-row items-center justify-between gap-6">
-          <div className="w-full pb-20 md:pb-10 md:flex  items-start justify-center space-x-2.5 text-center lg:text-lef translate-y-10">
+          <div className="w-full pb-5 md:pb-10 md:flex  items-start justify-center space-x-2.5 text-center lg:text-lef translate-y-10">
             <CustomeText
               title="Read my latest"
               className="font-medium text-4xl sm:text-5xl lg:text-6xl text-[#344054]"
