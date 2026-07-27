@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://jastanric.com"), // your actual domain
+  metadataBase: new URL("https://jastanric.vercel.app"),
   title: {
     default: "Jastan Ric - Wildlife Enthusiast",
     template: "%s | Jastan Ric",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: "Jastan Ric - Wildlife Enthusiast",
     description:
       "Explore the portfolio of Jastan Ric — wildlife enthusiast, naturalist, and environmental researcher dedicated to conservation and sustainable ecosystems.",
-    url: "https://jastanric.com",
+    url: "https://jastanric.vercel.app",
     siteName: "Jastan Ric",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
     locale: "en_US",
