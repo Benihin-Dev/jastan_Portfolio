@@ -1,33 +1,33 @@
 "use client";
-
 import React, { useState } from "react";
-import {
-  FacebookIcon,
-  AtSign,
-  InstagramIcon,
-  TwitterIcon,
-  MessageCircle,
-} from "lucide-react";
+import ContactPopup from "./ui/ContactPopup";
+import { FaWhatsapp } from "react-icons/fa";
+import { FiFacebook } from "react-icons/fi";
+import { IoLogoInstagram } from "react-icons/io5";
+import { FaThreads } from "react-icons/fa6";
+import { VscTwitter } from "react-icons/vsc";
+import { SlSocialLinkedin } from "react-icons/sl";
 import { ArrowUpRight } from "lucide-react";
 import CustomeText from "./ui/CustomeText";
 import Link from "next/link";
 import ClientOnly from "./ui/ClientOnly";
 import Image from "next/image";
 
-const SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbz-xZziHZR0U5_AuKoM7xP5HEgvQ6rC6Hp6t6-exZihfGruWgPqmKXrU5r1X7kFLnhj/exec";
-
 const Footer = () => {
   const navigation = ["Home", "About", "Qualification", "Blogs", "Contact"];
   const iconsAndUrl = [
-    { icon: MessageCircle, url: "https://wa.me/94754540123" },
-    { icon: FacebookIcon, url: "https://www.facebook.com/share/1BPtbdticF/" },
+    { icon: FaWhatsapp, url: "https://wa.me/94754540123" },
+    { icon: FiFacebook, url: "https://www.facebook.com/share/1BPtbdticF/" },
     {
-      icon: InstagramIcon,
+      icon: IoLogoInstagram,
       url: "https://www.instagram.com/jastanric?utm_source=qr&igsh=MXNrOXF3YXljcmY1aQ==",
     },
-    { icon: AtSign, url: "https://www.threads.net/@jastanric" },
-    { icon: TwitterIcon, url: "https://x.com/jastanric" },
+    { icon: FaThreads, url: "https://www.threads.net/@jastanric" },
+    { icon: VscTwitter, url: "https://x.com/jastanric" },
+    {
+      icon: SlSocialLinkedin,
+      url: "https://www.linkedin.com/in/jastan-ric-054b9b18a?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    },
   ];
 
   const contact = [
@@ -35,55 +35,44 @@ const Footer = () => {
     { name: "jastanric@outlook.com", url: "mailto:jastanric@outlook.com" },
   ];
 
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
-  const [errorMsg, setErrorMsg] = useState("");
-
   const isValidEmail = (value: string) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
-  const handleSubscribe = async () => {
+  const handleOpenContactPopup = () => {
     if (!email.trim()) {
-      setStatus("error");
-      setErrorMsg("Please enter your email.");
+      setEmailError("Please enter your email.");
       return;
     }
     if (!isValidEmail(email)) {
-      setStatus("error");
-      setErrorMsg("Please enter a valid email.");
+      setEmailError("Please enter a valid email.");
       return;
     }
-
-    setStatus("loading");
-    setErrorMsg("");
-
-    try {
-      await fetch(SCRIPT_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          type: "contact",
-          email,
-        }),
-      });
-
-      // no-cors gives an opaque response, so we assume success if no throw
-      setStatus("success");
-      setEmail("");
-    } catch (err) {
-      console.error("Subscribe error:", err);
-      setStatus("error");
-      setErrorMsg("Something went wrong. Please try again.");
-    }
+    setEmailError("");
+    openContactPopup();
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      handleSubscribe();
+      handleOpenContactPopup();
     }
+  };
+
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [popUpState, setPopUpState] = useState(false);
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+
+  const openContactPopup = () => {
+    setIsPopupVisible(true);
+    requestAnimationFrame(() => setPopUpState(true));
+  };
+
+  const closeContactPopup = () => {
+    setPopUpState(false); // triggers fade-out
+    setTimeout(() => {
+      setIsPopupVisible(false);
+      setEmail("");
+    }, 300); // matches transition duration
   };
 
   return (
@@ -131,10 +120,10 @@ const Footer = () => {
           </div>
           <p className="w-full lg:w-4/5 h-auto lg:h-[61px] text-[16px] sm:text-[18px] lg:text-[20px] text-[#FCFCFD]">
             Thank you for visiting my website. Feel free to connect with me
-            through my social media platforms to stay updated with my journey
-            and work.
+            through my social media platforms to stay updated on my journey,
+            wildlife experiences, and professional work.
           </p>
-          <div className="flex gap-2 sm:gap-2.5 mt-4">
+          <div className="flex gap-2 sm:gap-2.5 mt-10">
             {iconsAndUrl.map((item, idx) => {
               const Icon = item.icon;
               return (
@@ -143,11 +132,11 @@ const Footer = () => {
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10  rounded-full flex hover:scale-110 transition-transform bg-[#333333] hover:bg-[#444444] items-center justify-center"
+                  className={` w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10  rounded-full flex hover:scale-110 transition-transform bg-[#333333] hover:bg-[#444444] items-center justify-center `}
                 >
                   <Icon
                     size={16}
-                    className="sm:w-5 sm:h-5 lg:w-5 lg:h-5 text-[#FD853A]"
+                    className={`${idx < 3 ? "scale-110" : ""} sm:w-5 sm:h-5 lg:w-5 lg:h-5 text-[#FD853A] `}
                   />
                 </Link>
               );
@@ -201,17 +190,15 @@ const Footer = () => {
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
-                  if (status !== "idle") setStatus("idle");
+                  if (emailError) setEmailError("");
                 }}
                 onKeyDown={handleKeyDown}
                 placeholder="Email Address"
-                disabled={status === "loading"}
                 className="w-full h-full bg-white text-black text-[14px] sm:text-[15px] lg:text-[16px] px-3 sm:px-4 py-2 sm:py-3 pr-12 rounded-[8px] sm:rounded-[10px] border-none outline-none disabled:opacity-70"
               />
               <button
-                onClick={handleSubscribe}
-                disabled={status === "loading"}
-                className="absolute top-0 right-0 h-full w-[45px] sm:w-[48px] lg:w-[51px] bg-[#FD853A] rounded-r-[8px] sm:rounded-r-[10px] flex items-center justify-center cursor-pointer hover:bg-[#e46e24] transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                onClick={handleOpenContactPopup}
+                className="absolute top-0 right-0 h-full w-[45px] sm:w-[48px] lg:w-[51px] bg-[#FD853A] rounded-r-[8px] sm:rounded-r-[10px] flex items-center justify-center cursor-pointer hover:bg-[#e46e24] transition-colors"
               >
                 <svg
                   width="20"
@@ -228,14 +215,9 @@ const Footer = () => {
                 </svg>
               </button>
             </ClientOnly>
-            {status === "error" && (
+            {emailError && (
               <p className="absolute -bottom-6 left-0 text-red-400 text-[13px]">
-                {errorMsg}
-              </p>
-            )}
-            {status === "success" && (
-              <p className="absolute -bottom-6 left-0 text-green-400 text-[13px]">
-                Thanks! I&apos;ll be in touch soon.
+                {emailError}
               </p>
             )}
           </div>
@@ -272,6 +254,22 @@ const Footer = () => {
           Privacy Policy
         </Link>
       </div>
+      {isPopupVisible && (
+        <div
+          onClick={closeContactPopup}
+          className={`transition-opacity duration-300 w-full h-full bg-[#18181874] backdrop-blur-[5px] fixed top-0 left-0 flex justify-center items-center z-[70] px-4 ${
+            popUpState ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <div
+            className={`transition-all duration-300 w-full max-w-[480px] ${
+              popUpState ? "opacity-100 scale-100" : "opacity-0 scale-95"
+            }`}
+          >
+            <ContactPopup email={email} onClose={closeContactPopup} />
+          </div>
+        </div>
+      )}
     </footer>
   );
 };

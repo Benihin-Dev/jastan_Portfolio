@@ -82,6 +82,8 @@ export default function SliderForReview({
               country={item.country}
               rating={item.rating}
               desc={item.desc}
+              link={item.link}
+              salutation={item.salutation}
             />
           </div>
         ))}

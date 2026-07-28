@@ -131,14 +131,14 @@ export default function Home() {
           <div className="w-full lg:w-[70%] xl:w-[60% py-10 xl:py-0 flex flex-col  items-center justify-between gap-6 relative z-10">
             <div className="relative flex  justify-center items-center w-full rounded-[37px] lg:rounded-[40px] bg-white/10 backdrop-blur-[15px] border border-white/50  transition-colors duration-300 ease-in-out overflow-hidden text-justify p-10 text-gray-300 xl:text-lg">
               <p className=" w-full">
-                I am a graduate of the Faculty of Technology at University of
-                Sri Jayewardenepura, Sri Lanka, specializing in Industrial
+                I am a graduate of the Faculty of Technology at the University
+                of Sri Jayewardenepura, Sri Lanka, specializing in Industrial
                 Biosystems Technology. I am currently pursuing a Master&apos;s
                 degree in Forestry and Environmental Management to further
                 enhance my knowledge and expertise in sustainable natural
                 resource management, forest conservation, and environmental
-                stewardship. I am passionate about Wildlife, Forestry,
-                Environmental Conservation, and Scientific Research and I
+                stewardship. I am passionate about wildlife, forestry,
+                environmental conservation, and scientific research, and I
                 continuously strive to expand my skills and contribute
                 meaningfully to the protection and sustainable management of
                 natural ecosystems.

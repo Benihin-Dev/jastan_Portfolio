@@ -80,9 +80,12 @@ export default function Education() {
         ))}
       </div>
       <div className="w-full hidden scale-75 -translate-x-8 lg:flex justify-evenly">
-        <div className="flex flex-col justify-between w-[500px] gap-[60px]">
+        <div className="flex flex-col justify-between w-[600px] 2xl:w-[700px] gap-[60px] ">
           {experiences.map((exp, index) => (
-            <div key={index} className="flex flex-col gap-[14px] relative">
+            <div
+              key={index}
+              className="flex flex-col gap-[14px] relative translate-x-5 lg:translate-x-14"
+            >
               <CustomeText
                 title={exp.role}
                 className="font-semibold text-[#1D2939] text-[40px] opacity-0"
@@ -90,13 +93,13 @@ export default function Education() {
               {exp.desc && (
                 <CustomeText
                   title={exp.desc}
-                  className="text-2xl text-[#98A2B3] opacity-0"
+                  className="text-2xl text-[#98A2B3] text-justify opacity-0"
                 />
               )}
               <div key={index} className="flex flex-col gap-[14px] absolute">
                 <CustomeText
                   title={exp.company}
-                  className="font-semibold text-[#1D2939] text-[40px]"
+                  className="font-semibold text-[#1D2939] text-[40px] pr-40"
                 />
                 <CustomeText
                   title={exp.duration}
@@ -112,7 +115,7 @@ export default function Education() {
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className={` relative flex items-center justify-center w-12 h-12 ${index === 1 ? "-translate-y-[160%]" : index === 2 ? "-translate-y-[180%]" : "translate-0"} `}
+              className={` relative flex items-center justify-center w-12 h-12 ${index === 1 ? "-translate-y-[260%]" : index === 2 ? "-translate-y-[300%]" : "translate-0"} `}
             >
               <div className="absolute w-12 h-12 rounded-full border-2 border-dashed border-[#1D2939] bg-white" />
               <div className={`w-9 h-9 rounded-full z-10 ${exp.dotColor}`} />
@@ -120,7 +123,7 @@ export default function Education() {
           ))}
         </div>
         <div
-          className={` flex flex-col justify-between w-[500px] lg:w-[500px] xl:w-[600px] 2xl:w-[700px] gap-[60px] translate-x-10`}
+          className={` flex flex-col justify-between  w-[600px] 2xl:w-[700px] gap-[60px] translate-x-10`}
         >
           {experiences.map((exp, index) => (
             <div
@@ -137,11 +140,11 @@ export default function Education() {
               {exp.desc && (
                 <CustomeText
                   title={exp.desc}
-                  className="text-2xl text-[#98A2B3] "
+                  className="text-2xl text-[#98A2B3]  text-justify"
                 />
               )}
               <div
-                className={` absolute left-[100%] text-gray-500 xl:left-[90%] top-0 translate-y-1/2 hover:text-[#FD853A]  duration-300 ${index === 1 ? "block" : "hidden"}`}
+                className={` absolute left-[100%] text-gray-500 xl:left-[90%] 2xl:left-[100%] top-0 translate-y-1/2 hover:text-[#FD853A]  duration-300 ${index === 1 ? "block" : "hidden"}`}
               >
                 <Link className="size-8" />
               </div>

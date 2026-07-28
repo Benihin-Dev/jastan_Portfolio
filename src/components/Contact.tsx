@@ -4,35 +4,9 @@ import ClientOnly from "@/components/ui/ClientOnly";
 import CustomeText from "@/components/ui/CustomeText";
 import Image from "next/image";
 
-const APPS_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbz-xZziHZR0U5_AuKoM7xP5HEgvQ6rC6Hp6t6-exZihfGruWgPqmKXrU5r1X7kFLnhj/exec";
-
 export default function Contact() {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "sent" | "error">(
-    "idle",
-  );
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email.trim()) return;
-
-    setStatus("loading");
-    try {
-      await fetch(APPS_SCRIPT_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "text/plain" },
-        body: JSON.stringify({ type: "contact", email }),
-      });
-      // no-cors means the response body is opaque, so we optimistically assume success
-      setStatus("sent");
-      setEmail("");
-    } catch (err) {
-      console.error("Contact submission failed:", err);
-      setStatus("error");
-    }
-  };
+  const [status] = useState<"idle" | "loading" | "sent" | "error">("idle");
 
   return (
     <div className="w-full bg-white flex flex-col items-center justify-center py-16 lg:pb-20 scale-100 lg:scale-85 px-4 sm  lg:px-[60px] gap-10">
@@ -53,10 +27,7 @@ export default function Contact() {
         </p>
       </div>
 
-      <form
-        onSubmit={handleSubmit}
-        className="w-full max-w-3xl flex md:flex-row items-center justify-between px-3 py-2 md:px-6 md:py-4 rounded-full border duration-300 transition-all hover:border-[#7f7f7f8e]  border-[#E4E7EC] bg-[white]"
-      >
+      <form className="w-full max-w-3xl flex md:flex-row items-center justify-between px-3 py-2 md:px-6 md:py-4 rounded-full border duration-300 transition-all hover:border-[#7f7f7f8e]  border-[#E4E7EC] bg-[white]">
         <div className="w-9 h-9 md:w-[50px] md:h-[50px] flex items-center justify-center rounded-full bg-[#eeebe7a8] shrink-0">
           <Image
             src="/whatsapp.svg"

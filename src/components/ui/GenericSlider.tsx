@@ -77,6 +77,8 @@ export function GenericSlider<T extends AllowedCard>({
                     country={item.country}
                     rating={item.rating}
                     desc={item.desc}
+                    link={item.link}
+                    salutation={item.salutation}
                   />
                 )}
                 {cardType === "blog" &&
@@ -176,6 +178,8 @@ export function GenericSlider<T extends AllowedCard>({
                   country={item.country}
                   rating={item.rating}
                   desc={item.desc}
+                  link={item.link}
+                  salutation={item.salutation}
                 />
               )}
               {cardType === "blog" &&

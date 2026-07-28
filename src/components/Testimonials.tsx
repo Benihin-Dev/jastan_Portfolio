@@ -10,7 +10,7 @@ import { ArrowUpRight, CopyPlus, CircleFadingPlus } from "lucide-react";
 import AllTestimonials from "./ui/AllTestimonials";
 
 const SHEET_API_URL =
-  "https://script.google.com/macros/s/AKfycbz-xZziHZR0U5_AuKoM7xP5HEgvQ6rC6Hp6t6-exZihfGruWgPqmKXrU5r1X7kFLnhj/exec";
+  "https://script.google.com/macros/s/AKfycby8DlP6chgNOSzYhBCxIzOwKJejGEexHr_yfIDo5RTfrRi2dt53JVQgDj7sPwywrAAj_A/exec";
 
 interface SheetRow {
   name?: string;
@@ -18,6 +18,8 @@ interface SheetRow {
   country?: string;
   rating?: string | number;
   description?: string;
+  link?: string;
+  salutation?: string;
 }
 
 export default function Testimonials() {
@@ -35,13 +37,14 @@ export default function Testimonials() {
       if (!Array.isArray(data) || data.length === 0) {
         throw new Error("No data returned from sheet");
       }
-
       const mapped: Review[] = data.map((row: SheetRow) => ({
         name: row.name || "",
         role: row.role || "",
         country: row.country || "",
         rating: Number(row.rating) || 0,
         desc: row.description || "",
+        link: row.link || "",
+        salutation: row.salutation || "",
       }));
 
       setReviewData(mapped);

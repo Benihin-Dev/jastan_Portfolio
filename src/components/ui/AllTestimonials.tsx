@@ -15,7 +15,7 @@ export default function AllTestimonials({
   return (
     <div
       onClick={onClose}
-      className="fixed top-0 left-0 w-full h-screen  bg-[#00000067] z-[65] flex items-center justify-center px-4 sm:px-6 lg:px-10 py-10"
+      className="fixed top-0 left-0 w-full h-screen bg-[#00000067] z-[65] flex items-center justify-center px-4 sm:px-6 lg:px-10 py-10"
     >
       <div
         onClick={(e) => e.stopPropagation()}
@@ -45,7 +45,7 @@ export default function AllTestimonials({
                     "https://g.page/r/CaGmieHCmSRvEBM/review";
                 }}
                 key={index}
-                className="flex flex-col gap-3 bg-white rounded-2xl p-5 sm:p-6 relative shadow-sm border border-[#EAECF0]  hover:border-[#FD853A] duration-150"
+                className={`flex flex-col gap-3 bg-white rounded-2xl p-5 sm:p-6 relative shadow-sm border border-[#EAECF0]  hover:border-[#FD853A] duration-150 ${review.name === "Nobody" ? "blur" : ""}`}
               >
                 <div className="flex gap-1">
                   {[1, 2, 3, 4, 5].map((star) => (
@@ -67,13 +67,13 @@ export default function AllTestimonials({
 
                 <div className="flex flex-col mt-auto pt-2 relative">
                   <span className="text-[14px] sm:text-[15px] font-semibold text-[#1D2939]">
-                    {review.name}
+                    {review.salutation} {review.name}
                   </span>
                   <span className="text-[12px] sm:text-[13px] text-[#98A2B3]">
                     {review.role}
                     {review.country ? ` · ${review.country}` : ""}
                   </span>
-                  <a href="https://g.page/r/CaGmieHCmSRvEBM/review">
+                  <a href={review.link}>
                     <div className=" w-10 absolute bottom-0 right-0 text-gray-500">
                       <Link className=" size-4 translate-x-full cursor-pointer hover:scale-110 duration-300 hover:text-[#FD853A] transition-all" />
                     </div>

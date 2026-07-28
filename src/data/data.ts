@@ -35,6 +35,8 @@ export interface Review {
   country: string;
   rating: number;
   desc: string;
+  link: string;
+  salutation: string;
 }
 
 export interface CardData {
@@ -53,15 +55,15 @@ export const experiences: Experience[] = [
   {
     company: "University of Sri Jayewardenepura",
     duration: "June 2020 – March 2025",
-    role: "Bachelor of Biosystem Technology (Hons) ",
-    desc: "I hold a Bachelor’s degree in Biosystems Technology, specializing in Industrial Biosystems Technology. I have also completed and published undergraduate research in the field of aquaculture at ICIET 2025.",
+    role: "Bachelor of Biosystems Technology (Hons)",
+    desc: "I hold a Bachelor’s degree in Biosystems Technology, specializing in Industrial Biosystems Technology. I have also completed my undergraduate research in the field of aquaculture, which was presented and published at ICIET 2025.",
     dotColor: "bg-[#1D2939]",
   },
   {
     company: "University of Sri Jayewardenepura",
     duration: "July 2026 – Present",
-    role: "Forestry and Environmental Management",
-    desc: "Reading",
+    role: "MSc in Forestry and Environmental Management",
+    desc: "Currently pursuing postgraduate studies in sustainable natural resource management, forest conservation, and environmental management.",
     dotColor: "bg-[#FD853A]",
   },
 ];
@@ -184,32 +186,40 @@ export const portfolioData: PortfolioItem[] = [
 
 export const reviews: Review[] = [
   {
-    name: "Dr. Malaka Perera",
-    role: "Wildlife Biologist",
-    country: "Canada",
+    name: "Nobody",
+    role: "No_Role",
+    country: "No_Country",
     rating: 5,
     desc: "Exceptional field awareness and a genuine passion for conservation. Jastan's research work on aquaculture was thorough, well-documented.",
+    link: "",
+    salutation: "Mrs.",
   },
   {
-    name: "Sarah Johnson",
-    role: "Environmental Researcher",
-    country: "Norway",
-    rating: 4,
-    desc: "A dedicated and detail-oriented researcher. Consistently reliable in fieldwork and always brings fresh insight to environmental projects.",
-  },
-  {
-    name: "Dr. Anushka Fernando",
-    role: "Forestry Consultant",
-    country: "India",
+    name: "Nobody",
+    role: "No_Role",
+    country: "No_Country",
     rating: 5,
-    desc: "Impressive knowledge of sustainable forest ecosystems. A collaborative and thoughtful presence in every research discussion.",
+    desc: "Exceptional field awareness and a genuine passion for conservation. Jastan's research work on aquaculture was thorough, well-documented.",
+    link: "",
+    salutation: "Mrs.",
   },
   {
-    name: "Aryan Sharma",
-    role: "Conservation Officer",
-    country: "USA",
-    rating: 4,
-    desc: "Strong understanding of wildlife behavior and ecosystem dynamics. Brings a calm, informed approach to every we've worked on together.",
+    name: "Nobody",
+    role: "No_Role",
+    country: "No_Country",
+    rating: 5,
+    desc: "Exceptional field awareness and a genuine passion for conservation. Jastan's research work on aquaculture was thorough, well-documented.",
+    link: "",
+    salutation: "Mrs.",
+  },
+  {
+    name: "Nobody",
+    role: "No_Role",
+    country: "No_Country",
+    rating: 5,
+    desc: "Exceptional field awareness and a genuine passion for conservation. Jastan's research work on aquaculture was thorough, well-documented.",
+    link: "",
+    salutation: "Mrs.",
   },
 ];
 
