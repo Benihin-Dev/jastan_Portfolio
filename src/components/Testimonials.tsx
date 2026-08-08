@@ -13,13 +13,13 @@ const SHEET_API_URL =
   "https://script.google.com/macros/s/AKfycby8DlP6chgNOSzYhBCxIzOwKJejGEexHr_yfIDo5RTfrRi2dt53JVQgDj7sPwywrAAj_A/exec";
 
 interface SheetRow {
-  name?: string;
-  role?: string;
-  country?: string;
-  rating?: string | number;
-  description?: string;
-  link?: string;
-  salutation?: string;
+  Name?: string;
+  Role?: string;
+  Country?: string;
+  Rating?: string | number;
+  Description?: string;
+  Link?: string;
+  Salutation?: string;
 }
 
 export default function Testimonials() {
@@ -37,14 +37,15 @@ export default function Testimonials() {
       if (!Array.isArray(data) || data.length === 0) {
         throw new Error("No data returned from sheet");
       }
+      console.log(data);
       const mapped: Review[] = data.map((row: SheetRow) => ({
-        name: row.name || "",
-        role: row.role || "",
-        country: row.country || "",
-        rating: Number(row.rating) || 0,
-        desc: row.description || "",
-        link: row.link || "",
-        salutation: row.salutation || "",
+        name: row.Name || "",
+        role: row.Role || "",
+        country: row.Country || "",
+        rating: Number(row.Rating) || 0,
+        desc: row.Description || "",
+        link: row.Link || "",
+        salutation: row.Salutation || "",
       }));
 
       setReviewData(mapped);
