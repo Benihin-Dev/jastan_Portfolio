@@ -88,10 +88,12 @@ const Footer = () => {
   rel="noopener noreferrer"
   className="group flex items-center justify-center gap-2 w-full sm:w-[180px] lg:w-[202px] h-[50px] sm:h-[56px] lg:h-[62px] px-4 sm:px-5 py-2 sm:py-2.5 text-white text-base sm:text-lg font-semibold rounded-full bg-[#FD853A] cursor-pointer hover:bg-[#e46e24] transition-colors duration-200"
 >
-  <span className="transition-colors duration-200 group-hover:text-white/90">Hire Me</span>
+  <span className="inline-block transition-transform duration-200 group-hover:scale-110">
+    Hire Me
+  </span>
   <ArrowUpRight
     size={24}
-    className="sm:w-7 sm:h-7 lg:w-8 lg:h-8 transition-transform duration-200 group-hover:rotate-45"
+    className="sm:w-7 sm:h-7 lg:w-8 lg:h-8 transition-transform duration-250 group-hover:rotate-45"
   />
 </a>
         </ClientOnly>
