@@ -135,7 +135,7 @@ export default function FeedbackPopup({ open, onClose }: FeedbackPopupProps) {
           id="feedback-title"
           className="mt-1.5 mb-1 flex items-center gap-2 text-[18px] font-semibold pr-14"
         >
-          <span className="text-[30px] leading-none">🐘</span>
+          <span className="text-[40px] leading-none">🐘</span>
           <span>How was your experience?</span>
         </h2>
         <p className="mb-4 text-[14px] leading-[1.45] text-[#6b675c]">
