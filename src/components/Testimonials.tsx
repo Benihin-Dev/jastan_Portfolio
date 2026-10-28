@@ -155,9 +155,10 @@ export default function Testimonials() {
           <SliderForReview data={reviewData} type="normal" viewPort="mobile" />
           <div className="w-full -translate-y-24">
             <SliderForReview
-              data={reviewData.toReversed()}
+              data={[...reviewData].reverse()}
               type="rotate"
               viewPort="mobile"
+            />
             />
           </div>
         </div>
