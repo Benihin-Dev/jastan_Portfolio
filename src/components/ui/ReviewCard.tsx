@@ -10,6 +10,7 @@ export default function ReviewCard({
   desc,
   salutation,
 }: Review) {
+  const safeRating = Math.min(5, Math.max(0, Math.round(Number(rating) || 0)));
   return (
     <div className="flex scale-[85%] flex-col w-full h-auto min-h-[200px] sm:min-h-[220px] lg:min-h-[265px] items-start gap-3 sm:gap-3.5 lg:gap-4 p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl lg:rounded-3xl bg-[#FFFFFF]/14 backdrop-blur-[14px] focus:bg-white opacity-70 focus:opacity-100  hover:opacity-100 transition-opacity  relative duration-300">
       {/* Header with Avatar and Info */}
@@ -51,7 +52,7 @@ export default function ReviewCard({
       {/* Rating Section */}
       <div className="w-full flex items-center gap-2 sm:gap-3 lg:gap-4">
         <div className="flex gap-1 sm:gap-1.5">
-          {[...Array(rating)].map((_, i) => (
+          {[...Array(safeRating)].map((_, i) => (
             <Star
               key={i}
               size={16}
