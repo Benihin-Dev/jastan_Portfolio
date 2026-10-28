@@ -3,7 +3,6 @@ import CustomeText from "@/components/ui/CustomeText";
 import DualToggleButtons from "@/components/ui/DualButtons";
 import Image from "next/image";
 import { Star } from "lucide-react";
-import ClientOnly from "@/components/ui/ClientOnly";
 import Testimonials from "@/components/Testimonials";
 import Education from "@/components/Education";
 import SliderForBlog from "@/components/SliderForBlog";
@@ -34,11 +33,9 @@ export default function Home() {
 
         <div className="relative w-full flex flex-col items-center justify-center   ">
           <div className="flex w-full flex-col items-center justify-center  transition-all  duration-300 ease-in-out group-hover:translate-y-[280px] group-hover:opacity-0 px-4 sm:px-0 ">
-            <ClientOnly>
-              <button className="h-[45px] px-[26px] py-[13px] translate-y-0 md:translate-y-10 rounded-full border border-[#171717] flex items-center justify-center bg-white mt-5 lg:mt-10">
-                Hello!
-              </button>
-            </ClientOnly>
+<div className="h-[45px] px-[26px] py-[13px] translate-y-0 md:translate-y-10 rounded-full border border-[#171717] flex items-center justify-center bg-white mt-5 lg:mt-10">
+  Hello!
+</div>
             <div className="flex flex-col sm:flex-row sm:gap-2 items-center sm:items-end mb-1 mt-6 sm:mt-8 ">
               <CustomeText
                 title="I'm"
