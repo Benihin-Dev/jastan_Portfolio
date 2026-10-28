@@ -8,6 +8,7 @@ import { Review } from "@/data/data";
 import FormForReview from "./ui/FormForReview";
 import { ArrowUpRight, CopyPlus, CircleFadingPlus } from "lucide-react";
 import AllTestimonials from "./ui/AllTestimonials";
+import FeedbackPopup from "./ui/FeedbackPopup";
 
 const SHEET_API_URL =
   "https://script.google.com/macros/s/AKfycby8DlP6chgNOSzYhBCxIzOwKJejGEexHr_yfIDo5RTfrRi2dt53JVQgDj7sPwywrAAj_A/exec";
@@ -78,6 +79,9 @@ export default function Testimonials() {
       return { status: "error" };
     }
   }
+
+  // for the "Share Your Sighting" details popup
+  const [feedbackOpen, setFeedbackOpen] = useState<boolean>(false);
 
   //   for form
   const [popUpState, setPopUpState] = useState<boolean>(false);
@@ -161,18 +165,17 @@ export default function Testimonials() {
         <div className=" w-full flex items-center justify-end -translate-y-16 sm:translate-y-0">
           <div className="flex items-center justify-center gap-2 scale-80 translate-x-[10%] sm:translate-x-0 sm:scale-100">
             {/* left Button */}
-            <a href=" https://g.page/r/CTknMOMTPqYaEBM/review">
-              <button
-                className={`group flex items-center justify-center gap-2.5 px-5 py-2.5 rounded-xl transition-all duration-300 ease-in-out cursor-pointer bg-white/10 backdrop-blur-[5px] text-[white] border border-[#c9c9c994] shadow-md  hover:bg-[#ffffff70]  hover:text-[#000000] `}
-              >
-                {" "}
-                <span className=" whitespace-nowrap">Share Your Sighting</span>
-                <CopyPlus
-                  size={16}
-                  className={`transition-all duration-300 opacity-100 translate-x-0 group-hover:opacity-100`}
-                />
-              </button>
-            </a>
+            <button
+              onClick={() => setFeedbackOpen(true)}
+              className={`group flex items-center justify-center gap-2.5 px-5 py-2.5 rounded-xl transition-all duration-300 ease-in-out cursor-pointer bg-white/10 backdrop-blur-[5px] text-[white] border border-[#c9c9c994] shadow-md  hover:bg-[#ffffff70]  hover:text-[#000000] `}
+            >
+              {" "}
+              <span className=" whitespace-nowrap">Share Your Sighting</span>
+              <CopyPlus
+                size={16}
+                className={`transition-all duration-300 opacity-100 translate-x-0 group-hover:opacity-100`}
+              />
+            </button>
 
             {/* right Me Button */}
             <button
@@ -188,11 +191,18 @@ export default function Testimonials() {
           </div>
         </div>
       </div>
-      <a href=" https://g.page/r/CTknMOMTPqYaEBM/review">
-        <div className=" absolute -top-0 -translate-y-1/2 left-5 size-[64px] cursor-pointer hover:scale-110 border border-[#f2f4f7] focus:scale-110 duration-300 flex items-center justify-center bg-[#fd853ae2] backdrop-blur-[14px] rounded-full z-[60]">
-          <CircleFadingPlus className=" font-thin size-12 text-[#000000] " />
-        </div>
-      </a>
+      <button
+        onClick={() => setFeedbackOpen(true)}
+        aria-label="Share your sighting"
+        className=" absolute -top-0 -translate-y-1/2 left-5 size-[64px] cursor-pointer hover:scale-110 border border-[#f2f4f7] focus:scale-110 duration-300 flex items-center justify-center bg-[#fd853ae2] backdrop-blur-[14px] rounded-full z-[60]"
+      >
+        <CircleFadingPlus className=" font-thin size-12 text-[#000000] " />
+      </button>
+      {/* Popup shown before the Google review link */}
+      <FeedbackPopup
+        open={feedbackOpen}
+        onClose={() => setFeedbackOpen(false)}
+      />
       {/* Form for get reviews */}
       {isVisible && (
         <div
