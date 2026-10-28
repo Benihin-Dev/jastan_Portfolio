@@ -220,7 +220,7 @@ export default function FeedbackPopup({ open, onClose }: FeedbackPopupProps) {
 import React, { useEffect, useState } from "react";
 
 // Google Review link that opens after the popup
-const FEEDBACK_URL = "https://g.page/r/CaGmieHCmSRvEBM/review";
+const FEEDBACK_URL = "https://g.page/r/CTknMOMTPqYaEBM/review";
 
 // Same Apps Script web app URL used by the rest of the site.
 // If you deploy a NEW version/URL for the feedback script, paste it here.
@@ -318,7 +318,7 @@ export default function FeedbackPopup({ open, onClose }: FeedbackPopupProps) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-[380px] max-h-[92%] overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden bg-[#fffdf8] text-[#1b1b18] rounded-[26px] pt-[34px] px-6 pb-6 shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
+        className="relative w-full max-w-[380px] max-h-[98%] overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden bg-[#fffdf8] text-[#1b1b18] rounded-[26px] pt-[34px] px-6 pb-6 shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
       >
         {/* Close button: smooth black corner tab + brush-stroke white cross */}
         <button
@@ -348,13 +348,13 @@ export default function FeedbackPopup({ open, onClose }: FeedbackPopupProps) {
           </svg>
         </button>
 
-        <div className="text-[34px] leading-none">🐘</div>
+        <div className="text-[34px] leading-none">🐘
         <h2
           id="feedback-title"
           className="mt-1.5 mb-1 text-[22px] font-semibold pr-14"
         >
           How was your experience?
-        </h2>
+        </h2></div>
         <p className="mb-4 text-[14px] leading-[1.45] text-[#6b675c]">
           Tell us a little about yourself, then share your feedback.
         </p>
