@@ -93,7 +93,7 @@ const Footer = () => {
   </span>
   <ArrowUpRight
     size={24}
-    className="sm:w-7 sm:h-7 lg:w-8 lg:h-8 transition-transform duration-300 group-hover:rotate-45"
+    className="sm:w-7 sm:h-7 lg:w-8 lg:h-8 transition-transform duration-250 group-hover:rotate-45"
   />
 </a>
         </ClientOnly>
@@ -181,7 +181,7 @@ const Footer = () => {
 
         <div className="flex flex-col gap-5 lg:gap-7 w-full lg:w-[304px] items-start">
           <CustomeText
-            title="Get the latest information"
+            title="Get more information"
             className="text-[18px] sm:text-[19px] lg:text-[20px] font-semibold text-[#FD853A]"
           />
           <div className="relative w-full h-[45px] sm:h-[48px] lg:h-[51px]">
