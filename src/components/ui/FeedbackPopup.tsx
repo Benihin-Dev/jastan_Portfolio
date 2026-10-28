@@ -125,7 +125,7 @@ export default function FeedbackPopup({ open, onClose }: FeedbackPopupProps) {
           id="feedback-title"
           className="mt-1.5 mb-1 text-[22px] font-semibold pr-11"
         >
-          Loved your safari?
+          How was your experience?
         </h2>
         <p className="mb-4 text-[14px] leading-[1.45] text-[#6b675c]">
           Tell us a little about yourself, then share your feedback.
