@@ -101,7 +101,7 @@ export default function FeedbackPopup({ open, onClose }: FeedbackPopupProps) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-[380px] max-h-[92%] overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden bg-[#fffdf8] text-[#1b1b18] rounded-[26px] pt-[34px] px-6 pb-6 shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
+        className="relative w-full max-w-[380px] max-h-[98%] overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden bg-[#fffdf8] text-[#1b1b18] rounded-[26px] pt-[34px] px-6 pb-6 shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
       >
         {/* Close button: smooth black corner tab + brush-stroke white cross */}
         <button
