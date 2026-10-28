@@ -195,7 +195,7 @@ const ContactPopup = ({ email: initialEmail, onClose }: ContactPopupProps) => {
       >
         <svg
           viewBox="0 0 24 24"
-          className="h-5 w-5 shrink-0 text-[#d9822b]"
+          className="h-7 w-7 shrink-0 text-[#d9822b]"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
@@ -324,7 +324,7 @@ const ContactPopup = ({ email: initialEmail, onClose }: ContactPopupProps) => {
       </button>
 
       <p className="mt-4 text-center text-[13px] font-medium leading-[1.5] text-[#2f6b3f]">
-        I&apos;ll use your details only to reply to your request.
+        I use your details only to answer you.
       </p>
     </div>
   );
