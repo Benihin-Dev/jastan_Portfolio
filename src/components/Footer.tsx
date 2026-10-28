@@ -7,6 +7,7 @@ import { IoLogoInstagram } from "react-icons/io5";
 import { FaThreads } from "react-icons/fa6";
 import { VscTwitter } from "react-icons/vsc";
 import { SlSocialLinkedin } from "react-icons/sl";
+import { FaWeixin } from "react-icons/fa";
 import { ArrowUpRight } from "lucide-react";
 import CustomeText from "./ui/CustomeText";
 import Link from "next/link";
@@ -18,16 +19,11 @@ const Footer = () => {
   const iconsAndUrl = [
     { icon: FaWhatsapp, url: "https://wa.me/94754540123" },
     { icon: FiFacebook, url: "https://www.facebook.com/share/1BPtbdticF/" },
-    {
-      icon: IoLogoInstagram,
-      url: "https://www.instagram.com/jastanric?utm_source=qr&igsh=MXNrOXF3YXljcmY1aQ==",
-    },
-    { icon: FaThreads, url: "https://www.threads.net/@jastanric" },
-    { icon: VscTwitter, url: "https://x.com/jastanric" },
-    {
-      icon: SlSocialLinkedin,
-      url: "https://www.linkedin.com/in/jastan-ric-054b9b18a?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-    },
+    { icon: IoLogoInstagram, url: "https://www.instagram.com/jastanric?utm_source=qr&igsh=MXNrOXF3YXljcmY1aQ=="},
+    { icon: FaThreads, url: "https://www.threads.net/@jastanric"},
+    { icon: VscTwitter, url: "https://x.com/jastanric"},
+    { icon: SlSocialLinkedin, url: "https://www.linkedin.com/in/jastan-ric-054b9b18a?utm_source=share_via&utm_content=profile&utm_medium=member_android"},
+    { icon: FaWeixin, url: "https://u.wechat.com/kHLqbMVJ-X3Oix2e8tHamBw?s=2" },
   ];
 
   const contact = [
