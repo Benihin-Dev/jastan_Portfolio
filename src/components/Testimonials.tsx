@@ -161,7 +161,7 @@ export default function Testimonials() {
         <div className=" w-full flex items-center justify-end -translate-y-16 sm:translate-y-0">
           <div className="flex items-center justify-center gap-2 scale-80 translate-x-[10%] sm:translate-x-0 sm:scale-100">
             {/* left Button */}
-            <a href="https://g.page/r/CaGmieHCmSRvEBM/review">
+            <a href=" https://g.page/r/CTknMOMTPqYaEBM/review">
               <button
                 className={`group flex items-center justify-center gap-2.5 px-5 py-2.5 rounded-xl transition-all duration-300 ease-in-out cursor-pointer bg-white/10 backdrop-blur-[5px] text-[white] border border-[#c9c9c994] shadow-md  hover:bg-[#ffffff70]  hover:text-[#000000] `}
               >
@@ -188,7 +188,7 @@ export default function Testimonials() {
           </div>
         </div>
       </div>
-      <a href="https://g.page/r/CaGmieHCmSRvEBM/review">
+      <a href=" https://g.page/r/CTknMOMTPqYaEBM/review">
         <div className=" absolute -top-0 -translate-y-1/2 left-5 size-[64px] cursor-pointer hover:scale-110 border border-[#f2f4f7] focus:scale-110 duration-300 flex items-center justify-center bg-[#fd853ae2] backdrop-blur-[14px] rounded-full z-[60]">
           <CircleFadingPlus className=" font-thin size-12 text-[#000000] " />
         </div>
