@@ -103,21 +103,21 @@ const Footer = () => {
       {/* Navigation Links */}
       <div className="flex flex-col lg:flex-row justify-between w-full h-auto lg:h-[239px] gap-8 lg:gap-0 mt-8 md:mt-0">
         <div className="w-full lg:w-[635px] h-full flex flex-col items-start justify-start gap-6 lg:gap-10">
-          <div className="flex gap-3 sm:gap-4 items-center flex-shrink-0 cursor-pointer">
-            <div className="  flex items-center justify-center mb-1">
-              <Image
-                src="/logo.png"
-                alt="Frame Decoration"
-                width={20}
-                height={20}
-                className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10"
-                priority
-              />
-            </div>
-            <span className="font-bold text-base sm:text-lg text-[#FD853A] tracking-wide cursor-pointer -translate-x-2">
-              Jastan Ric
-            </span>
-          </div>
+<Link href="#home" className="flex gap-3 sm:gap-4 items-center flex-shrink-0 cursor-pointer">
+  <div className="  flex items-center justify-center mb-1">
+    <Image
+      src="/logo.png"
+      alt="Frame Decoration"
+      width={20}
+      height={20}
+      className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 hover:scale-110 transition-transform duration-300"
+      priority
+    />
+  </div>
+  <span className="font-bold text-base sm:text-lg text-[#FD853A] tracking-wide cursor-pointer -translate-x-2">
+    Jastan Ric
+  </span>
+</Link>
           <p className="w-full lg:w-4/5 h-auto lg:h-[61px] text-[16px] sm:text-[18px] lg:text-[20px] text-[#FCFCFD]">
             Thank you for visiting my website. Feel free to connect with me
             through my social media platforms to stay updated on my journey,
