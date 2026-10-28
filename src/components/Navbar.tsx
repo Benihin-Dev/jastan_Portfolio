@@ -132,7 +132,7 @@ const Navbar = () => {
             className="flex w-[45%] items-center justify-around"
           >
             <button
-              className={`w-[139px] h-[60px] flex items-center justify-center rounded-[60px] text-base font-medium transition duration-300 ${selected === item.label ? "bg-[#FD853A] font-bold" : "bg-transparent hover:bg-[#FD853A]"}`}
+              className={`w-[139px] h-[60px] flex items-center justify-center rounded-[60px] text-base font-medium transition duration-300 ${selected === item.label ? "bg-[#FD853A] font-bold scale-110" : "bg-transparent hover:bg-[#FD853A] hover:scale-110"}`}
               onClick={() => scrollToSection(item.label)}
             >
               {item.label}
@@ -181,7 +181,7 @@ const Navbar = () => {
             className="flex w-[45%] items-center justify-around"
           >
             <button
-              className={`w-[139px] h-[60px] flex items-center justify-center rounded-[60px] text-base font-medium transition duration-300 ${selected === item.label ? "bg-[#FD853A] font-bold" : "bg-transparent hover:bg-[#FD853A]"}`}
+              className={`w-[139px] h-[60px] flex items-center justify-center rounded-[60px] text-base font-medium transition duration-300 ${selected === item.label ? "bg-[#FD853A] font-bold scale-110" : "bg-transparent hover:bg-[#FD853A] hover:scale-110"}`}
               onClick={() => scrollToSection(item.label)}
             >
               {item.label}
@@ -212,7 +212,7 @@ const Navbar = () => {
           {menuItems.map((item) => (
             <button
               key={item.label}
-              className={`w-full h-[50px] flex items-center justify-center rounded-[25px] text-base font-medium transition duration-200 ${selected === item.label ? "bg-[#FD853A] font-bold" : "bg-transparent hover:bg-[#FD853A]"} ${
+              className={`w-full h-[50px] flex items-center justify-center rounded-[25px] text-base font-medium transition duration-200 ${selected === item.label ? "bg-[#FD853A] font-bold scale-110" : "bg-transparent hover:bg-[#FDA167] hover:scale-110"} ${
                 isMobileMenuOpen ? "-translate-y-0" : "-translate-y-full"
               }`}
               onClick={() => scrollToSection(item.label)}
