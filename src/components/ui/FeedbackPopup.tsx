@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 
 // Google Review link that opens after the popup
-const FEEDBACK_URL = " https://g.page/r/CTknMOMTPqYaEBM/review";
+const FEEDBACK_URL = "https://g.page/r/CTknMOMTPqYaEBM/review";
 
 // Same Apps Script web app URL used by the rest of the site.
 // If you deploy a NEW version/URL for the feedback script, paste it here.
@@ -29,9 +29,9 @@ interface FeedbackPopupProps {
 }
 
 const fieldClass =
-  "w-full text-[16px] text-[#1b1b18] bg-white border-2 border-[#e4dccb] rounded-xl px-3.5 py-3 outline-none transition focus:border-[#d9822b] focus:shadow-[0_0_0_4px_rgba(217,130,43,0.2)]";
+  "w-full text-[15px] text-[#1b1b18] bg-white border-2 border-[#e4dccb] rounded-xl px-3 py-2 outline-none transition focus:border-[#d9822b] focus:shadow-[0_0_0_3px_rgba(217,130,43,0.2)]";
 const labelClass =
-  "block text-[12px] font-semibold uppercase tracking-[0.06em] text-[#6b675c] mt-3 mb-1.5";
+  "block text-[11px] font-semibold uppercase tracking-[0.06em] text-[#6b675c] mt-2.5 mb-1";
 
 export default function FeedbackPopup({ open, onClose }: FeedbackPopupProps) {
   const [salutation, setSalutation] = useState("");
@@ -94,16 +94,15 @@ export default function FeedbackPopup({ open, onClose }: FeedbackPopupProps) {
   return (
     <div
       onClick={onClose}
-      className="fixed inset-0 z-[100] flex items-center justify-center p-[18px] bg-black/55 backdrop-blur-[3px]"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-[18px] bg-black/55 backdrop-blur-[3px]"
       role="dialog"
       aria-modal="true"
       aria-labelledby="feedback-title"
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-[380px] max-h-[92%] overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden bg-[#fffdf8] text-[#1b1b18] rounded-[26px] pt-[34px] px-6 pb-6 shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
-      >
-        {/* Close button: smooth black corner tab + brush-stroke white cross */}
+        className="relative w-full max-w-[380px] max-h-[calc(100dvh-24px)] overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden bg-[#fffdf8] text-[#1b1b18] rounded-[26px] pt-6 px-5 pb-5 sm:px-6 shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
+      >{/* Close button: smooth black corner tab + brush-stroke white cross */}
         <button
           onClick={onClose}
           aria-label="Close"
@@ -131,15 +130,15 @@ export default function FeedbackPopup({ open, onClose }: FeedbackPopupProps) {
           </svg>
         </button>
 
-        <div className="text-[34px] leading-none">🐘</div>
         <h2
           id="feedback-title"
-          className="mt-1.5 mb-1 text-[22px] font-semibold pr-14"
+          className="flex items-center gap-2 pr-[72px] text-[19px] sm:text-[20px] font-semibold leading-tight"
         >
-          How was your experience?
+          <span className="text-[24px] leading-none">🐘</span>
+          <span>How was your experience?</span>
         </h2>
-        <p className="mb-4 text-[14px] leading-[1.45] text-[#6b675c]">
-          Tell us a little about yourself, then share your feedback.
+        <p className="mt-1 text-[13px] leading-snug text-[#6b675c]">
+          Share a few details, then give your feedback.
         </p>
 
         <label htmlFor="fb-name" className={labelClass}>
@@ -150,7 +149,7 @@ export default function FeedbackPopup({ open, onClose }: FeedbackPopupProps) {
             value={salutation}
             onChange={(e) => setSalutation(e.target.value)}
             aria-label="Title"
-            className="w-[84px] shrink-0 text-[15px] font-semibold text-[#1b1b18] bg-white border-2 border-[#e4dccb] rounded-xl px-2 py-3 outline-none cursor-pointer focus:border-[#d9822b]"
+            className="w-[76px] shrink-0 text-[14px] font-semibold text-[#1b1b18] bg-white border-2 border-[#e4dccb] rounded-xl px-1.5 py-2 outline-none cursor-pointer focus:border-[#d9822b]"
           >
             <option value="">Title</option>
             {TITLES.map((t) => (
@@ -170,47 +169,51 @@ export default function FeedbackPopup({ open, onClose }: FeedbackPopupProps) {
           />
         </div>
 
-        <label htmlFor="fb-role" className={labelClass}>
-          Role <span className="font-normal normal-case opacity-80">(optional)</span>
-        </label>
-        <input
-          id="fb-role"
-          type="text"
-          value={role}
-          onChange={(e) => setRole(e.target.value)}
-          placeholder="e.g. Traveller, Photographer, Student"
-          className={fieldClass}
-        />
-
-        <label htmlFor="fb-country" className={labelClass}>
-          Country <span className="font-normal normal-case opacity-80">(optional)</span>
-        </label>
-        <input
-          id="fb-country"
-          type="text"
-          value={country}
-          onChange={(e) => setCountry(e.target.value)}
-          placeholder="Where are you from?"
-          autoComplete="country-name"
-          className={fieldClass}
-        />
+        <div>
+          <div>
+            <label htmlFor="fb-role" className={labelClass}>
+              Role <span className="font-normal normal-case opacity-80">(optional)</span>
+            </label>
+            <input
+              id="fb-role"
+              type="text"
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              placeholder="e.g. Traveller, Photographer, Student"
+              className={fieldClass}
+            />
+          </div>
+          <div>
+            <label htmlFor="fb-country" className={labelClass}>
+              Country <span className="font-normal normal-case opacity-80">(optional)</span>
+            </label>
+            <input
+              id="fb-country"
+              type="text"
+              value={country}
+              onChange={(e) => setCountry(e.target.value)}
+              placeholder="Where are you from?"
+              autoComplete="country-name"
+              className={fieldClass}
+            />
+          </div>
+        </div>
 
         <button
           onClick={handleGo}
-          className="block w-full mt-5 text-center text-[16px] font-bold text-white bg-gradient-to-br from-[#d9822b] to-[#c4651a] rounded-[14px] py-[15px] shadow-[0_8px_18px_rgba(217,130,43,0.4)] cursor-pointer active:scale-[0.98] transition"
+          className="block w-full mt-4 text-center text-[15px] font-bold text-white bg-gradient-to-br from-[#d9822b] to-[#c4651a] rounded-[14px] py-3 shadow-[0_8px_18px_rgba(217,130,43,0.4)] cursor-pointer active:scale-[0.98] transition"
         >
           Go to Feedback →
         </button>
         <button
           onClick={handleSkip}
-          className="block mx-auto mt-3 text-[14px] font-semibold text-[#2f6b3f] underline cursor-pointer"
+          className="block mx-auto mt-2 text-[13px] font-semibold text-[#2f6b3f] underline cursor-pointer"
         >
           Skip &amp; go directly to feedback
         </button>
 
-        <div className="mt-4 px-3.5 py-3 rounded-xl bg-[#d9822b]/10 border-l-4 border-[#d9822b] text-[13px] leading-[1.5]">
-          📝 <b>Note:</b> If you like, you can share these personal details, or
-          you can skip this and go directly to feedback.
+        <div className="mt-3 px-3 py-2 rounded-xl bg-[#d9822b]/10 border-l-4 border-[#d9822b] text-[12px] leading-[1.45]">
+          📝 <b>Note:</b> You can share these details, or skip and go directly to feedback.
         </div>
       </div>
     </div>
