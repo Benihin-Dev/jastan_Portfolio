@@ -103,7 +103,7 @@ export default function PopupForStudyInfo({ onClose }: { onClose: () => void }) 
         <CertificateIcon size={22} />
         Published at ICIET 2025
         <ArrowUpRight
-          size={30}
+          size={20}
           className="transition-transform duration-250 group-hover:rotate-45"
         />
       </a>
