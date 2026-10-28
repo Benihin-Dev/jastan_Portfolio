@@ -165,17 +165,7 @@ export default function Education() {
               popUpState ? "opacity-100 scale-100" : "opacity-0 scale-95"
             }`}
           >
-            <PopupForStudyInfo />
-            <div className="w-11/12 sm:w-10/12 lg:w-8/12 mx-auto mt-1 flex items-center justify-center">
-              <button
-                onClick={closePopup}
-                className={`group flex items-center w-full sm:w-fit justify-center gap-2.5 px-10 py-2.5 rounded-[60px] transition-all duration-300 ease-in-out cursor-pointerborder-white bg-[#ffffff59]  backdrop-blur-[5px]  hover:bg-[#FD853A]  text-white border border-[white]"
-          }`}
-              >
-                Close
-                {/* <X size={16} className={`transition-all duration-300 `} /> */}
-              </button>
-            </div>
+            <PopupForStudyInfo onClose={closePopup} />
           </div>
         </div>
       )}
