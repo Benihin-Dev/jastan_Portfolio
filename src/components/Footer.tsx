@@ -286,24 +286,28 @@ const Footer = () => {
           </div>
         </div>
       )}
-      {isPrivacyVisible && (
-        <div
-          onClick={closePrivacyPopup}
-          className={`transition-opacity duration-300 w-full h-full bg-[#18181874] backdrop-blur-[5px] fixed top-0 left-0 flex justify-center items-center z-[70] px-4 ${
-            privacyState ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <div
-            className={`transition-all duration-300 w-full max-w-[640px] ${
-              privacyState ? "opacity-100 scale-100" : "opacity-0 scale-95"
-            }`}
-          >
-            <PrivacyPopup onClose={closePrivacyPopup} />
-          </div>
-        </div>
-      )}
-    </footer>
-  );
-};
+import { createPortal } from "react-dom";   // add this at the top with the other imports
 
+{isPrivacyVisible &&
+  createPortal(
+    <div
+      onClick={closePrivacyPopup}
+      className={`transition-opacity duration-300 w-full h-full bg-[#18181874] backdrop-blur-[5px] fixed top-0 left-0 flex justify-center items-center z-[110] px-4 ${
+        privacyState ? "opacity-100" : "opacity-0"
+      }`}
+    >
+      <div
+        className={`transition-all duration-300 w-full max-w-[640px] ${
+          privacyState ? "opacity-100 scale-100" : "opacity-0 scale-95"
+        }`}
+      >
+        <PrivacyPopup onClose={closePrivacyPopup} />
+      </div>
+    </div>,
+    document.body,
+  )}
+      
 export default Footer;
+      
+
+      
