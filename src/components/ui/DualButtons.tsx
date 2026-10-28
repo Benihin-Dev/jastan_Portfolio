@@ -16,10 +16,12 @@ export default function DualToggleButtons({ left, right }: btnText) {
       {/* left Button */}
       <a
         href="https://drive.google.com/drive/folders/1d6qd-R6WRXn3c1IJHFkpBB2As0Ru5CnF?usp=sharing"
-        target="black"
+        target="_blank" rel="noopener noreferrer"
       >
         <button
           onMouseEnter={() => setActive("left")}
+onFocus={() => setActive("left")}
+onTouchStart={() => setActive("left")}
           className={`group flex items-center justify-center gap-2.5 px-5 py-2.5 rounded-[60px] transition-all duration-300 ease-in-out cursor-pointer
           ${
             active === "left"
@@ -47,6 +49,8 @@ export default function DualToggleButtons({ left, right }: btnText) {
           })
         }
         onMouseEnter={() => setActive("right")}
+onFocus={() => setActive("right")}
+onTouchStart={() => setActive("right")}
         className={`group flex items-center justify-center gap-2.5 px-5 py-2.5 rounded-[60px] transition-all duration-300 ease-in-out cursor-pointer
           ${
             active === "right"
