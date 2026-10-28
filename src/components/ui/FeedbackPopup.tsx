@@ -131,7 +131,7 @@ export default function FeedbackPopup({ open, onClose }: FeedbackPopupProps) {
           </svg>
         </button>
 
-        <h2
+      <h2
           id="feedback-title"
           className="mt-1.5 mb-1 flex items-center gap-2 text-[18px] font-semibold pr-14"
         >
