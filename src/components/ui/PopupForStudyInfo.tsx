@@ -1,12 +1,40 @@
 import React from "react";
 import Image from "next/image";
 
-export default function PopupForStudyInfo() {
+export default function PopupForStudyInfo({ onClose }: { onClose: () => void }) {
   return (
     <div
       onClick={(e) => e.stopPropagation()}
-      className="w-11/12 sm:w-10/12 lg:w-8/12 py-10 rounded-2xl shadow-xl shadow-[#313131] h-fit bg-white  mx-auto flex flex-col items-start gap-6 px-2 sm:px-5 text-[14px]  text-center lg:text-[16px] text-[#344054]"
+      className="relative overflow-hidden w-11/12 sm:w-10/12 lg:w-8/12 py-10 rounded-2xl shadow-xl shadow-[#313131] h-fit bg-white  mx-auto flex flex-col items-start gap-6 px-2 sm:px-5 text-[14px]  text-center lg:text-[16px] text-[#344054]"
     >
+      {/* Close button: black corner tab + brush-stroke white cross (same as feedback popup) */}
+      <button
+        onClick={onClose}
+        aria-label="Close"
+        className="group pointer-events-none absolute top-0 right-0 block h-24 w-24 leading-[0]"
+      >
+        <svg viewBox="0 0 96 96" className="h-24 w-24" fill="none">
+          <path
+            d="M0 0H96V96A22 22 0 0 0 74 74H50A38 38 0 0 1 12 36V22A22 22 0 0 0 0 0Z"
+            fill="#1b1b18"
+            className="pointer-events-auto cursor-pointer"
+          />
+          <g
+            style={{ transformOrigin: "58px 38px" }}
+            className="pointer-events-none transition-transform duration-300 group-hover:rotate-90"
+          >
+            <g
+              transform="translate(58 38) rotate(-4)"
+              fill="#fffdf8"
+              className="transition-colors duration-300 group-hover:fill-[#d9822b]"
+            >
+              <path d="M-19 14C-20 11-17 9-12 5C-4 -1 7 -9 16 -15C18 -16.5 21 -17.5 22 -15C23 -13 21 -11 19 -9.5C10 -3 1 4 -8 13C-10 15.5-12 17.5-15 17C-18 16.5-19 15.5-19 14Z" />
+              <path d="M-13 -14C-12 -16.5-9 -15-7 -13C-1 -7 5 1 12 9.5C14 12 15.5 14 13.5 15.5C11 17 8.5 16 6.5 14C0 7-6 1-11 -7C-12 -8.5-13.5 -9-14.5 -9.5C-15.5 -10-13.8 -11-13.8 -11.8C-14.2 -12.5-13.4 -13.2-13 -14Z" />
+            </g>
+          </g>
+        </svg>
+      </button>
+
       <div className=" relative w-20  mx-auto pb-5 ">
         <Image
           src="/borderDes.png"
