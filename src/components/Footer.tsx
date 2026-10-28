@@ -110,7 +110,7 @@ const Footer = () => {
       priority
     />
   </div>
-  <span className="font-bold text-base sm:text-lg text-[#FD853A] tracking-wide cursor-pointer -translate-x-2">
+ <span className="font-bold text-base sm:text-lg text-[#FD853A] tracking-wide cursor-pointer -translate-x-2 hover:scale-110 origin-left transition-transform duration-300">
     Jastan Ric
   </span>
 </Link>
@@ -166,7 +166,7 @@ const Footer = () => {
           <div className="flex flex-col gap-3 lg:gap-5">
             {contact.map((item, idx) => (
               <a key={idx} href={item.url}>
-                <span className="text-[#FCFCFD] text-[14px] sm:text-[15px] lg:text-[16px] cursor-pointer hover:text-[#FD853A] hover:scale-110 origin-left w-fit transition-all duration-300">
+               <span className="inline-block text-[#FCFCFD] text-[14px] sm:text-[15px] lg:text-[16px] cursor-pointer hover:text-[#FD853A] hover:scale-110 origin-left transition-all duration-300">
                   {item.name}
                 </span>
               </a>
