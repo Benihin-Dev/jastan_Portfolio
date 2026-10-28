@@ -101,29 +101,40 @@ export default function FeedbackPopup({ open, onClose }: FeedbackPopupProps) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-[380px] max-h-[92%] overflow-y-auto bg-[#fffdf8] text-[#1b1b18] border-[5px] border-[#1b1b18] rounded-[26px] pt-[34px] px-6 pb-6 shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
+        className="relative w-full max-w-[380px] max-h-[92%] overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden bg-[#fffdf8] text-[#1b1b18] rounded-[26px] pt-[34px] px-6 pb-6 shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
       >
-        {/* Close button: black corner tab with white X */}
+        {/* Close button: smooth black corner tab + brush-stroke white cross */}
         <button
           onClick={onClose}
           aria-label="Close"
-          className="group absolute -top-px -right-px w-[62px] h-[56px] bg-[#1b1b18] rounded-tr-[20px] rounded-bl-[60px_46px] flex items-start justify-end pt-[9px] pr-2.5 cursor-pointer"
+          className="group pointer-events-none absolute top-0 right-0 block h-24 w-24 leading-[0]"
         >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            className="w-[26px] h-[26px] stroke-[#fffdf8] transition-transform duration-200 group-hover:rotate-90"
-            strokeWidth={4.5}
-            strokeLinecap="round"
-          >
-            <path d="M5 5l14 14M19 5L5 19" />
+          <svg viewBox="0 0 96 96" className="h-24 w-24" fill="none">
+            <path
+              d="M0 0H96V96A22 22 0 0 0 74 74H50A38 38 0 0 1 12 36V22A22 22 0 0 0 0 0Z"
+              fill="#1b1b18"
+              className="pointer-events-auto cursor-pointer"
+            />
+            <g
+              style={{ transformOrigin: "58px 38px" }}
+              className="pointer-events-none transition-transform duration-300 group-hover:rotate-90"
+            >
+              <g
+                transform="translate(58 38) rotate(-4)"
+                fill="#fffdf8"
+                className="transition-colors duration-300 group-hover:fill-[#d9822b]"
+              >
+                <path d="M-19 14C-20 11-17 9-12 5C-4 -1 7 -9 16 -15C18 -16.5 21 -17.5 22 -15C23 -13 21 -11 19 -9.5C10 -3 1 4 -8 13C-10 15.5-12 17.5-15 17C-18 16.5-19 15.5-19 14Z" />
+                <path d="M-13 -14C-12 -16.5-9 -15-7 -13C-1 -7 5 1 12 9.5C14 12 15.5 14 13.5 15.5C11 17 8.5 16 6.5 14C0 7-6 1-11 -7C-12 -8.5-13.5 -9-14.5 -9.5C-15.5 -10-13.8 -11-13.8 -11.8C-14.2 -12.5-13.4 -13.2-13 -14Z" />
+              </g>
+            </g>
           </svg>
         </button>
 
         <div className="text-[34px] leading-none">🐘</div>
         <h2
           id="feedback-title"
-          className="mt-1.5 mb-1 text-[22px] font-semibold pr-11"
+          className="mt-1.5 mb-1 text-[22px] font-semibold pr-14"
         >
           How was your experience?
         </h2>
