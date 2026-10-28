@@ -73,6 +73,85 @@ function CloseTab({ onClose }: { onClose: () => void }) {
   );
 }
 
+/** 3D envelope: floats and tilts, the flap opens and a letter pops out (pure CSS 3D). */
+function MailEnvelope3D() {
+  return (
+    <div className="env3d-scene relative h-[74px] w-[88px] shrink-0 select-none" aria-hidden="true">
+      <style>{`
+        .env3d-scene { perspective: 360px }
+        .env3d-float { position: absolute; left: 16px; top: 28px; width: 56px; height: 38px; transform-style: preserve-3d;
+          animation: env3d-tilt 4.8s ease-in-out infinite }
+        .env3d-shadow { position: absolute; left: 18px; bottom: 0; width: 52px; height: 7px; border-radius: 50%;
+          background: rgba(120, 70, 20, .28); filter: blur(2px); animation: env3d-shadow 4.8s ease-in-out infinite }
+        .env3d-back, .env3d-front, .env3d-letter, .env3d-flap { position: absolute; left: 0; width: 100%; box-sizing: border-box }
+        .env3d-back { top: 0; height: 100%; border-radius: 4px; background: linear-gradient(180deg, #c4651a, #a9540f); transform: translateZ(0) }
+        .env3d-letter { top: 4px; height: 33px; left: 5px; width: 46px; border-radius: 3px; background: #fffdf8;
+          box-shadow: 0 1px 2px rgba(0,0,0,.18); transform: translateZ(1px); animation: env3d-letter 4.8s ease-in-out infinite;
+          padding: 7px 6px 0; display: flex; flex-direction: column; gap: 4px }
+        .env3d-letter i { display: block; height: 2.5px; border-radius: 2px; background: #e4dccb }
+        .env3d-letter i:first-child { width: 55%; background: #d9822b }
+        .env3d-front { top: 0; height: 100%; border-radius: 4px; transform: translateZ(2px);
+          background: linear-gradient(160deg, #f8c58b, #eaa45a);
+          clip-path: polygon(0 0, 50% 58%, 100% 0, 100% 100%, 0 100%) }
+        .env3d-flap { top: 0; height: 22px; transform-style: preserve-3d; transform-origin: 50% 0; transform: translateZ(3px);
+          animation: env3d-flap 4.8s ease-in-out infinite }
+        .env3d-flap b { position: absolute; inset: 0; backface-visibility: hidden; clip-path: polygon(0 0, 100% 0, 50% 100%) }
+        .env3d-flap b:first-child { background: linear-gradient(180deg, #e08a30, #c96f1c) }
+        .env3d-flap b:last-child { background: #f3d9b4; transform: rotateX(180deg); clip-path: polygon(50% 0, 100% 100%, 0 100%) }
+        .env3d-spark { position: absolute; width: 7px; height: 7px; background: #d9822b; opacity: 0;
+          clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+          animation: env3d-spark 4.8s ease-out infinite }
+        @keyframes env3d-tilt {
+          0%, 100% { transform: translateY(0) rotateX(14deg) rotateY(-26deg) }
+          50% { transform: translateY(-6px) rotateX(10deg) rotateY(26deg) }
+        }
+        @keyframes env3d-flap {
+          0%, 12% { transform: translateZ(3px) rotateX(0deg) }
+          28%, 70% { transform: translateZ(3px) rotateX(-180deg) }
+          86%, 100% { transform: translateZ(3px) rotateX(0deg) }
+        }
+        @keyframes env3d-letter {
+          0%, 26% { transform: translateZ(1px) translateY(0) }
+          46%, 62% { transform: translateZ(1px) translateY(-24px) }
+          80%, 100% { transform: translateZ(1px) translateY(0) }
+        }
+        @keyframes env3d-shadow {
+          0%, 100% { transform: scaleX(1); opacity: .9 }
+          50% { transform: scaleX(.8); opacity: .6 }
+        }
+        @keyframes env3d-spark {
+          0%, 40% { opacity: 0; transform: scale(.3) }
+          52% { opacity: 1; transform: scale(1.1) }
+          70%, 100% { opacity: 0; transform: scale(.4) translateY(-6px) }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .env3d-float, .env3d-shadow, .env3d-letter, .env3d-flap, .env3d-spark { animation: none }
+          .env3d-float { transform: rotateX(14deg) rotateY(-14deg) }
+        }
+      `}</style>
+
+      <span className="env3d-shadow" />
+      <span className="env3d-spark" style={{ left: "8px", top: "10px" }} />
+      <span className="env3d-spark" style={{ left: "74px", top: "8px", animationDelay: ".15s" }} />
+      <span className="env3d-spark" style={{ left: "44px", top: "0px", animationDelay: ".3s" }} />
+
+      <div className="env3d-float">
+        <div className="env3d-back" />
+        <div className="env3d-letter">
+          <i />
+          <i />
+          <i />
+        </div>
+        <div className="env3d-front" />
+        <div className="env3d-flap">
+          <b />
+          <b />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const ContactPopup = ({ email: initialEmail, onClose }: ContactPopupProps) => {
   const [email, setEmail] = useState(initialEmail);
   const [salutation, setSalutation] = useState("");
@@ -189,7 +268,7 @@ const ContactPopup = ({ email: initialEmail, onClose }: ContactPopupProps) => {
       </p>
 
       <div
-        className={`mt-4 flex items-center gap-2.5 rounded-xl border-l-4 px-3.5 py-3 bg-[#d9822b]/10 ${
+        className={`mt-4 flex items-center gap-2.5 rounded-xl border-l-4 pl-3.5 pr-2.5 py-2.5 bg-[#d9822b]/10 ${
           errors.email ? "border-[#d64545]" : "border-[#d9822b]"
         }`}
       >
@@ -219,9 +298,10 @@ const ContactPopup = ({ email: initialEmail, onClose }: ContactPopupProps) => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             autoComplete="email"
-            className="w-full bg-transparent text-[14px] leading-[1.5] text-[#1b1b18] outline-none"
+            className="w-full truncate bg-transparent text-[14px] leading-[1.5] text-[#1b1b18] outline-none"
           />
         </div>
+        <MailEnvelope3D />
       </div>
       {errors.email && (
         <p className="mt-1 text-[12px] text-[#d64545]">{errors.email}</p>
@@ -324,11 +404,10 @@ const ContactPopup = ({ email: initialEmail, onClose }: ContactPopupProps) => {
       </button>
 
       <p className="mt-4 text-center text-[13px] font-medium leading-[1.5] text-[#2f6b3f]">
-        I use your details only to answer you.
+        We use your details only to answer you.
       </p>
     </div>
   );
 };
 
 export default ContactPopup;
-
