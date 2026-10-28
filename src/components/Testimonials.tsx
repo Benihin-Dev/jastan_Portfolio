@@ -170,7 +170,7 @@ export default function Testimonials() {
               className={`group flex items-center justify-center gap-2.5 px-5 py-2.5 rounded-xl transition-all duration-300 ease-in-out cursor-pointer bg-white/10 backdrop-blur-[5px] text-[white] border border-[#c9c9c994] shadow-md  hover:bg-[#ffffff70]  hover:text-[#000000] `}
             >
               {" "}
-              <span className=" whitespace-nowrap">Share Your Sighting</span>
+              <span className=" whitespace-nowrap">Share your experience</span>
               <CopyPlus
                 size={16}
                 className={`transition-all duration-300 opacity-100 translate-x-0 group-hover:opacity-100`}
