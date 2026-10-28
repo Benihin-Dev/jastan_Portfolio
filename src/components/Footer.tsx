@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import ContactPopup from "./ui/ContactPopup";
+import PrivacyPopup from "./ui/PrivacyPopup";
 import { FaWhatsapp } from "react-icons/fa";
 import { FiFacebook } from "react-icons/fi";
 import { IoLogoInstagram } from "react-icons/io5";
@@ -69,6 +70,19 @@ const Footer = () => {
       setIsPopupVisible(false);
       setEmail("");
     }, 300); // matches transition duration
+  };
+
+  const [isPrivacyVisible, setIsPrivacyVisible] = useState(false);
+  const [privacyState, setPrivacyState] = useState(false);
+
+  const openPrivacyPopup = () => {
+    setIsPrivacyVisible(true);
+    requestAnimationFrame(() => setPrivacyState(true));
+  };
+
+  const closePrivacyPopup = () => {
+    setPrivacyState(false); // triggers fade-out
+    setTimeout(() => setIsPrivacyVisible(false), 300); // matches duration-300
   };
 
   return (
@@ -248,12 +262,13 @@ const Footer = () => {
         <p className="w-full sm:w-[415px] h-auto lg:h-[26px] text-[16px] sm:text-[18px] lg:text-[20px] text-white text-center sm:text-left">
           Copyright© 2026 JR. All Rights Reserved.
         </p>
-        <Link
-          href={"#"}
-          className="w-full sm:w-fit h-auto lg:h-[26px] text-[16px] sm:text-[18px] lg:text-[20px] text-white text-center sm:text-right hover:text-[#FD853A] transition-colors"
+        <button
+          type="button"
+          onClick={openPrivacyPopup}
+          className="w-full sm:w-fit h-auto lg:h-[26px] text-[16px] sm:text-[18px] lg:text-[20px] text-white text-center sm:text-right hover:text-[#FD853A] transition-colors cursor-pointer"
         >
           Privacy Policy
-        </Link>
+        </button>
       </div>
       {isPopupVisible && (
         <div
@@ -268,6 +283,22 @@ const Footer = () => {
             }`}
           >
             <ContactPopup email={email} onClose={closeContactPopup} />
+          </div>
+        </div>
+      )}
+      {isPrivacyVisible && (
+        <div
+          onClick={closePrivacyPopup}
+          className={`transition-opacity duration-300 w-full h-full bg-[#18181874] backdrop-blur-[5px] fixed top-0 left-0 flex justify-center items-center z-[70] px-4 ${
+            privacyState ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <div
+            className={`transition-all duration-300 w-full max-w-[640px] ${
+              privacyState ? "opacity-100 scale-100" : "opacity-0 scale-95"
+            }`}
+          >
+            <PrivacyPopup onClose={closePrivacyPopup} />
           </div>
         </div>
       )}
