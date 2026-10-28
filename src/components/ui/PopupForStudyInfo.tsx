@@ -1,6 +1,30 @@
 import React from "react";
 import Image from "next/image";
-import { Award } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+
+function CertificateIcon({ size = 22, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M15 15m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+      <path d="M13 17.5v4.5l2 -1.5l2 1.5v-4.5" />
+      <path d="M10 19h-5a2 2 0 0 1 -2 -2v-10c0 -1.1 .9 -2 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -1 1.73" />
+      <path d="M6 9l12 0" />
+      <path d="M6 12l3 0" />
+      <path d="M6 15l2 0" />
+    </svg>
+  );
+}
 
 export default function PopupForStudyInfo({ onClose }: { onClose: () => void }) {
   return (
@@ -76,8 +100,12 @@ export default function PopupForStudyInfo({ onClose }: { onClose: () => void }) 
         rel="noopener noreferrer"
         className="group mx-auto flex items-center justify-center gap-2 px-8 py-[15px] text-[16px] font-bold text-white bg-gradient-to-br from-[#d9822b] to-[#c4651a] rounded-[14px] shadow-[0_8px_18px_rgba(217,130,43,0.4)] cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_12px_24px_rgba(217,130,43,0.55)] active:scale-[0.98]"
       >
-        <Award size={20} className="transition-transform duration-300 group-hover:rotate-12" />
+        <CertificateIcon size={22} />
         Published at ICIET 2025
+        <ArrowUpRight
+          size={20}
+          className="transition-transform duration-300 group-hover:rotate-45"
+        />
       </a>
     </div>
   );
