@@ -93,7 +93,7 @@ const Footer = () => {
   </span>
   <ArrowUpRight
     size={24}
-    className="sm:w-7 sm:h-7 lg:w-8 lg:h-8 transition-transform duration-250 group-hover:rotate-45"
+    className="sm:w-7 sm:h-7 lg:w-8 lg:h-8 transition-transform duration-300 group-hover:rotate-45"
   />
 </a>
         </ClientOnly>
