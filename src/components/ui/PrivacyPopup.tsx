@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { X } from "lucide-react";
+import { X, ArrowLeft } from "lucide-react";
 
 export default function PrivacyPopup({ onClose }: { onClose: () => void }) {
   useEffect(() => {
@@ -12,6 +12,15 @@ export default function PrivacyPopup({ onClose }: { onClose: () => void }) {
     return () => document.removeEventListener("keydown", onKey);
   }, [onClose]);
 
+  // Close the popup, then scroll smoothly to the Home section
+  const goHome = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    onClose();
+    document
+      .getElementById("home")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <div
       onClick={(e) => e.stopPropagation()}
@@ -20,20 +29,22 @@ export default function PrivacyPopup({ onClose }: { onClose: () => void }) {
       aria-labelledby="privacy-title"
       className="relative w-full max-h-[85vh] overflow-y-auto custom-scrollbar bg-white rounded-2xl shadow-xl shadow-[#313131] p-6 sm:p-8 text-[14px] sm:text-[15px] leading-relaxed text-[#344054]"
     >
+      {/* Close button */}
       <button
         onClick={onClose}
         aria-label="Close"
-        className="group absolute top-3 right-3 size-10 rounded-full bg-[#FD853A] hover:bg-[#e46e24] flex items-center justify-center cursor-pointer transition-colors duration-300"
+        className="group absolute top-4 right-4 size-11 rounded-full bg-[#FD853A] text-white flex items-center justify-center cursor-pointer shadow-[0_4px_12px_rgba(253,133,58,0.45)] ring-4 ring-[#FD853A]/20 transition-all duration-300 hover:bg-[#e46e24] hover:ring-[#FD853A]/40 hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-[#171717]/30"
       >
         <X
-          size={20}
-          className="text-white transition-transform duration-300 group-hover:rotate-90"
+          size={22}
+          strokeWidth={2.5}
+          className="transition-transform duration-300 group-hover:rotate-90"
         />
       </button>
 
       <h2
         id="privacy-title"
-        className="text-2xl sm:text-3xl font-semibold text-[#171717] pr-12"
+        className="text-2xl sm:text-3xl font-semibold text-[#171717] pr-16"
       >
         Privacy Policy
       </h2>
@@ -74,8 +85,21 @@ export default function PrivacyPopup({ onClose }: { onClose: () => void }) {
         You can ask me to delete anything you sent by emailing
         jastanric@outlook.com.
       </p>
+
+      {/* Back to home link */}
+      <div className="mt-6 pt-4 border-t border-[#EAECF0]">
+        <a
+          href="#home"
+          onClick={goHome}
+          className="group inline-flex items-center gap-2 font-semibold text-[#FD853A] underline underline-offset-4 transition-colors duration-300 hover:text-[#e46e24]"
+        >
+          <ArrowLeft
+            size={18}
+            className="transition-transform duration-300 group-hover:-translate-x-1"
+          />
+          Go back to Home
+        </a>
+      </div>
     </div>
   );
-  
 }
-
