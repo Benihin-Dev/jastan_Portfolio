@@ -76,4 +76,6 @@ export default function PrivacyPopup({ onClose }: { onClose: () => void }) {
       </p>
     </div>
   );
+  
 }
+
