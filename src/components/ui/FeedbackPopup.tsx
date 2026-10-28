@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 
 // Google Review link that opens after the popup
-const FEEDBACK_URL = " https://g.page/r/CTknMOMTPqYaEBM/review";
+const FEEDBACK_URL = "https://g.page/r/CTknMOMTPqYaEBM/review";
 
 // Same Apps Script web app URL used by the rest of the site.
 // If you deploy a NEW version/URL for the feedback script, paste it here.
