@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { Award } from "lucide-react";
 
 export default function PopupForStudyInfo({ onClose }: { onClose: () => void }) {
   return (
@@ -69,16 +70,15 @@ export default function PopupForStudyInfo({ onClose }: { onClose: () => void }) 
           https://iciet.sjp.ac.lk/conference-proceedings/
         </a>
       </p>
-
-      <div className=" w-20 relative mx-auto   pb-5   ">
-        <Image
-          src="/borderDes.png"
-          alt="message icon"
-          className=" absolute  top-0 left-1/2 -translate-1/2 mt-3   h-auto"
-          width={160}
-          height={20}
-        />
-      </div>
+      <a
+        href="https://iciet.sjp.ac.lk/conference-proceedings/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group mx-auto flex items-center justify-center gap-2 px-8 py-[15px] text-[16px] font-bold text-white bg-gradient-to-br from-[#d9822b] to-[#c4651a] rounded-[14px] shadow-[0_8px_18px_rgba(217,130,43,0.4)] cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_12px_24px_rgba(217,130,43,0.55)] active:scale-[0.98]"
+      >
+        <Award size={20} className="transition-transform duration-300 group-hover:rotate-12" />
+        Published at ICIET 2025
+      </a>
     </div>
   );
 }
