@@ -159,7 +159,6 @@ export default function Testimonials() {
               type="rotate"
               viewPort="mobile"
             />
-            />
           </div>
         </div>
         {/* Btn */}
