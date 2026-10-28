@@ -154,7 +154,7 @@ const Footer = () => {
               <Link
                 href={`#${key.toLowerCase()}`}
                 key={idx}
-                className="text-[#FCFCFD] text-[14px] sm:text-[15px] lg:text-[16px] cursor-pointer hover:text-[#FD853A] transition-colors"
+                className="text-[#FCFCFD] text-[14px] sm:text-[15px] lg:text-[16px] cursor-pointer hover:text-[#FD853A] hover:scale-110 origin-left w-fit transition-all duration-300"
               >
                 {key}
               </Link>
@@ -170,7 +170,7 @@ const Footer = () => {
           <div className="flex flex-col gap-3 lg:gap-5">
             {contact.map((item, idx) => (
               <a key={idx} href={item.url}>
-                <span className="text-[#FCFCFD] text-[14px] sm:text-[15px] lg:text-[16px] cursor-pointer hover:text-[#FD853A] transition-colors">
+                <span className="text-[#FCFCFD] text-[14px] sm:text-[15px] lg:text-[16px] cursor-pointer hover:text-[#FD853A] hover:scale-110 origin-left w-fit transition-all duration-300">
                   {item.name}
                 </span>
               </a>
@@ -231,7 +231,7 @@ const Footer = () => {
             <div className="flex flex-col gap-3 lg:gap-5">
               {contact.map((item, idx) => (
                 <a key={idx} href={item.url}>
-                  <span className="text-[#FCFCFD] text-[14px] sm:text-[15px] lg:text-[16px] cursor-pointer hover:text-[#FD853A] transition-colors">
+                  <span className="text-[#FCFCFD] text-[14px] sm:text-[15px] lg:text-[16px] cursor-pointer hover:text-[#FD853A] hover:scale-110 origin-left w-fit transition-all duration-300">
                     {item.name}
                   </span>
                 </a>
