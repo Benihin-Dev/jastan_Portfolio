@@ -266,7 +266,7 @@ const Footer = () => {
         <button
           type="button"
           onClick={openPrivacyPopup}
-          className="w-full sm:w-fit h-auto lg:h-[26px] text-[16px] sm:text-[18px] lg:text-[20px] text-white text-center sm:text-right hover:text-[#FD853A] transition-colors cursor-pointer"
+          className="w-full sm:w-fit h-auto lg:h-[26px] text-[16px] sm:text-[18px] lg:text-[20px] text-white text-center sm:text-right underline underline-offset-4 decoration-white/40 hover:text-[#FD853A] hover:decoration-[#FD853A] transition-colors cursor-pointer"
         >
           Privacy Policy
         </button>
