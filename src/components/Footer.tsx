@@ -3,38 +3,73 @@ import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import ContactPopup from "./ui/ContactPopup";
 import PrivacyPopup from "./ui/PrivacyPopup";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaWeixin } from "react-icons/fa";
 import { FiFacebook } from "react-icons/fi";
 import { IoLogoInstagram } from "react-icons/io5";
 import { FaThreads } from "react-icons/fa6";
 import { VscTwitter } from "react-icons/vsc";
 import { SlSocialLinkedin } from "react-icons/sl";
-import { FaWeixin } from "react-icons/fa";
 import { ArrowUpRight } from "lucide-react";
 import CustomeText from "./ui/CustomeText";
 import Link from "next/link";
 import ClientOnly from "./ui/ClientOnly";
 import Image from "next/image";
 
+const navigation = ["Home", "About", "Qualification", "Blogs", "Contact"];
+
+const iconsAndUrl = [
+  { icon: FaWhatsapp, url: "https://wa.me/94754540123" },
+  { icon: FiFacebook, url: "https://www.facebook.com/share/1BPtbdticF/" },
+  {
+    icon: IoLogoInstagram,
+    url: "https://www.instagram.com/jastanric?utm_source=qr&igsh=MXNrOXF3YXljcmY1aQ==",
+  },
+  { icon: FaThreads, url: "https://www.threads.net/@jastanric" },
+  { icon: VscTwitter, url: "https://x.com/jastanric" },
+  {
+    icon: SlSocialLinkedin,
+    url: "https://www.linkedin.com/in/jastan-ric-054b9b18a?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+  },
+  { icon: FaWeixin, url: "https://u.wechat.com/kHLqbMVJ-X3Oix2e8tHamBw?s=2" },
+];
+
+const contact = [
+  { name: "+94 754 540 123", url: "https://wa.me/94754540123" },
+  { name: "jastanric@outlook.com", url: "mailto:jastanric@outlook.com" },
+];
+
+const isValidEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
 const Footer = () => {
-  const navigation = ["Home", "About", "Qualification", "Blogs", "Contact"];
-  const iconsAndUrl = [
-    { icon: FaWhatsapp, url: "https://wa.me/94754540123" },
-    { icon: FiFacebook, url: "https://www.facebook.com/share/1BPtbdticF/" },
-    { icon: IoLogoInstagram, url: "https://www.instagram.com/jastanric?utm_source=qr&igsh=MXNrOXF3YXljcmY1aQ=="},
-    { icon: FaThreads, url: "https://www.threads.net/@jastanric"},
-    { icon: VscTwitter, url: "https://x.com/jastanric"},
-    { icon: SlSocialLinkedin, url: "https://www.linkedin.com/in/jastan-ric-054b9b18a?utm_source=share_via&utm_content=profile&utm_medium=member_android"},
-    { icon: FaWeixin, url: "https://u.wechat.com/kHLqbMVJ-X3Oix2e8tHamBw?s=2" },
-  ];
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [popUpState, setPopUpState] = useState(false);
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [isPrivacyVisible, setIsPrivacyVisible] = useState(false);
+  const [privacyState, setPrivacyState] = useState(false);
 
-  const contact = [
-    { name: "+94 754 540 123", url: "https://wa.me/94754540123" },
-    { name: "jastanric@outlook.com", url: "mailto:jastanric@outlook.com" },
-  ];
+  const openContactPopup = () => {
+    setIsPopupVisible(true);
+    requestAnimationFrame(() => setPopUpState(true));
+  };
 
-  const isValidEmail = (value: string) =>
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  const closeContactPopup = () => {
+    setPopUpState(false); // triggers fade-out
+    setTimeout(() => {
+      setIsPopupVisible(false);
+      setEmail("");
+    }, 300); // matches transition duration
+  };
+
+  const openPrivacyPopup = () => {
+    setIsPrivacyVisible(true);
+    requestAnimationFrame(() => setPrivacyState(true));
+  };
+
+  const closePrivacyPopup = () => {
+    setPrivacyState(false); // triggers fade-out
+    setTimeout(() => setIsPrivacyVisible(false), 300); // matches duration-300
+  };
 
   const handleOpenContactPopup = () => {
     if (!email.trim()) {
@@ -55,36 +90,10 @@ const Footer = () => {
     }
   };
 
-  const [email, setEmail] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [popUpState, setPopUpState] = useState(false);
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
-
-  const openContactPopup = () => {
-    setIsPopupVisible(true);
-    requestAnimationFrame(() => setPopUpState(true));
-  };
-
-  const closeContactPopup = () => {
-    setPopUpState(false); // triggers fade-out
-    setTimeout(() => {
-      setIsPopupVisible(false);
-      setEmail("");
-    }, 300); // matches transition duration
-  };
-
-  const [isPrivacyVisible, setIsPrivacyVisible] = useState(false);
-  const [privacyState, setPrivacyState] = useState(false);
-
-  const openPrivacyPopup = () => {
-    setIsPrivacyVisible(true);
-    requestAnimationFrame(() => setPrivacyState(true));
-  };
-
-  const closePrivacyPopup = () => {
-    setPrivacyState(false); // triggers fade-out
-    setTimeout(() => setIsPrivacyVisible(false), 300); // matches duration-300
-  };
+  const columnTitleClass =
+    "text-[18px] sm:text-[19px] lg:text-[20px] font-semibold text-[#FD853A]";
+  const contactLinkClass =
+    "inline-block text-[#FCFCFD] text-[14px] sm:text-[15px] lg:text-[16px] cursor-pointer hover:text-[#FD853A] hover:scale-110 origin-left transition-all duration-300";
 
   return (
     <footer
@@ -97,20 +106,20 @@ const Footer = () => {
           Let&apos;s Connect There
         </h1>
         <ClientOnly>
-<a
-  href="https://wa.me/94754540123"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="group flex items-center justify-center gap-2 w-full sm:w-[180px] lg:w-[202px] h-[50px] sm:h-[56px] lg:h-[62px] px-4 sm:px-5 py-2 sm:py-2.5 text-white text-base sm:text-lg font-semibold rounded-full bg-[#FD853A] cursor-pointer hover:bg-[#e46e24] transition-colors duration-200"
->
-  <span className="inline-block transition-transform duration-200 group-hover:scale-110">
-    Hire Me
-  </span>
-  <ArrowUpRight
-    size={24}
-    className="sm:w-7 sm:h-7 lg:w-8 lg:h-8 transition-transform duration-250 group-hover:rotate-45"
-  />
-</a>
+          <a
+            href="https://wa.me/94754540123"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center justify-center gap-2 w-full sm:w-[180px] lg:w-[202px] h-[50px] sm:h-[56px] lg:h-[62px] px-4 sm:px-5 py-2 sm:py-2.5 text-white text-base sm:text-lg font-semibold rounded-full bg-[#FD853A] cursor-pointer hover:bg-[#e46e24] transition-colors duration-200"
+          >
+            <span className="inline-block transition-transform duration-200 group-hover:scale-110">
+              Hire Me
+            </span>
+            <ArrowUpRight
+              size={24}
+              className="sm:w-7 sm:h-7 lg:w-8 lg:h-8 transition-transform duration-250 group-hover:rotate-45"
+            />
+          </a>
         </ClientOnly>
       </div>
 
@@ -118,28 +127,34 @@ const Footer = () => {
 
       {/* Navigation Links */}
       <div className="flex flex-col lg:flex-row justify-between w-full h-auto lg:h-[239px] gap-8 lg:gap-0 mt-8 md:mt-0">
-        <div className="w-full lg:w-[635px] h-full flex flex-col items-start justify-start gap-6 lg:gap-10">
-<Link href="#home" className="flex gap-3 sm:gap-4 items-center flex-shrink-0 cursor-pointer">
-  <div className="  flex items-center justify-center mb-1">
-    <Image
-      src="/logo.png"
-      alt="Frame Decoration"
-      width={20}
-      height={20}
-      className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 hover:scale-110 transition-transform duration-300"
-      priority
-    />
-  </div>
- <span className="font-bold text-base sm:text-lg text-[#FD853A] tracking-wide cursor-pointer -translate-x-2 hover:scale-110 origin-left transition-transform duration-300">
-    Jastan Ric
-  </span>
-</Link>
+        {/* Brand + social */}
+        <div className="w-full lg:w-[635px] h-auto lg:h-full flex flex-col items-start justify-start gap-6 lg:gap-10">
+          <Link
+            href="#home"
+            className="flex gap-3 sm:gap-4 items-center flex-shrink-0 cursor-pointer"
+          >
+            <div className="flex items-center justify-center mb-1">
+              <Image
+                src="/logo.png"
+                alt="Jastan Ric logo"
+                width={40}
+                height={40}
+                className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 hover:scale-110 transition-transform duration-300"
+                priority
+              />
+            </div>
+            <span className="font-bold text-base sm:text-lg text-[#FD853A] tracking-wide cursor-pointer -translate-x-2 hover:scale-110 origin-left transition-transform duration-300">
+              Jastan Ric
+            </span>
+          </Link>
+
           <p className="w-full lg:w-4/5 h-auto lg:h-[61px] text-[16px] sm:text-[18px] lg:text-[20px] text-[#FCFCFD]">
             Thank you for visiting my website. Feel free to connect with me
             through my social media platforms to stay updated on my journey,
             wildlife experiences, and professional work.
           </p>
-          <div className="flex gap-2 sm:gap-2.5 mt-10">
+
+          <div className="flex flex-wrap gap-2 sm:gap-2.5 mt-0 lg:mt-10">
             {iconsAndUrl.map((item, idx) => {
               const Icon = item.icon;
               return (
@@ -148,11 +163,11 @@ const Footer = () => {
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={` w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10  rounded-full flex hover:scale-110 transition-transform bg-[#333333] hover:bg-[#444444] items-center justify-center `}
+                  className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 rounded-full flex hover:scale-110 transition-transform bg-[#333333] hover:bg-[#444444] items-center justify-center"
                 >
                   <Icon
                     size={16}
-                    className={`${idx < 3 ? "scale-110" : ""} sm:w-5 sm:h-5 lg:w-5 lg:h-5 text-[#FD853A] `}
+                    className={`${idx < 3 ? "scale-110" : ""} sm:w-5 sm:h-5 lg:w-5 lg:h-5 text-[#FD853A]`}
                   />
                 </Link>
               );
@@ -160,11 +175,9 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Navigation */}
         <div className="flex flex-col gap-5 lg:gap-7 lg:pr-10">
-          <CustomeText
-            title="Navigation"
-            className="text-[18px] sm:text-[19px] lg:text-[20px] font-semibold text-[#FD853A]"
-          />
+          <CustomeText title="Navigation" className={columnTitleClass} />
           <div className="flex flex-col gap-3 lg:gap-5">
             {navigation.map((key, idx) => (
               <Link
@@ -178,27 +191,21 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Contact (mobile / tablet / 2xl) */}
         <div className="flex flex-col lg:hidden 2xl:flex gap-5 lg:gap-7">
-          <CustomeText
-            title="Contact"
-            className="text-[18px] sm:text-[19px] lg:text-[20px] font-semibold text-[#FD853A]"
-          />
+          <CustomeText title="Contact" className={columnTitleClass} />
           <div className="flex flex-col gap-3 lg:gap-5">
             {contact.map((item, idx) => (
               <a key={idx} href={item.url}>
-               <span className="inline-block text-[#FCFCFD] text-[14px] sm:text-[15px] lg:text-[16px] cursor-pointer hover:text-[#FD853A] hover:scale-110 origin-left transition-all duration-300">
-                  {item.name}
-                </span>
+                <span className={contactLinkClass}>{item.name}</span>
               </a>
             ))}
           </div>
         </div>
 
+        {/* Get in touch */}
         <div className="flex flex-col gap-5 lg:gap-7 w-full lg:w-[304px] items-start">
-          <CustomeText
-            title="Request More information"
-            className="text-[18px] sm:text-[19px] lg:text-[20px] font-semibold text-[#FD853A]"
-          />
+          <CustomeText title="Get in touch" className={columnTitleClass} />
           <div className="relative w-full h-[45px] sm:h-[48px] lg:h-[51px]">
             <ClientOnly>
               <input
@@ -213,7 +220,9 @@ const Footer = () => {
                 className="w-full h-full bg-white text-black text-[14px] sm:text-[15px] lg:text-[16px] px-3 sm:px-4 py-2 sm:py-3 pr-12 rounded-[8px] sm:rounded-[10px] border-none outline-none disabled:opacity-70"
               />
               <button
+                type="button"
                 onClick={handleOpenContactPopup}
+                aria-label="Send"
                 className="absolute top-0 right-0 h-full w-[45px] sm:w-[48px] lg:w-[51px] bg-[#FD853A] rounded-r-[8px] sm:rounded-r-[10px] flex items-center justify-center cursor-pointer hover:bg-[#e46e24] transition-colors"
               >
                 <svg
@@ -237,19 +246,16 @@ const Footer = () => {
               </p>
             )}
           </div>
+
           <div className="border-b border-[#475467] w-full my-5 hidden lg:block 2xl:hidden"></div>
 
+          {/* Contact (desktop only) */}
           <div className="lg:flex 2xl:hidden flex-col hidden gap-5 lg:gap-7">
-            <CustomeText
-              title="Contact"
-              className="text-[18px] sm:text-[19px] lg:text-[20px] font-semibold text-[#FD853A]"
-            />
+            <CustomeText title="Contact" className={columnTitleClass} />
             <div className="flex flex-col gap-3 lg:gap-5">
               {contact.map((item, idx) => (
                 <a key={idx} href={item.url}>
-                  <span className="text-[#FCFCFD] text-[14px] sm:text-[15px] lg:text-[16px] cursor-pointer hover:text-[#FD853A] hover:scale-110 origin-left w-fit transition-all duration-300">
-                    {item.name}
-                  </span>
+                  <span className={contactLinkClass}>{item.name}</span>
                 </a>
               ))}
             </div>
@@ -257,9 +263,10 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="border border-[#475467] w-full mt-8 lg:mt-16 "></div>
+      <div className="border border-[#475467] w-full mt-8 lg:mt-16"></div>
 
-      <div className="flex flex-col sm:flex-row w-full  h-auto lg:h-[26px] items-start justify-between gap-4 sm:gap-0 mt-6 md:mt-0">
+      {/* Bottom bar */}
+      <div className="flex flex-col sm:flex-row w-full h-auto lg:h-[26px] items-start justify-between gap-4 sm:gap-0 mt-6 md:mt-0">
         <p className="w-full sm:w-[415px] h-auto lg:h-[26px] text-[16px] sm:text-[18px] lg:text-[20px] text-white text-center sm:text-left">
           Copyright© 2026 JR. All Rights Reserved.
         </p>
@@ -271,6 +278,8 @@ const Footer = () => {
           Privacy Policy
         </button>
       </div>
+
+      {/* Get in touch popup */}
       {isPopupVisible && (
         <div
           onClick={closeContactPopup}
@@ -279,7 +288,7 @@ const Footer = () => {
           }`}
         >
           <div
-            className={`transition-all duration-300 w-full max-w-[480px] ${
+            className={`transition-all duration-300 w-full max-w-[400px] ${
               popUpState ? "opacity-100 scale-100" : "opacity-0 scale-95"
             }`}
           >
@@ -287,8 +296,8 @@ const Footer = () => {
           </div>
         </div>
       )}
-import { createPortal } from "react-dom";   // add this at the top with the other imports
 
+      {/* Privacy popup */}
       {isPrivacyVisible &&
         createPortal(
           <div
@@ -312,3 +321,4 @@ import { createPortal } from "react-dom";   // add this at the top with the othe
 };
 
 export default Footer;
+
