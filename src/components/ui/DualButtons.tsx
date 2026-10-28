@@ -22,7 +22,7 @@ export default function DualToggleButtons({ left, right }: btnText) {
           onMouseEnter={() => setActive("left")}
 onFocus={() => setActive("left")}
 onTouchStart={() => setActive("left")}
-          className={`group flex items-center justify-center gap-2.5 px-5 py-2.5 rounded-[60px] transition-all duration-300 ease-in-out cursor-pointer
+          className={`group flex items-center justify-center gap-2.5 px-5 py-2.5 rounded-[60px] transition-all duration-250 ease-in-out cursor-pointer
           ${
             active === "left"
               ? "bg-[#FD853A] text-white font-medium text-[25px] w-[208px] h-[62px] border border-[#D0D5DD] shadow-md"
@@ -32,7 +32,7 @@ onTouchStart={() => setActive("left")}
           {left}
           <ArrowUpRight
             size={16}
-            className={`transition-all duration-300 ${
+            className={`transition-all duration-250 ${
               active === "left"
                 ? "opacity-100 translate-x-0"
                 : "opacity-0 -translate-x-1 group-hover:opacity-100"
@@ -51,7 +51,7 @@ onTouchStart={() => setActive("left")}
         onMouseEnter={() => setActive("right")}
 onFocus={() => setActive("right")}
 onTouchStart={() => setActive("right")}
-        className={`group flex items-center justify-center gap-2.5 px-5 py-2.5 rounded-[60px] transition-all duration-300 ease-in-out cursor-pointer
+        className={`group flex items-center justify-center gap-2.5 px-5 py-2.5 rounded-[60px] transition-all duration-250 ease-in-out cursor-pointer
           ${
             active === "right"
               ? "bg-[#FD853A] text-white font-medium text-[25px] w-[208px] h-[62px] border border-[#D0D5DD] shadow-md"
@@ -61,7 +61,7 @@ onTouchStart={() => setActive("right")}
         {right}
         <ArrowUpRight
           size={16}
-          className={`transition-all duration-300 ${
+          className={`transition-all duration-250 ${
             active === "right"
               ? "opacity-100 translate-x-0"
               : "opacity-0 -translate-x-1 group-hover:opacity-100"
