@@ -181,7 +181,7 @@ const Footer = () => {
 
         <div className="flex flex-col gap-5 lg:gap-7 w-full lg:w-[304px] items-start">
           <CustomeText
-            title="Get more information"
+            title="Request More information"
             className="text-[18px] sm:text-[19px] lg:text-[20px] font-semibold text-[#FD853A]"
           />
           <div className="relative w-full h-[45px] sm:h-[48px] lg:h-[51px]">
