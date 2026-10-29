@@ -189,6 +189,7 @@ const ContactPopup = ({ email: initialEmail, onClose }: ContactPopupProps) => {
   const [name, setName] = useState("");
   const [purpose, setPurpose] = useState("");
   const [description, setDescription] = useState("");
+  const [purposeOptions, setPurposeOptions] = useState<string[]>(PURPOSE_OPTIONS);
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
@@ -203,6 +204,18 @@ const ContactPopup = ({ email: initialEmail, onClose }: ContactPopupProps) => {
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, [onClose]);
+
+  // Load the Purpose list from the "PurposeOptions" sheet tab
+  useEffect(() => {
+    fetch(`${SCRIPT_URL}?action=purposes`)
+      .then((r) => r.json())
+      .then((res) => {
+        if (Array.isArray(res.options) && res.options.length > 0) {
+          setPurposeOptions([...res.options.filter((o: string) => o !== "Other"), "Other"]);
+        }
+      })
+      .catch(() => {}); // keeps the built-in list if the sheet can't be reached
+  }, []);
 
   const validate = (): boolean => {
     const newErrors: FormErrors = {};
@@ -386,7 +399,7 @@ className={`w-full h-[48px] text-[16px] text-black px-4 rounded-xl border-2 outl
 }`}
       >
         <option value="">Select Purpose</option>
-        {PURPOSE_OPTIONS.map((p) => (
+        {purposeOptions.map((p) => (
           <option key={p} value={p}>
             {p}
           </option>
@@ -451,4 +464,3 @@ className={`${fieldClass} resize-none ${
 };
 
 export default ContactPopup;
-
