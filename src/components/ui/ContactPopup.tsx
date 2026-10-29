@@ -316,7 +316,11 @@ const ContactPopup = ({ email: initialEmail, onClose }: ContactPopupProps) => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             autoComplete="email"
-            className="w-full truncate bg-transparent text-[14px] leading-[1.5] text-[#1b1b18] outline-none"
+           className={`w-full truncate text-[14px] leading-[1.5] text-[#1b1b18] outline-none ${
+  email.trim()
+    ? "bg-[#fff1df] rounded-md"
+    : "bg-transparent"
+}`}
           />
         </div>
         <MailEnvelope3D />
@@ -333,7 +337,11 @@ const ContactPopup = ({ email: initialEmail, onClose }: ContactPopupProps) => {
           value={salutation}
           onChange={(e) => setSalutation(e.target.value)}
           aria-label="Title"
-          className="w-[84px] shrink-0 text-[15px] font-semibold text-[#1b1b18] bg-white border-2 border-[#e4dccb] rounded-xl px-2 py-3 outline-none cursor-pointer focus:border-[#d9822b]"
+className={`w-[84px] shrink-0 text-[15px] font-semibold text-[#1b1b18] border-2 rounded-xl px-2 py-3 outline-none cursor-pointer focus:border-[#d9822b] ${
+  salutation
+    ? "bg-[#fff1df] !border-[#d9822b]"
+    : "bg-white border-[#e4dccb]"
+}`}
         >
           <option value="">Title</option>
           {TITLES.map((t) => (
@@ -349,7 +357,13 @@ const ContactPopup = ({ email: initialEmail, onClose }: ContactPopupProps) => {
           onChange={(e) => setName(e.target.value)}
           placeholder="Your name"
           autoComplete="name"
-          className={`${fieldClass} flex-1 min-w-0 ${errors.name ? errorFieldClass : ""}`}
+          className={`${fieldClass} flex-1 min-w-0 ${
+  errors.name
+    ? errorFieldClass
+    : name.trim()
+      ? "bg-[#fff1df] !border-[#d9822b]"
+      : ""
+}`}
         />
       </div>
       {errors.name && (
@@ -363,9 +377,13 @@ const ContactPopup = ({ email: initialEmail, onClose }: ContactPopupProps) => {
         id="cp-purpose"
         value={purpose}
         onChange={(e) => setPurpose(e.target.value)}
-        className={`w-full h-[48px] bg-white text-[16px] text-black px-4 rounded-xl border-none outline-none cursor-pointer shadow-[0_1px_3px_rgba(0,0,0,0.12)] ${
-          errors.purpose ? "ring-2 ring-[#d64545]" : "focus:ring-2 focus:ring-[#d9822b]/50"
-        }`}
+className={`w-full h-[48px] text-[16px] text-black px-4 rounded-xl border-2 outline-none cursor-pointer shadow-[0_1px_3px_rgba(0,0,0,0.12)] ${
+  errors.purpose
+    ? "bg-white ring-2 ring-[#d64545] border-[#d64545]"
+    : purpose
+      ? "bg-[#fff1df] border-[#d9822b]"
+      : "bg-white border-transparent focus:ring-2 focus:ring-[#d9822b]/50"
+}`}
       >
         <option value="">Select Purpose</option>
         {PURPOSE_OPTIONS.map((p) => (
@@ -395,9 +413,13 @@ const ContactPopup = ({ email: initialEmail, onClose }: ContactPopupProps) => {
         }
         maxLength={MAX_MESSAGE}
         rows={4}
-        className={`${fieldClass} resize-none ${
-          errors.description ? errorFieldClass : ""
-        }`}
+className={`${fieldClass} resize-none ${
+  errors.description
+    ? errorFieldClass
+    : description.trim()
+      ? "bg-[#fff1df] !border-[#d9822b]"
+      : ""
+}`}
       />
       <div className="mt-1 flex justify-between gap-3 text-[12px]">
         <span className="text-[#d64545]">{errors.description}</span>
@@ -422,10 +444,11 @@ const ContactPopup = ({ email: initialEmail, onClose }: ContactPopupProps) => {
       </button>
 
       <p className="mt-4 text-center text-[13px] font-medium leading-[1.5] text-[#2f6b3f]">
-        We use your details only to answer you.
+        I use your details only to answer you.
       </p>
     </div>
   );
 };
 
 export default ContactPopup;
+
