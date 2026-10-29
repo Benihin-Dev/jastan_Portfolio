@@ -73,80 +73,111 @@ function CloseTab({ onClose }: { onClose: () => void }) {
   );
 }
 
-/** 3D envelope: floats and tilts, the flap opens and a letter pops out (pure CSS 3D). */
+/**
+ * 3D envelope: floats and tilts, the flap opens, the letter rises out, a pen appears and
+ * writes on it, then the letter slides back in and the flap closes. Pure CSS 3D, no images.
+ * It is absolutely positioned and may overflow the box, so it never changes the box height.
+ */
 function MailEnvelope3D() {
   return (
-    <div className="env3d-scene relative h-[74px] w-[88px] shrink-0 select-none" aria-hidden="true">
+    <div className="env3d-scene pointer-events-none absolute right-1 top-1/2 z-10 h-[74px] w-[88px] -translate-y-[47px] select-none" aria-hidden="true">
       <style>{`
-        .env3d-scene { perspective: 360px }
+        .env3d-scene { perspective: 380px }
         .env3d-float { position: absolute; left: 16px; top: 28px; width: 56px; height: 38px; transform-style: preserve-3d;
-          animation: env3d-tilt 4.8s ease-in-out infinite }
-        .env3d-shadow { position: absolute; left: 18px; bottom: 0; width: 52px; height: 7px; border-radius: 50%;
-          background: rgba(120, 70, 20, .28); filter: blur(2px); animation: env3d-shadow 4.8s ease-in-out infinite }
-        .env3d-back, .env3d-front, .env3d-letter, .env3d-flap { position: absolute; left: 0; width: 100%; box-sizing: border-box }
+          animation: env3d-tilt 7s ease-in-out infinite }
+        .env3d-shadow { position: absolute; left: 18px; top: 66px; width: 52px; height: 7px; border-radius: 50%;
+          background: rgba(120, 70, 20, .28); filter: blur(2px); animation: env3d-shadow 7s ease-in-out infinite }
+        .env3d-back, .env3d-front, .env3d-letter, .env3d-flap, .env3d-flap-open { position: absolute; left: 0; width: 100%; box-sizing: border-box }
         .env3d-back { top: 0; height: 100%; border-radius: 4px; background: linear-gradient(180deg, #c4651a, #a9540f); transform: translateZ(0) }
         .env3d-letter { top: 4px; height: 33px; left: 5px; width: 46px; border-radius: 3px; background: #fffdf8;
-          box-shadow: 0 1px 2px rgba(0,0,0,.18); transform: translateZ(1px); animation: env3d-letter 4.8s ease-in-out infinite;
+          box-shadow: 0 1px 3px rgba(0,0,0,.2); transform: translateZ(1px); animation: env3d-letter 7s ease-in-out infinite;
           padding: 7px 6px 0; display: flex; flex-direction: column; gap: 4px }
-        .env3d-letter i { display: block; height: 2.5px; border-radius: 2px; background: #e4dccb }
-        .env3d-letter i:first-child { width: 55%; background: #d9822b }
+        .env3d-letter i { display: block; height: 2.5px; border-radius: 2px; background: #c9bfa8; transform-origin: 0 50%; transform: scaleX(0) }
+        .env3d-letter i:nth-child(1) { width: 60%; background: #d9822b; animation: env3d-w1 7s ease-in-out infinite }
+        .env3d-letter i:nth-child(2) { width: 92%; animation: env3d-w2 7s ease-in-out infinite }
+        .env3d-letter i:nth-child(3) { width: 74%; animation: env3d-w3 7s ease-in-out infinite }
         .env3d-front { top: 0; height: 100%; border-radius: 4px; transform: translateZ(2px);
           background: linear-gradient(160deg, #f8c58b, #eaa45a);
           clip-path: polygon(0 0, 50% 58%, 100% 0, 100% 100%, 0 100%) }
-        .env3d-flap { top: 0; height: 22px; transform-style: preserve-3d; transform-origin: 50% 0; transform: translateZ(3px);
-          animation: env3d-flap 4.8s ease-in-out infinite }
-        .env3d-flap b { position: absolute; inset: 0; backface-visibility: hidden; clip-path: polygon(0 0, 100% 0, 50% 100%) }
-        .env3d-flap b:first-child { background: linear-gradient(180deg, #e08a30, #c96f1c) }
-        .env3d-flap b:last-child { background: #f3d9b4; transform: rotateX(180deg); clip-path: polygon(50% 0, 100% 100%, 0 100%) }
+        .env3d-flap, .env3d-flap-open { height: 22px }
+        .env3d-flap { top: 0; transform-origin: 50% 0; transform: translateZ(3px);
+          background: linear-gradient(180deg, #e08a30, #c96f1c); clip-path: polygon(0 0, 100% 0, 50% 100%);
+          animation: env3d-flap 7s ease-in-out infinite }
+        .env3d-flap-open { top: -22px; transform-origin: 50% 100%; transform: translateZ(0.5px) scaleY(0);
+          background: linear-gradient(0deg, #f3d9b4, #e9c795); clip-path: polygon(50% 0, 100% 100%, 0 100%);
+          animation: env3d-flap-open 7s ease-in-out infinite }
+        .env3d-pen { position: absolute; left: 0; top: 0; width: 22px; height: 22px; opacity: 0; transform-origin: 0 100%;
+          transform: translate3d(60px, -45px, 6px); animation: env3d-pen 7s ease-in-out infinite }
         .env3d-spark { position: absolute; width: 7px; height: 7px; background: #d9822b; opacity: 0;
           clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
-          animation: env3d-spark 4.8s ease-out infinite }
+          animation: env3d-spark 7s ease-out infinite }
         @keyframes env3d-tilt {
-          0%, 100% { transform: translateY(0) rotateX(14deg) rotateY(-26deg) }
-          50% { transform: translateY(-6px) rotateX(10deg) rotateY(26deg) }
-        }
-        @keyframes env3d-flap {
-          0%, 12% { transform: translateZ(3px) rotateX(0deg) }
-          28%, 70% { transform: translateZ(3px) rotateX(-180deg) }
-          86%, 100% { transform: translateZ(3px) rotateX(0deg) }
-        }
-        @keyframes env3d-letter {
-          0%, 26% { transform: translateZ(1px) translateY(0) }
-          46%, 62% { transform: translateZ(1px) translateY(-24px) }
-          80%, 100% { transform: translateZ(1px) translateY(0) }
+          0%, 100% { transform: translateY(0) rotateX(14deg) rotateY(-22deg) }
+          50% { transform: translateY(-5px) rotateX(10deg) rotateY(22deg) }
         }
         @keyframes env3d-shadow {
           0%, 100% { transform: scaleX(1); opacity: .9 }
           50% { transform: scaleX(.8); opacity: .6 }
         }
+        @keyframes env3d-flap {
+          0%, 8% { transform: translateZ(3px) scaleY(1) }
+          14%, 82% { transform: translateZ(3px) scaleY(0) }
+          90%, 100% { transform: translateZ(3px) scaleY(1) }
+        }
+        @keyframes env3d-flap-open {
+          0%, 12% { transform: translateZ(0.5px) scaleY(0) }
+          18%, 80% { transform: translateZ(0.5px) scaleY(1) }
+          86%, 100% { transform: translateZ(0.5px) scaleY(0) }
+        }
+        @keyframes env3d-letter {
+          0%, 18% { transform: translateZ(1px) translateY(0) }
+          34%, 66% { transform: translateZ(1px) translateY(-30px) }
+          84%, 100% { transform: translateZ(1px) translateY(0) }
+        }
+        @keyframes env3d-w1 { 0%, 36% { transform: scaleX(0) } 44%, 90% { transform: scaleX(1) } 92%, 100% { transform: scaleX(0) } }
+        @keyframes env3d-w2 { 0%, 45% { transform: scaleX(0) } 52%, 90% { transform: scaleX(1) } 92%, 100% { transform: scaleX(0) } }
+        @keyframes env3d-w3 { 0%, 53% { transform: scaleX(0) } 60%, 90% { transform: scaleX(1) } 92%, 100% { transform: scaleX(0) } }
+        @keyframes env3d-pen {
+          0%, 32% { opacity: 0; transform: translate3d(58px, -48px, 6px) rotate(0deg) }
+          36% { opacity: 1; transform: translate3d(11px, -40px, 6px) rotate(0deg) }
+          44% { opacity: 1; transform: translate3d(31px, -40px, 6px) rotate(-4deg) }
+          45% { opacity: 1; transform: translate3d(11px, -33px, 6px) rotate(0deg) }
+          52% { opacity: 1; transform: translate3d(42px, -33px, 6px) rotate(-4deg) }
+          53% { opacity: 1; transform: translate3d(11px, -27px, 6px) rotate(0deg) }
+          60% { opacity: 1; transform: translate3d(37px, -27px, 6px) rotate(-4deg) }
+          65%, 100% { opacity: 0; transform: translate3d(62px, -50px, 6px) rotate(10deg) }
+        }
         @keyframes env3d-spark {
-          0%, 40% { opacity: 0; transform: scale(.3) }
-          52% { opacity: 1; transform: scale(1.1) }
-          70%, 100% { opacity: 0; transform: scale(.4) translateY(-6px) }
+          0%, 60% { opacity: 0; transform: scale(.3) }
+          68% { opacity: 1; transform: scale(1.1) }
+          84%, 100% { opacity: 0; transform: scale(.4) translateY(-6px) }
         }
         @media (prefers-reduced-motion: reduce) {
-          .env3d-float, .env3d-shadow, .env3d-letter, .env3d-flap, .env3d-spark { animation: none }
+          .env3d-float, .env3d-shadow, .env3d-letter, .env3d-letter i, .env3d-flap, .env3d-flap-open, .env3d-pen, .env3d-spark { animation: none }
           .env3d-float { transform: rotateX(14deg) rotateY(-14deg) }
         }
       `}</style>
 
       <span className="env3d-shadow" />
-      <span className="env3d-spark" style={{ left: "8px", top: "10px" }} />
-      <span className="env3d-spark" style={{ left: "74px", top: "8px", animationDelay: ".15s" }} />
-      <span className="env3d-spark" style={{ left: "44px", top: "0px", animationDelay: ".3s" }} />
+      <span className="env3d-spark" style={{ left: "6px", top: "6px" }} />
+      <span className="env3d-spark" style={{ left: "76px", top: "10px", animationDelay: ".15s" }} />
+      <span className="env3d-spark" style={{ left: "62px", top: "0px", animationDelay: ".3s" }} />
 
       <div className="env3d-float">
         <div className="env3d-back" />
+        <div className="env3d-flap-open" />
         <div className="env3d-letter">
           <i />
           <i />
           <i />
         </div>
         <div className="env3d-front" />
-        <div className="env3d-flap">
-          <b />
-          <b />
-        </div>
+        <div className="env3d-flap" />
+        <svg viewBox="0 0 24 24" className="env3d-pen">
+          <path d="M3 21 18 6" stroke="#1b1b18" strokeWidth="5" strokeLinecap="round" />
+          <path d="M13.5 10.5 18 6" stroke="#d9822b" strokeWidth="5.4" strokeLinecap="round" />
+          <path d="M1 23 5.2 19.6 3.4 17.8Z" fill="#d9822b" />
+        </svg>
       </div>
     </div>
   );
@@ -268,24 +299,11 @@ const ContactPopup = ({ email: initialEmail, onClose }: ContactPopupProps) => {
       </p>
 
       <div
-        className={`mt-4 flex items-center gap-2.5 rounded-xl border-l-4 pl-3.5 pr-2.5 py-2.5 bg-[#d9822b]/10 ${
+        className={`relative mt-4 rounded-xl border-l-4 px-3.5 py-3 bg-[#d9822b]/10 ${
           errors.email ? "border-[#d64545]" : "border-[#d9822b]"
         }`}
       >
-        <svg
-          viewBox="0 0 24 24"
-          className="h-7 w-7 shrink-0 text-[#d9822b]"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
-        >
-          <rect x="3" y="5" width="18" height="14" rx="2" />
-          <path d="m3 7 9 6 9-6" />
-        </svg>
-        <div className="min-w-0 flex-1">
+        <div className="pr-24">
           <label
             htmlFor="cp-email"
             className="block text-[13px] font-bold uppercase tracking-[0.06em] text-[#1b1b18]"
