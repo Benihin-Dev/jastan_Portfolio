@@ -350,21 +350,17 @@ className={`w-[84px] shrink-0 text-[15px] font-semibold text-[#1b1b18] border-2 
             </option>
           ))}
         </select>
-        <input
-          id="cp-name"
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Your name"
-          autoComplete="name"
-          className={`${fieldClass} flex-1 min-w-0 ${
-  errors.name
-    ? errorFieldClass
-    : name.trim()
-      ? "bg-[#fff1df] !border-[#d9822b]"
-      : ""
-}`}
-        />
+<input
+  type="text"
+  value={name}
+  onChange={(e) => setName(e.target.value)}
+  className={`${fieldClass} flex-1 min-w-0 ${
+    errors.name ? errorFieldClass : ""
+  }`}
+  style={{
+    backgroundColor: name.trim() ? "#fff1df" : "#ffffff",
+  }}
+/>
       </div>
       {errors.name && (
         <p className="mt-1 text-[12px] text-[#d64545]">{errors.name}</p>
